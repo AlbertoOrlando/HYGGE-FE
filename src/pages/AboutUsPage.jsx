@@ -5,6 +5,8 @@ export default function AboutUsPage() {
         <>
             <div className="container-about">
 
+                {/* Chi siamo */}
+
                 <div className="about-img relative">
                     <img src="../public/pexels-ingo-631411.jpg" alt="" />
                     <div className="aboutUs">
@@ -12,13 +14,14 @@ export default function AboutUsPage() {
                     </div>
                 </div>
 
+                {/* Hygge text */}
                 <div className="about-hygge">
                     <h2>Hygge</h2>
                     <p>Hygge è un sostantivo delle lingue danese e norvegese impiegato per definire un sentimento, un'atmosfera sociale, un'azione correlata al senso di comodità, sicurezza, accoglienza e familiarità. Esprime un concetto analogo a quello della parola svedese mys e della parola tedesca Gemütlichkeit.
                         Il concetto di hygge non ha come fine la ricerca di una felicità momentanea, bensì di una felicità quotidiana, che contribuisce a generare un senso di appagamento nel lungo periodo.</p>
-
                 </div>
 
+                {/* Hygge img - About */}
                 <div className="about-box">
                     <div className="about-img">
                         <img src='..\public\hygge_significato_prodotti_skincare_nordica-scaled.webp' alt="" />
@@ -31,7 +34,7 @@ export default function AboutUsPage() {
                         <p>Esplorate il nostro vasto catalogo online e trovate i mobili perfetti per la vostra casa. Iniziate oggi a creare la casa dei vostri sogni, un luogo accogliente e confortevole dove sentirvi sempre a vostro agio.</p>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 }
