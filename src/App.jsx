@@ -18,7 +18,6 @@ function App() {
           <Route element={<DefaultLayout />} >
             <Route path="/" element={<HomePage />} />
             <Route path="/about-us" element={<AboutUsPage />} />
-            <Route path="/contact-us" element={<ContactUsPage />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Route>
         </Routes>
