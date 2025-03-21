@@ -1,0 +1,77 @@
+.container-Footer{
+    background-color: #fff;
+    height: 80px;
+    color: black;
+    text-align: center;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.container-Footer a{
+    text-decoration: none;
+    color: black;
+}
+
+.social{
+    display: flex;
+    gap: 20px;
+}
+
+.social a .fa-linkedin  {
+    color: #0A63BC;
+}
+
+.social a .fa-youtube  {
+    color: red;
+}
+
+.social a .fa-instagram  {
+    color: #E802D4;
+}
+
+.social a .fa-facebook-f  {
+    color: blue;
+}
+
+.social a .fa-twitter  {
+    color: #1C9CEA;
+}
+
+.social a {
+    text-decoration: none;
+}
+
+.payment ul{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    border-top: black 1px solid;
+}
+
+.footer-blockUp{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.footer-contatti{
+    list-style: none;
+}
+
+.footer-informazioni{
+    list-style: none;
+}
+
+.footer-legale{
+    list-style: none;
+}
+
+.footer-blockUp{
+    border-top: black 1px solid;
+    
+}
+
+.footer-contatti h4{
+    margin-bottom: 8px;
+}
