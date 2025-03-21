@@ -18,6 +18,7 @@ export default function Header() {
                     <NavLink to="/">Camera da letto</NavLink>
                     <NavLink to="/">Bagno</NavLink>
                     <NavLink to="/">Salotto</NavLink>
+                    <NavLink to=""><strong>Prodotti</strong></NavLink>
                     <NavLink to="/">Sala da pranzo</NavLink>
                     <NavLink to="/">Giardino</NavLink>
                     <NavLink to="/">Garage</NavLink>
@@ -25,7 +26,6 @@ export default function Header() {
                 <div>
                     <div className="search-user-cart">
                         <Link><FontAwesomeIcon icon={faSearch} /></Link>
-                        <Link><FontAwesomeIcon icon={faUser} /></Link>
                         <Link><FontAwesomeIcon icon={faShoppingBag} /></Link>
                     </div>
                 </div>
