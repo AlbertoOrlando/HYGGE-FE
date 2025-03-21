@@ -1,32 +1,50 @@
 .home1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: center; */
+    background-image: url("../../public/img-notFoundPage/not-found-img.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* Centra orizzontalmente */
+    align-items: center;
+    /* Centra verticalmente */
     text-align: center;
-    font-family: sans-serif;
+    color: white;
+    backdrop-filter: blur(5px);
+    /* Effetto sfocato elegante */
 }
 
-.home1 h1 {
-    font-size: 3em;
-    margin-top: 50px;
+.notFoundContent {
+    background: rgba(0, 0, 0, 0.6);
+    /* Sfondo semi-trasparente */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.notFoundContent h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.notFoundContent p {
+    font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
-.home1 p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-}
-
-.home1 a {
-    text-decoration: none;
-    background-color: #007bff;
-    color: white;
+.notFoundContent a {
+    display: inline-block;
     padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
     border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
 }
 
-.home1 a:hover {
-    background-color: #0056b3;
+.notFoundContent a:hover {
+    background-color: gray;
 }
