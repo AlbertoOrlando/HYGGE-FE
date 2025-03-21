@@ -73,9 +73,13 @@
 
 .payment p {
     border-bottom: black 1px solid;
+<<<<<<< HEAD
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
+=======
+    margin: 0 20px 20px 20px;
+>>>>>>> 6a4c2cf4a5b0eca0c2436b8c0c0bee029ddd8325
 }
 
 .payment img {
