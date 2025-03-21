@@ -12,7 +12,7 @@ export default function Header() {
             <div className="codice-sconto"><p>20% SCONTO Per acquisti superiori a 299,99€ Codice: HYGGE-20</p></div>
             <div className="header-container">
                 <div className="logo">
-                    <Link>HYGGE</Link>
+                    <Link to="/">HYGGE</Link>
                 </div>
                 <div className="nav">
                     <NavLink to="/">Camera da letto</NavLink>

@@ -26,12 +26,21 @@
 /* Navbar */
 
 .logo a {
-  text-decoration: none;
-  color: black;
-  font-size: 25px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
+    padding-left: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  .logo a:hover {
+    transform: scale(1.2);
+    color: rgba(114, 42, 15, 0.925);
+  }
+  
 
 .nav {
   display: flex;
@@ -42,11 +51,12 @@
   text-decoration: none;
   color: black;
   font-size: 15px;
-  transition: color 0.3s;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .nav a:hover {
-  color: orangered;
+    color: rgba(153, 52, 15, 0.925);
+  transform: scale(1.2);
 }
 
 .search-user-cart {
@@ -59,8 +69,10 @@
   cursor: pointer;
   color: black;
   transition: color 0.3s;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .search-user-cart a:hover {
-  color: #ddd;
+    color: rgba(153, 52, 15, 0.925);
+    transform: scale(1.2);
 }
