@@ -8,7 +8,7 @@ export default function AboutUsPage() {
                 {/* Chi siamo */}
 
                 <div className="about-img relative">
-                    <img src="../public/pexels-ingo-631411.jpg" alt="" />
+                    <img src="../pexels-ingo-631411.jpg" alt="" />
                     <div className="aboutUs">
                         <h1>CHI SIAMO</h1>
                     </div>
@@ -24,7 +24,7 @@ export default function AboutUsPage() {
                 {/* Hygge img - About */}
                 <div className="about-box">
                     <div className="about-img">
-                        <img src='..\public\hygge_significato_prodotti_skincare_nordica-scaled.webp' alt="" />
+                        <img src='..\hygge_significato_prodotti_skincare_nordica-scaled.webp' alt="" />
                     </div>
                     <div className="about-text">
                         <h1>About</h1>
