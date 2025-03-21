@@ -15,13 +15,13 @@ export default function Header() {
                     <Link to="/">HYGGE</Link>
                 </div>
                 <div className="nav">
-                    <NavLink to="/">Camera da letto</NavLink>
-                    <NavLink to="/">Bagno</NavLink>
-                    <NavLink to="/">Salotto</NavLink>
-                    <NavLink to=""><strong>Prodotti</strong></NavLink>
-                    <NavLink to="/">Sala da pranzo</NavLink>
-                    <NavLink to="/">Giardino</NavLink>
-                    <NavLink to="/">Garage</NavLink>
+                    <NavLink to="/camera-da-letto">Camera da letto</NavLink>
+                    <NavLink to="/bagno">Bagno</NavLink>
+                    <NavLink to="/salotto">Salotto</NavLink>
+                    <NavLink to="/prodotti"><strong>Prodotti</strong></NavLink>
+                    <NavLink to="/sala-da-pranzo">Sala da pranzo</NavLink>
+                    <NavLink to="/giardino">Giardino</NavLink>
+                    <NavLink to="/garage">Garage</NavLink>
                 </div>
                 <div>
                     <div className="search-user-cart">
