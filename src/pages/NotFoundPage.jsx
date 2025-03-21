@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../components-CSS/NotFound.css";
+import "../components-CSS/NotFoundCSS.css";
 
 
 export default function PaginaErrore() {
