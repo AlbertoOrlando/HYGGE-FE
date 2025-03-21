@@ -2,6 +2,8 @@
 .codice-sconto {
   text-align: center;
   padding: 10px;
+  background-color: black;
+  color: white;
 }
 
 /* Header */
@@ -11,6 +13,10 @@
   align-items: center;
   padding: 15px;
   background-color: transparent;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .header-container:hover {
