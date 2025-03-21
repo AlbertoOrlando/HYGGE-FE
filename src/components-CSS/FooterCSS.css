@@ -1,77 +1,92 @@
-.container-Footer{
-    background-color: #fff;
-    height: 80px;
-    color: black;
-    text-align: center;
-    display: flex;
-    gap: 30px;
-    align-items: center;
+/* Contenitore principale del footer */
+.container-Footer {
+    background-color: #fff; 
+    height: 80px; 
+    color: black; 
+    text-align: center; 
+    display: flex; 
+    gap: 30px; 
+    align-items: center; 
 }
 
-.container-Footer a{
-    text-decoration: none;
-    color: black;
+/* Stile per i link all'interno del footer */
+.container-Footer a {
+    text-decoration: none; 
+    color: black; 
 }
 
-.social{
-    display: flex;
-    gap: 20px;
+/* Contenitore per le icone social */
+.social {
+    display: flex; 
+    gap: 20px; 
 }
 
-.social a .fa-linkedin  {
-    color: #0A63BC;
+/* Colore specifico per l'icona di LinkedIn */
+.social a .fa-linkedin {
+    color: #0A63BC; 
 }
 
-.social a .fa-youtube  {
-    color: red;
+/* Colore specifico per l'icona di YouTube */
+.social a .fa-youtube {
+    color: red; 
 }
 
-.social a .fa-instagram  {
-    color: #E802D4;
+/* Colore specifico per l'icona di Instagram */
+.social a .fa-instagram {
+    color: #E802D4; 
 }
 
-.social a .fa-facebook-f  {
-    color: blue;
+/* Colore specifico per l'icona di Facebook */
+.social a .fa-facebook-f {
+    color: blue; 
 }
 
-.social a .fa-twitter  {
-    color: #1C9CEA;
+/* Colore specifico per l'icona di Twitter */
+.social a .fa-twitter {
+    color: #1C9CEA; 
 }
 
+/* Stile generale per i link social */
 .social a {
     text-decoration: none;
 }
 
-.payment ul{
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    border-top: black 1px solid;
+/* Stile per la sezione dei metodi di pagamento */
+.payment ul {
+    display: flex; 
+    gap: 20px; 
+    list-style: none; 
+    border-top: black 1px solid; 
 }
 
-.footer-blockUp{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
+/* Blocco superiore del footer */
+.footer-blockUp {
+    display: flex; 
+    justify-content: space-between; 
+    padding: 10px; 
 }
 
-.footer-contatti{
-    list-style: none;
+/* Stile per la sezione contatti */
+.footer-contatti {
+    list-style: none; 
 }
 
-.footer-informazioni{
-    list-style: none;
+/* Stile per la sezione informazioni */
+.footer-informazioni {
+    list-style: none; 
 }
 
-.footer-legale{
-    list-style: none;
+/* Stile per la sezione legale */
+.footer-legale {
+    list-style: none; 
 }
 
-.footer-blockUp{
-    border-top: black 1px solid;
-    
+/* Bordo superiore per il blocco superiore del footer */
+.footer-blockUp {
+    border-top: black 1px solid; 
 }
 
-.footer-contatti h4{
-    margin-bottom: 8px;
+/* Stile per il titolo della sezione contatti */
+.footer-contatti h4 {
+    margin-bottom: 8px; 
 }
