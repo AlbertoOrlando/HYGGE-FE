@@ -17,7 +17,7 @@ export default function Header() {
                 <div className="nav">
                     <NavLink to="/">Camera da letto</NavLink>
                     <NavLink to="/">Bagno</NavLink>
-                    <NavLink to="/">Saloto</NavLink>
+                    <NavLink to="/">Salotto</NavLink>
                     <NavLink to="/">Sala da pranzo</NavLink>
                     <NavLink to="/">Giardino</NavLink>
                     <NavLink to="/">Garage</NavLink>
