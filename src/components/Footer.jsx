@@ -12,38 +12,43 @@ export default function Footer() {
         <div className="footer-blockUp">
             
             {/* Sezione contatti */}
-            <div>
-                <ul className="footer-contatti">
+            <div className="footer-contatti">
+                <ul>
                     <li><h4>CONTATTO</h4></li>
                     <li>LUN - VEN: 08:30 - 16:30H</li>
-                    <li>info@northdeco.com</li>
+                    <li>info@hygge.com</li>
                     <li>+34 932 20 38 58</li>
                 </ul>
             </div>
 
             {/* Sezione informazioni */}
             <div className="footer-informazioni">
-                <li><h4>INFORMAZIONI</h4></li>
-                <li>Domande frequenti (FAQ)</li>
-                <li>Pagamenti</li>
-                <li>Spedizione</li>
-                <li>Incidenti nelle spedizioni</li>
-                <li>Resi e cambi</li>
-                <li>Blog</li>
+                <ul>
+                    <li><h4>INFORMAZIONI</h4></li>
+                    <li>Domande frequenti (FAQ)</li>
+                    <li>Pagamenti</li>
+                    <li>Spedizione</li>
+                    <li>Incidenti nelle spedizioni</li>
+                    <li>Resi e cambi</li>
+                    <li>Blog</li>
+                </ul>
             </div>
 
             {/* Sezione legale */}
             <div className="footer-legale">
-                <li><h4>LEGALE</h4></li>
-                <li>Note Legali</li>
-                <li>Condizioni generali</li>
-                <li>Privacy Policy</li>
-                <li>Politica dei Cookies</li>
-                <li>Garanzia</li>
+                <ul>
+                    <li><h4>LEGALE</h4></li>
+                    <li>Note Legali</li>
+                    <li>Condizioni generali</li>
+                    <li>Privacy Policy</li>
+                    <li>Politica dei Cookies</li>
+                    <li>Garanzia</li>
+                </ul>
             </div>
 
             {/* Sezione social e link "About Us" */}
             <div className="footer-newsletter">
+                <Link to="/about-us" className="about"><h4>ABOUT US</h4></Link>
                 <div className="social">
                     {/* Icone social */}
                     <a href="https://www.facebook.com/" target="_blank" rel="Facebook" className="facebook">
@@ -62,7 +67,7 @@ export default function Footer() {
                         <FontAwesomeIcon icon={faYoutube} />
                     </a>
                 </div>
-                <Link to="/about-us">About Us</Link>
+                
             </div>
         </div>
         
@@ -72,19 +77,25 @@ export default function Footer() {
             <ul>
                 {/* Icone dei metodi di pagamento */}
                 <li><a href="#" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faCcVisa} />
+                    <img src="../../public/svg-icons/maestro.svg" alt="" />
                 </a></li>
                 <li><a href="#" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faCcMastercard} />
+                    <img src="../../public/svg-icons/apple-pay.svg" alt="" />
                 </a></li>
                 <li><a href="#" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faCcPaypal} />
-                </a></li>  
+                    <img src="../../public/svg-icons/mastercard.svg" alt="" />
+                </a></li>
+                <li><a href="#" target="_blank" rel="noreferrer">
+                    <img src="../../public/svg-icons/visa-logo.svg" alt="" />
+                </a></li>
+                <li><a href="#" target="_blank" rel="noreferrer">
+                    <img src="../../public/svg-icons/google-pay.svg" alt="" />
+                </a></li>       
             </ul>
         </div>
         
         {/* Copyright */}
-        <p>© 2025, Northdeco. ALL RIGHTS RESERVED</p>
+        <p className="copyright">© 2025, HYGGE. ALL RIGHTS RESERVED</p>
     </>
   );
 }
