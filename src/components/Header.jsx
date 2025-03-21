@@ -2,18 +2,19 @@ import {NavLink, Link} from "react-router-dom"
 
 import "../components-CSS/HeaderCSS.css";
 
+import { faSearch, faUser, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faPlus } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function Header() {
     return (
         <>
             <div className="codice-sconto"><p>20% SCONTO Per acquisti superiori a 299,99€ Codice: HYGGE-20</p></div>
             <div className="header-container">
-                <div>
+                <div className="logo">
                     <Link>LOGO</Link>
                 </div>
-                <div>
+                <div className="nav">
                     <NavLink to="/">Camera da letto</NavLink>
                     <NavLink to="/">Bagno</NavLink>
                     <NavLink to="/">Saloto</NavLink>
@@ -24,9 +25,10 @@ export default function Header() {
 
                 </div>
                 <div>
-                    <div>
-                        <Link><FontAwesomeIcon icon={faHome} /></Link>
-                        <Link><FontAwesomeIcon icon={faPlus} /></Link>
+                    <div className="search-user-cart">
+                        <Link><FontAwesomeIcon icon={faSearch} /></Link>
+                        <Link><FontAwesomeIcon icon={faUser} /></Link>
+                        <Link><FontAwesomeIcon icon={faShoppingBag} /></Link>
                     </div>
                 </div>
             </div>
