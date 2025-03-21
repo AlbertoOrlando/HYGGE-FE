@@ -19,6 +19,7 @@
 .social {
     display: flex; 
     gap: 20px; 
+    margin-top: 30px;
 }
 
 /* Colore specifico per l'icona di LinkedIn */
@@ -51,42 +52,83 @@
     text-decoration: none;
 }
 
+.footer-newsletter { 
+    gap: 20px;  
+    margin-bottom: 20px;
+}
+
+.about{  
+    font-size: 24px;
+    color: black;
+}
+
 /* Stile per la sezione dei metodi di pagamento */
 .payment ul {
     display: flex; 
     gap: 20px; 
-    list-style: none; 
-    border-top: black 1px solid; 
+    list-style: none;  
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+.payment p{
+    border-bottom: black 1px solid;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.payment img{
+    width: 40px;
 }
 
 /* Blocco superiore del footer */
 .footer-blockUp {
     display: flex; 
     justify-content: space-between; 
-    padding: 10px; 
+    padding-top: 40px;
+    border-top: black 1px solid; 
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 40px;
 }
 
 /* Stile per la sezione contatti */
-.footer-contatti {
+.footer-contatti ul{
     list-style: none; 
+}
+
+.footer-contatti h4{
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 /* Stile per la sezione informazioni */
-.footer-informazioni {
+.footer-informazioni ul{
     list-style: none; 
+}
+
+.footer-informazioni h4{
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 /* Stile per la sezione legale */
-.footer-legale {
+.footer-legale ul{
     list-style: none; 
 }
 
-/* Bordo superiore per il blocco superiore del footer */
-.footer-blockUp {
-    border-top: black 1px solid; 
+.footer-legale h4{
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 /* Stile per il titolo della sezione contatti */
 .footer-contatti h4 {
     margin-bottom: 8px; 
+}
+
+.copyright{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }
