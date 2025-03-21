@@ -1,4 +1,4 @@
-import {NavLink, Link} from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 
 import "../components-CSS/HeaderCSS.css";
 
@@ -21,8 +21,6 @@ export default function Header() {
                     <NavLink to="/">Sala da pranzo</NavLink>
                     <NavLink to="/">Giardino</NavLink>
                     <NavLink to="/">Garage</NavLink>
-                    <NavLink to="/"></NavLink>
-
                 </div>
                 <div>
                     <div className="search-user-cart">
