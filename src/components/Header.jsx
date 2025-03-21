@@ -1,6 +1,6 @@
 import {NavLink, Link} from "react-router-dom"
 
-import "../components-CSS/";
+import "../components-CSS/HeaderCSS.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faPlus } from "@fortawesome/free-solid-svg-icons";
