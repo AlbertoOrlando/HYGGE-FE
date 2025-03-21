@@ -47,7 +47,7 @@ const products = [
       description: "Sedia in metallo con seduta in legno massello.",
       price: 99.99,
       discount: 6,
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz96aYULE7AOniQRBq41aKlxHLo0CWgufdpA&s"
+      image: "https://northdeco.com/cdn/shop/files/8_db8649b5-7ea1-4979-8399-493d8ad79f82_720x.jpg?v=1702476542"
     },
     {
       id: 7,
