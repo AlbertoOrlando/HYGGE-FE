@@ -15,6 +15,7 @@ import ProdottiPage from "./pages/ProdottiPage";
 import SalaDaPranzoPage from "./pages/SalaDaPranzoPage";
 import GiardinoPage from "./pages/GiardinoPage";
 import GaragePage from "./pages/GaragePage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/bagno" element={<BagnoPage />} />
             <Route path="/salotto" element={<SalottoPage />} />
             <Route path="/prodotti" element={<ProdottiPage />} />
+            <Route path="/prodotti/:productId" element={<ProductDetailPage />} />
             <Route path="/sala-da-pranzo" element={<SalaDaPranzoPage />} />
             <Route path="/giardino" element={<GiardinoPage />} />
             <Route path="/garage" element={<GaragePage />} />

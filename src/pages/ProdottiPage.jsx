@@ -1,4 +1,7 @@
 import "../components-CSS/ProdottiPageCSS.css"
+import ProductCard from "../components/ProductCard" // Importa il componente ProductPage
+import {Link}from "react-router-dom"
+
 
 const products = [
     {
@@ -167,22 +170,20 @@ const products = [
   
 
 export default function ProdottiPage() {
-    return (
-        <>
-           <div className="product-list">
-                <h1>Lista Prodotti</h1>
-                <div className="product-grid">
-                    {products.map(product => (
-                    <div key={product.id} className="product-card">
-                        <img src={product.image} alt={product.name} className="product-image" />
-                        <h2>{product.name}</h2>
-                        <p>{product.description}</p>
-                        <p><strong>Prezzo:</strong> ${product.price}</p>
-                        <p><strong>Sconto:</strong> {product.discount}%</p>
-                    </div>
-                    ))}
-                </div>
+  return (
+    <>
+       <div className="product-list">
+            <h1>Lista Prodotti</h1>
+            <div className="product-grid">
+                {products.map(product => (
+                  <div className="product-card" key={product.id}>
+                    <Link to={`/prodotti/${product.id}`}>
+                      <ProductCard product={product} />                       
+                    </Link>
+                  </div>
+                ))}
             </div>
-        </>
-    );
+        </div>
+    </>
+);
 }
