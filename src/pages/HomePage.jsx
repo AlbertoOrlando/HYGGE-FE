@@ -11,14 +11,15 @@ export default function HomePage() {
     return (
         <>
             <div className="content-home">
-                <Link to="/giardino">View More</Link>
+                <Link to="/prodotti">View More</Link>
             </div>
             <h2>New arrivals</h2>
             <div className="new-arrivals">
                 {products.slice(5, 10).map(product => (
                     <div className="card-box" key={product.id}>
                         <div className="card-body">
-                            <img src={product.image} alt={product.name} />
+                        <img src={product.image[0]} alt={product.name} className="product-image" />
+                        <img src={product.image[1]} alt={product.name} className="product-image1" />
                         </div>
                         <div className="card-text">
                             <h2>{product.name}</h2>

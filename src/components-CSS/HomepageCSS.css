@@ -48,6 +48,16 @@ h2 {
     height: 70%;
 }
 
+.card-body.product-image1{
+    display: none;
+  }
+  .card-body:hover .product-image{
+    display: none;
+  }
+  .card-body:hover .product-image1{
+    display: block;
+  } 
+
 .card-text {
     width: 100%;
 }

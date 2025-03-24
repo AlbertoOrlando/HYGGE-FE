@@ -15,20 +15,30 @@
     padding: 10px;
     border-radius: 8px;
     background-color: #fff;
-    transition: transform 0.3s ease-in-out;
   }
   
-  .product-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .product-image {
+
+  .product-image, .product-image1 {
     width: 100%;
     border-radius: 5px;
+  }
+  .product-image1{
+    display: none;
+  }
+  .product-card:hover .product-image{
+    display: none;
+  }
+  .product-card:hover .product-image1{
+    display: block;
+  } 
+  .product-card a{
+    color: black;
+    text-decoration: none;
   }
   
   h1 {
     font-size: 24px;
     margin-bottom: 20px;
   }
+
   

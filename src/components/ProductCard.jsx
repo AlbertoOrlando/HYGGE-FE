@@ -1,7 +1,8 @@
 export default function ProductCard({ product }) {
     return (       
         <>
-            <img src={product.image} alt={product.name} className="product-image" />
+            <img src={product.image[0]} alt={product.name} className="product-image" />
+            <img src={product.image[1]} alt={product.name} className="product-image1" />
             <h2>{product.name}</h2>
             <p>{product.description}</p>
             <p><strong>Prezzo:</strong> ${product.price}</p>

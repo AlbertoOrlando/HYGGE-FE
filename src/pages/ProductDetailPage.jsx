@@ -25,12 +25,13 @@ console.log("ID dalla rotta:", id);
     return (
         <div className="product-detail">
             <div className="product-image-detail">
-                <img src={prodotti.image} alt={prodotti.name} />
-                <img src={prodotti.image} alt={prodotti.name} />
+                <img src={prodotti.image[0]} alt={prodotti.name} />
+                <img src={prodotti.image[1]} alt={prodotti.name} />
             </div>
             <div className="product-info">
                 <h1>{prodotti.name}</h1>
-                <p className="discounted-price"><strong>Prezzo Scontato:</strong> ${prodotti.discountedPrice || "N/A"}</p>
+                <p className="discounted-price"><strong>Prezzo Scontato:</strong> ${ (prodotti.price - (prodotti.price * prodotti.discount / 100)).toFixed(2) }</p>
+
                 <p className="original-price"><strong>Prezzo:</strong> ${prodotti.price}</p>
                 <p><strong>Sconto:</strong> {prodotti.discount}%</p>  
                 <button>Aggiungi al carrello</button>
