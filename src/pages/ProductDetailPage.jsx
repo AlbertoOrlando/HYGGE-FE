@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import GlobalContext from '../cotext/GlobalContest'
 import "../components-CSS/ProductDetailPageCSS.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTruckFast, faBoxOpen, faCreditCard, faMedal } from "@fortawesome/free-solid-svg-icons";
 
 export default function ProductDetailPage() {
     // Recupera l'ID dalla rotta
@@ -32,6 +34,12 @@ console.log("ID dalla rotta:", id);
                 <p className="original-price"><strong>Prezzo:</strong> ${prodotti.price}</p>
                 <p><strong>Sconto:</strong> {prodotti.discount}%</p>  
                 <button>Aggiungi al carrello</button>
+                <div className="icons">
+                    <p><FontAwesomeIcon icon={faBoxOpen} /> 14 giorni per restituzioni e cambi</p>
+                    <p><FontAwesomeIcon icon={faTruckFast} /> Spedizioni in tutta Europa</p>
+                    <p><FontAwesomeIcon icon={faCreditCard} /> Compra ora, paga dopo</p>
+                    <p><FontAwesomeIcon icon={faMedal} /> 2 anni di garanzia</p>
+                </div>
             </div>
         </div>
     );
