@@ -25,8 +25,11 @@ export default function Header() {
                 </div>
                 <div>
                     <div className="search-user-cart">
+                    {/* <div className="search-bar">
+                            <input type="text" placeholder="Cerca per città..."/>
+                        </div> */}
                         <Link><FontAwesomeIcon icon={faSearch} /></Link>
-                        <Link><FontAwesomeIcon icon={faShoppingBag} /></Link>
+                        <Link to="/carello"><FontAwesomeIcon icon={faShoppingBag} /></Link>
                     </div>
                 </div>
             </div>
