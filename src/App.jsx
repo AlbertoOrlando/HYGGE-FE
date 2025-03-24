@@ -195,7 +195,7 @@ function App() {
             <Route path="/bagno" element={<BagnoPage />} />
             <Route path="/salotto" element={<SalottoPage />} />
             <Route path="/prodotti" element={<ProdottiPage />} />
-            <Route path="/prodotti/:productId" element={<ProductDetailPage />} />
+            <Route path="/prodotti/:id" element={<ProductDetailPage />} />
             <Route path="/sala-da-pranzo" element={<SalaDaPranzoPage />} />
             <Route path="/giardino" element={<GiardinoPage />} />
             <Route path="/garage" element={<GaragePage />} />
