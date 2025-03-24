@@ -1,23 +1,30 @@
+// importiamo il contesto globale e la parte REact di utilizzo dello stesso
+import { useContext } from "react";
+import GlobalContext from '../cotext/GlobalContest'
+
 import { Link } from "react-router-dom";
 
 import "../components-CSS/HomepageCSS.css"
 
 export default function HomePage() {
+    const { products } = useContext(GlobalContext);
     return (
         <>
             <div className="content-home">
                 <Link to="/giardino">View More</Link>
             </div>
+            <h2>New arrivals</h2>
             <div className="new-arrivals">
-                <h2>New arrivals</h2>
-                <div className="card-box">
-                    <div className="card-body">
-
+                {products.slice(5, 10).map(product => (
+                    <div className="card-box" key={product.id}>
+                        <div className="card-body">
+                            <img src={product.image} alt={product.name} />
+                        </div>
+                        <div className="card-text">
+                            <h2>{product.name}</h2>
+                        </div>
                     </div>
-                    <div className="card-text">
-
-                    </div>
-                </div>
+                ))}
             </div>
             <div className="trending">
                 <h2>Trending</h2>
