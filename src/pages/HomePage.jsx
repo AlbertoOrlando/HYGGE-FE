@@ -13,6 +13,7 @@ export default function HomePage() {
             <div className="content-home">
                 <Link to="/prodotti">View More</Link>
             </div>
+
             <h2>New arrivals</h2>
             <div className="new-arrivals">
                 {products.slice(5, 10).map(product => (
@@ -27,6 +28,7 @@ export default function HomePage() {
                     </div>
                 ))}
             </div>
+
             <div className="trending">
                 <h2>Trending</h2>
                 <div className="camera-da-letto">
@@ -34,17 +36,24 @@ export default function HomePage() {
                     <Link to="/camera-da-letto">Shop Now</Link>
                 </div>
             </div>
+
+            <h2>In evidenza</h2>
             <div className="evidence">
-                <h2>In evidenza</h2>
-                <div className="card-box">
-                    <div className="card-body">
+                <div className="evidence-img">
+                    {products.slice(15, 19).map(product => (
+                        <div className="card-evidence" key={product.id}>
+                            <div className="card">
+                                <img src={product.image} alt={product.name} />
+                                <h3>{product.name}</h3>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <div className="box-evidence">
 
-                    </div>
-                    <div className="card-text">
-
-                    </div>
                 </div>
             </div>
+
             <div className="bagno-home">
                 <div className="bagno-text">
                     <h3>Bagno</h3>
