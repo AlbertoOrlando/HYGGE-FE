@@ -12,11 +12,17 @@
 
 .product-info{
     font-size: 20px;
-    width: 30%;
+    width: 20%;
 }
 
 .product-image-detail{
     width: 50%;
+    display: flex;
+    gap: 20px;
+}
+
+.product-image-detail img{
+    width: 55%;
 }
 
 .original-price{
@@ -35,4 +41,8 @@
     background-color: black;
     color: white;
     font-size: 20px;
+}
+
+.icons{
+    
 }
