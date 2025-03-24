@@ -43,7 +43,10 @@ export default function HomePage() {
                     {products.slice(15, 19).map(product => (
                         <div className="card-evidence" key={product.id}>
                             <div className="card">
-                                <img src={product.image} alt={product.name} />
+                            <div className="card-body">
+                                <img src={product.image[0]} alt={product.name} className="product-image" />
+                                <img src={product.image[1]} alt={product.name} className="product-image1" />
+                            </div>
                                 <h3>{product.name}</h3>
                             </div>
                         </div>
