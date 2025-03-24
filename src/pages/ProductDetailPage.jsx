@@ -4,7 +4,7 @@ export default function ProductDetailPage() {
     return (
         <>
             <div className="product-detail">
-                <div className="product-image">
+                <div className="product-image-detail">
                     <img src="https://via.placeholder.com/400" alt="product" />
                     <img src="https://via.placeholder.com/400" alt="product" />
                 </div>
