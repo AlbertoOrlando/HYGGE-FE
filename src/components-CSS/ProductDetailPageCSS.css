@@ -44,5 +44,19 @@
 }
 
 .icons{
-    
+    font-size: 20px;
+}
+
+.icons ul{
+    width: 350px;
+    margin-top: 30px;
+}
+
+.icons ul li{
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.reviews-section{
+    display: flex;
 }
