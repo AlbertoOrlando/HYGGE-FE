@@ -1,23 +1,27 @@
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import GlobalContext from '../cotext/GlobalContest'
+import axios from "axios";
+
 import "../components-CSS/ProductDetailPageCSS.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruckFast, faBoxOpen, faCreditCard, faMedal } from "@fortawesome/free-solid-svg-icons";
 
 export default function ProductDetailPage() {
     const { id } = useParams();
-    const { products } = useContext(GlobalContext);
-    const [reviews, setReviews] = useState([]);
 
-    const product = products?.find((p) => Number(p.id) === Number(id));
+  //  settaggio dello stato del componente
+  const [product, setProducts] = useState({});
 
-    useEffect(() => {
-        fetch(`/api/reviews?product_id=${id}`)
-            .then(response => response.json())
-            .then(data => setReviews(data))
-            .catch(error => console.error("Errore nel recupero delle recensioni:", error));
-    }, [id]);
+  // funzione di chiamata verso la rotta store
+function fetchProdact() {
+    axios.get(`http://localhost:3000/api/products/${id}`)
+        .then(res => setProducts(res.data))
+        .catch(err => {
+            console.log(err);
+            if (err.status === 404) redirect("/404")
+            })
+}
+useEffect(fetchProdact, []);
 
     if (!product) {
         return <h2>Prodotto non trovato</h2>;
@@ -26,10 +30,16 @@ export default function ProductDetailPage() {
     return (
         <>
             <div className="product-detail">
-                <div className="product-image-detail">
-                    <img src={product.image[0]} alt={product.name} />
-                    <img src={product.image[1]} alt={product.name} />
-                </div>
+            <div className="product-image-detail">
+                {product.images && product.images.length > 0 ? (
+                    <>
+                        <img src={product.images[0]} alt={product.name} />
+                        {product.images[1] && <img src={product.images[1]} alt={product.name} />}
+                    </>
+                ) : (
+                    <p>Immagini non disponibili</p>
+                )}
+            </div>
                 <div className="product-info">
                     <h1>{product.name}</h1>
                     <p className="discounted-price"><strong>Prezzo Scontato:</strong> ${ (product.price - (product.price * product.discount / 100)).toFixed(2) }</p>
@@ -49,9 +59,9 @@ export default function ProductDetailPage() {
             
             <div className="container-reviews">
                 <h2>Recensioni</h2>
-                {reviews.length > 0 ? (
-                    reviews.map((review, index) => (
-                        <div key={index} className="review">
+                {product.reviews && product.reviews.length > 0 ? (
+                    product.reviews.map((review) => (
+                        <div key={review.id} className="review">
                             <strong>{review.name}</strong> 
                             <p>⭐ {review.rating} / 5</p>
                             <p>{review.review}</p>

@@ -1,4 +1,5 @@
 // importiamo il contesto globale e la parte REact di utilizzo dello stesso
+
 import { useContext } from "react";
 import GlobalContext from '../cotext/GlobalContest'
 
@@ -7,6 +8,7 @@ import ProductCard from "../components/ProductCard" // Importa il componente Pro
 import {Link}from "react-router-dom"
 
 export default function ProdottiPage() {
+  
   const { products } = useContext(GlobalContext);
   return (
     <>
