@@ -100,6 +100,7 @@ h2 {
     height: 100vh;
     display: flex;
     margin: 20px 0;
+    padding: 15px;
 }
 
 .evidence-img {
@@ -108,7 +109,7 @@ h2 {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    width: 48%;
+    width: 40%;
 }
 
 /* Card evidence */
@@ -132,7 +133,7 @@ a {
     background-image: url("/public/furniture-998265_1280.jpg");
     background-position: center;
     background-size: cover;
-    width: 50%;
+    width: 60%;
 }
 
 /* Bagno */
