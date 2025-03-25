@@ -29,7 +29,7 @@ export default function Header() {
                             <input type="text" placeholder="Cerca per città..."/>
                         </div>
                         <Link><FontAwesomeIcon icon={faSearch} /></Link>
-                        <Link to="/carello"><FontAwesomeIcon icon={faShoppingBag} /></Link>
+                        <Link to="/carrello"><FontAwesomeIcon icon={faShoppingBag} /></Link>
                     </div>
                 </div>
             </div>
