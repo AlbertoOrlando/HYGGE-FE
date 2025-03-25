@@ -24,6 +24,7 @@ export default function HomePage() {
                         </div>
                         <div className="card-text">
                             <h2>{product.name}</h2>
+                            <span>{product.price} €</span>
                         </div>
                     </Link>
                 ))}
@@ -48,6 +49,7 @@ export default function HomePage() {
                                     <img src={product.image[1]} alt={product.name} className="product-image12" />
                                 </div>
                                 <h3>{product.name}</h3>
+                                <span>{product.price} €</span>
                             </div>
                         </Link>
                     ))}
