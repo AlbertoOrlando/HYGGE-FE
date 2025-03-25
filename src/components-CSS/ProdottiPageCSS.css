@@ -47,7 +47,7 @@
     text-decoration: none;
   }
   
-  h1 {
+  .product-list h1 {
     font-size: 24px;
     margin-bottom: 20px;
     z-index: 1500;

@@ -18,10 +18,7 @@
     padding: 10px 15px;
 }
 
-/* New arrivals */
-h2 {
-    margin: 20px 10px;
-}
+
 
 .new-arrivals {
     padding: 10px;
@@ -56,6 +53,7 @@ h2 {
 
 .card-text {
     width: 100%;
+    text-align: start;
 }
 
 /* Trending */
@@ -172,4 +170,7 @@ a {
     width: 70%;
     height: 100%;
 
+}
+h1{
+    margin-top: 20px;
 }
