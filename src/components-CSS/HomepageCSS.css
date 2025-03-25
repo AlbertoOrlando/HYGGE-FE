@@ -42,15 +42,15 @@ h2 {
 }
 
 /* hover immagine */
-.card-body.product-image1 {
+.card-body .product-image12 {
     display: none;
 }
 
-.card-body:hover .product-image {
+.card-body:hover .product-image2 {
     display: none;
 }
 
-.card-body:hover .product-image1 {
+.card-body:hover .product-image12 {
     display: block;
 }
 
