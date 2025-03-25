@@ -28,8 +28,20 @@
     margin-top: 20px;
 }
 
+/* @media (min-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+} */
+
 /* Stile della card prodotto */
-.product-card {
+.product-card-category {
     background: white;
     padding: 15px;
     border-radius: 8px;
@@ -38,7 +50,7 @@
 }
 
 /* Immagine prodotto */
-.product-card img {
+.product-card-category img {
     width: 100%;
     height: 160px;
     object-fit: cover;

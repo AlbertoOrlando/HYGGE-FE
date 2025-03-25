@@ -20,7 +20,7 @@ const SalaDaPranzoPage = () => {
 
       <div className="product-grid">
         {diningRoomProducts.map((product) => (
-          <div key={product.id} className="product-card">
+          <div key={product.id} className="product-card-category">
             <img src={product.image} alt={product.name} />
             <h3>{product.name}</h3>
             <p>€{product.price.toFixed(2)}</p>

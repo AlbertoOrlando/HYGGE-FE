@@ -12,7 +12,7 @@ export default function ProdottiPage() {
     <>
        <div className="product-list">
             <h1>Lista Prodotti</h1>
-            <div className="product-grid">
+            <div className="product-grid-prodotti">
                 {products.map(product => (
                   <div className="product-card" key={product.id}>
                     <Link to={`/prodotti/${product.id}`}>
