@@ -16,11 +16,11 @@ export default function HomePage() {
 
             <h2>New arrivals</h2>
             <div className="new-arrivals">
-                {products.slice(5, 10).map(product => (
+                {products.slice(0, 5).map(product => (
                     <div className="card-box" key={product.id}>
                         <div className="card-body">
-                        <img src={product.image[0]} alt={product.name} className="product-image" />
-                        <img src={product.image[1]} alt={product.name} className="product-image1" />
+                            <img src={product.image[0]} alt={product.name} className="product-image" />
+                            <img src={product.image[1]} alt={product.name} className="product-image1" />
                         </div>
                         <div className="card-text">
                             <h2>{product.name}</h2>
@@ -43,10 +43,10 @@ export default function HomePage() {
                     {products.slice(15, 19).map(product => (
                         <div className="card-evidence" key={product.id}>
                             <div className="card">
-                            <div className="card-body">
-                                <img src={product.image[0]} alt={product.name} className="product-image" />
-                                <img src={product.image[1]} alt={product.name} className="product-image1" />
-                            </div>
+                                <div className="card-body">
+                                    <img src={product.image[0]} alt={product.name} className="product-image" />
+                                    <img src={product.image[1]} alt={product.name} className="product-image1" />
+                                </div>
                                 <h3>{product.name}</h3>
                             </div>
                         </div>
