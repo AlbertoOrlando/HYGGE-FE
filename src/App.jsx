@@ -16,7 +16,7 @@ import SalaDaPranzoPage from "./pages/SalaDaPranzoPage";
 import GiardinoPage from "./pages/GiardinoPage";
 import GaragePage from "./pages/GaragePage";
 import ProductDetailPage from "./pages/ProductDetailPage";
-import CarelloPage from "./pages/CarelloPage";
+import CarrelloPage from "./pages/CarrelloPage";
 
 // importiamo il contesto creato (global)
 import GlobalContext from "./cotext/GlobalContest";
@@ -204,7 +204,7 @@ function App() {
             <Route path="/sala-da-pranzo" element={<SalaDaPranzoPage />} />
             <Route path="/giardino" element={<GiardinoPage />} />
             <Route path="/garage" element={<GaragePage />} />
-            <Route path="/carello" element={<CarelloPage />} />
+            <Route path="/carrello" element={<CarrelloPage />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Route>
         </Routes>

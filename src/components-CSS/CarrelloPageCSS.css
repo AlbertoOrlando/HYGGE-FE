@@ -1,0 +1,134 @@
+/* Stili generali */
+.cart-container {
+    padding: 20px;
+    gap: 20px;
+}
+
+.container-blockup{
+    display: flex;
+    gap: 20px;
+}
+
+/* Sezione superiore: carrello + riepilogo ordine */
+.cart-section {
+    gap: 20px;
+}
+
+/* Su schermi più grandi, affianca carrello e riepilogo */
+@media (min-width: 768px) {
+    .cart-section {
+        flex-direction: row;
+    }
+}
+
+/* Sezione carrello */
+.cart-items {
+    flex: 2;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+/* Stile degli articoli nel carrello */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-item-details {
+    flex: 1;
+    margin-left: 15px;
+}
+
+/* Sezione riepilogo ordine */
+.order-summary {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* Input codice sconto */
+.coupon-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Pulsante applica sconto */
+.apply-coupon-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.apply-coupon-btn:hover {
+    background-color: #218838;
+}
+
+/* Sezione "Spesso acquistati insieme" */
+.related-products {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-top: 20px;
+}
+
+/* Stile dei prodotti correlati */
+.related-products h2 {
+    margin-bottom: 15px;
+}
+
+.related-product-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.related-product-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Griglia per i prodotti correlati */
+.related-products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+/* Su schermi più grandi, mostra tre colonne */
+@media (min-width: 768px) {
+    .related-products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
