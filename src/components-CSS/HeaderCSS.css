@@ -111,3 +111,6 @@
  .search-bar{
   display: flex;
  }
+.active{
+  border-bottom: 2px solid black;
+ }
