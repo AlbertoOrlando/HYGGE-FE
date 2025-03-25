@@ -129,6 +129,11 @@ h2 {
     height: 140%;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 
 .box-evidence {
     background-image: url("/public/furniture-998265_1280.jpg");
