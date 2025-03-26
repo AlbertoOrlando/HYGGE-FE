@@ -24,7 +24,11 @@ function fetchProdact() {
             if (err.status === 404) redirect("/404")
             })
 }
-useEffect(fetchProdact, []);
+useEffect(() => {
+    fetchProdact();
+    window.scrollTo(0, 0); // Scorri in alto ogni volta che cambia il prodotto
+}, [id]);
+
 
     if (!product) {
         return <h2>Prodotto non trovato</h2>;
