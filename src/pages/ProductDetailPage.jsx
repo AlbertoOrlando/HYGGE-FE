@@ -12,7 +12,7 @@ import { faTruckFast, faBoxOpen, faCreditCard, faMedal, faStar } from "@fortawes
 import FormReviews from "../components/FormRewiews";
 
 export default function ProductDetailPage() {
-    const { products } = useContext(GlobalContext);
+    const { products, addToCart } = useContext(GlobalContext);
     const { id } = useParams();
 
     //  settaggio dello stato del componente
@@ -55,7 +55,7 @@ export default function ProductDetailPage() {
                     <p className="discounted-price"><strong>Prezzo Scontato:</strong> ${(product.price - (product.price * product.discount / 100)).toFixed(2)}</p>
                     <p className="original-price"><strong>Prezzo:</strong> ${product.price}</p>
                     <p><strong>Sconto:</strong> {product.discount}%</p>
-                    <button>Aggiungi al carrello</button>
+                    <button onClick={() => addToCart(product)}>Aggiungi al carrello</button>
                     <div className="icons">
                         <ul>
                             <li><p><FontAwesomeIcon icon={faBoxOpen} /> 14 giorni per restituzioni e cambi</p></li>

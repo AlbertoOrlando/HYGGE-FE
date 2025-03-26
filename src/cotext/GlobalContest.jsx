@@ -14,6 +14,8 @@ export const GlobalProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []); // Salva il carrello nel localStorage
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -118,8 +120,28 @@ export const GlobalProvider = ({ children }) => {
 
     fetchCameraDaLetto();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart)); // Salva il carrello nel localStorage ad ogni aggiornamento
+  }, [cart]);
+
+  // Funzione per aggiungere prodotti al carrello
+  const addToCart = (product) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === product.id);
+      if (existingItem) {
+        return prevCart.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      } else {
+        return [...prevCart, { ...product, quantity: 1 }];
+      }
+    });
+  };
+
+
   return (
-    <GlobalContext.Provider value={{ products, loading, error, categoriCamera, categoriBagno, categoriSalotto, categoriSala, categoriGiardino, categoriGarage }}>
+    <GlobalContext.Provider value={{ products, loading, error, categoriCamera, categoriBagno, categoriSalotto, categoriSala, categoriGiardino, categoriGarage, cart, setCart, addToCart }}>
       {children}
     </GlobalContext.Provider>
   );
