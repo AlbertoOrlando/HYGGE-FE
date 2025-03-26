@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
 import axios from "axios";
-
-// Form
-import FormReviews from "../components/FormRewiews";
-
+import GlobalContext from '../cotext/GlobalContest'
+import { Link } from "react-router-dom";
 import "../components-CSS/ProductDetailPageCSS.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTruckFast, faBoxOpen, faCreditCard, faMedal } from "@fortawesome/free-solid-svg-icons";
+import { faTruckFast, faBoxOpen, faCreditCard, faMedal, faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function ProductDetailPage() {
+    const { products } = useContext(GlobalContext);
     const { id } = useParams();
 
     //  settaggio dello stato del componente
@@ -24,7 +24,11 @@ export default function ProductDetailPage() {
                 if (err.status === 404) redirect("/404")
             })
     }
-    useEffect(fetchProdact, []);
+    useEffect(() => {
+        fetchProdact();
+        window.scrollTo(0, 0); // Scorri in alto ogni volta che cambia il prodotto
+    }, [id]);
+
 
     if (!product) {
         return <h2>Prodotto non trovato</h2>;
@@ -60,13 +64,20 @@ export default function ProductDetailPage() {
                 </div>
             </div>
 
+
             <div className="container-reviews">
                 <h2>Recensioni</h2>
                 {product.reviews && product.reviews.length > 0 ? (
                     product.reviews.map((review) => (
                         <div key={review.id} className="review">
-                            <strong>{review.name}</strong>
-                            <p>⭐ {review.rating} / 5</p>
+                            <strong>{review.name}</strong> <br />
+                            <span>
+                                {review.rating >= 1 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                                {review.rating >= 2 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                                {review.rating >= 3 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                                {review.rating >= 4 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                                {review.rating >= 5 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                            </span>
                             <p>{review.review}</p>
                         </div>
                     ))
@@ -75,8 +86,20 @@ export default function ProductDetailPage() {
                 )}
             </div>
 
-            <div className="form-reviews">
-                <FormReviews product_id={product.id} reloadReviews={fetchProdact} />
+            <h2>Prodotti correlati</h2>
+            <div className="new-arrivals">
+                {products.slice(20, 25).map(product => (
+                    <Link to={`/prodotti/${product.id}`} className="card-box" key={product.id}>
+                        <div className="card-body">
+                            <img src={product.images[0]} alt={product.name} className="product-image2" />
+                            <img src={product.images[1]} alt={product.name} className="product-image12" />
+                        </div>
+                        <div className="card-text">
+                            <h3>{product.name}</h3>
+                            <span>{product.price} €</span>
+                        </div>
+                    </Link>
+                ))}
             </div>
         </>
     );

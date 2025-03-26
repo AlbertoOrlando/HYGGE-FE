@@ -14,7 +14,7 @@ export default function HomePage() {
                 <Link to="/prodotti">View More</Link>
             </div>
 
-            <h2>New arrivals</h2>
+            <h1>New arrivals</h1>
             <div className="new-arrivals">
                 {products.slice(0, 5).map(product => (
                     <Link to={`/prodotti/${product.id}`} className="card-box" key={product.id}>
@@ -23,7 +23,7 @@ export default function HomePage() {
                             <img src={product.images[1]} alt={product.name} className="product-image12" />
                         </div>
                         <div className="card-text">
-                            <h2>{product.name}</h2>
+                            <h4>{product.name}</h4>
                             <span>{product.price} €</span>
                         </div>
                     </Link>
@@ -31,14 +31,14 @@ export default function HomePage() {
             </div>
 
             <div className="trending">
-                <h2>Trending</h2>
+                <h1>Trending</h1>
                 <div className="camera-da-letto">
                     <h3>Camere da letto</h3>
                     <Link to="/camera-da-letto">Shop Now</Link>
                 </div>
             </div>
 
-            <h2>In evidenza</h2>
+            <h1>In evidenza</h1>
             <div className="evidence">
                 <div className="evidence-img">
                     {products.slice(15, 19).map(product => (
@@ -48,7 +48,7 @@ export default function HomePage() {
                                     <img src={product.images[0]} alt={product.name} className="product-image2" />
                                     <img src={product.images[1]} alt={product.name} className="product-image12" />
                                 </div>
-                                <h3>{product.name}</h3>
+                                <h4>{product.name}</h4>
                                 <span>{product.price} €</span>
                             </div>
                         </Link>
