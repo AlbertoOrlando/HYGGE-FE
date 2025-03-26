@@ -67,7 +67,6 @@ export default function ProductDetailPage() {
                 </div>
             </div>
 
-
             <div className="container-reviews">
                 <h2>Recensioni</h2>
                 {product.reviews && product.reviews.length > 0 ? (
@@ -88,6 +87,10 @@ export default function ProductDetailPage() {
                     <p>Nessuna recensione disponibile.</p>
                 )}
             </div>
+            
+            <div className="form-reviews">
+                <FormReviews product_id={id} reloadReviews={fetchProdact} />
+            </div>
 
             <h2>Prodotti correlati</h2>
             <div className="new-arrivals">
@@ -105,9 +108,6 @@ export default function ProductDetailPage() {
                 ))}
             </div>
 
-            <div className="form-reviews">
-                <FormReviews product_id={id} reloadReviews={fetchProdact} />
-            </div>
         </>
     );
 }
