@@ -1,7 +1,7 @@
 /* Contenitore principale */
 .category-container {
-    max-width: 1200px;
-    margin: 0 auto;
+   width: 100%;
+   text-align: center;
     padding: 20px;
 }
 

@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
+import ProductCard from "../components/ProductCard" // Importa il componente ProductPage
+import {Link}from "react-router-dom"
 import "../components-CSS/BagnoPageCSS.css";
 
-const BagnoPage = () => {
-  const [bathroomProducts, setBathroomProducts] = useState([]);
+import { useContext } from "react";
+import GlobalContext from '../cotext/GlobalContest'
 
-  useEffect(() => {
-    fetch("/api/products?category=bagno")
-      .then((res) => res.json())
-      .then((data) => setBathroomProducts(data))
-      .catch((error) => console.error("Errore nel recupero dei prodotti:", error));
-  }, []);
+const BagnoPage = () => {
+  const { categoriBagno } = useContext(GlobalContext);
 
   return (
     <div className="category-container">
@@ -18,16 +15,15 @@ const BagnoPage = () => {
         <p>Trova i migliori accessori e mobili per il tuo bagno.</p>
       </div>
 
-      <div className="product-grid">
-        {bathroomProducts.map((product) => (
-          <div key={product.id} className="product-card-category">
-            <img src={product.image} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>€{product.price.toFixed(2)}</p>
-            <button className="add-to-cart-btn">Aggiungi al Carrello</button>
-          </div>
-        ))}
-      </div>
+       <div className="product-grid-prodotti">
+                {categoriBagno.map(product => (
+                  <div className="product-card" key={product.id}>
+                    <Link to={`/prodotti/${product.id}`}>
+                      <ProductCard product={product} />                       
+                    </Link>
+                  </div>
+                ))}
+            </div>
     </div>
   );
 };

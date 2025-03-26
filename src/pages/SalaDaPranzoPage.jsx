@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
+import ProductCard from "../components/ProductCard" // Importa il componente ProductPage
+import {Link}from "react-router-dom"
 import "../components-CSS/SalaDaPranzoPageCSS.css";
 
-const SalaDaPranzoPage = () => {
-  const [diningRoomProducts, setDiningRoomProducts] = useState([]);
+import { useContext } from "react";
+import GlobalContext from '../cotext/GlobalContest'
 
-  useEffect(() => {
-    fetch("/api/products?category=sala-da-pranzo")
-      .then((res) => res.json())
-      .then((data) => setDiningRoomProducts(data))
-      .catch((error) => console.error("Errore nel recupero dei prodotti:", error));
-  }, []);
+const SalaDaPranzoPage = () => {
+  const { categoriSala } = useContext(GlobalContext);
 
   return (
     <div className="category-container">
@@ -18,15 +15,14 @@ const SalaDaPranzoPage = () => {
         <p>Scopri i mobili perfetti per la tua sala da pranzo.</p>
       </div>
 
-      <div className="product-grid">
-        {diningRoomProducts.map((product) => (
-          <div key={product.id} className="product-card-category">
-            <img src={product.image} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>€{product.price.toFixed(2)}</p>
-            <button className="add-to-cart-btn">Aggiungi al Carrello</button>
-          </div>
-        ))}
+      <div className="product-grid-prodotti">
+          {categoriSala.map(product => (
+            <div className="product-card" key={product.id}>
+              <Link to={`/prodotti/${product.id}`}>
+                <ProductCard product={product} />                       
+              </Link>
+            </div>
+          ))}
       </div>
     </div>
   );
