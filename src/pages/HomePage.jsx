@@ -55,7 +55,7 @@ export default function HomePage() {
                     ))}
                 </div>
                 <div className="box-evidence">
-
+                    <Link className="btn-salotto" to="/salotto">View More</Link>
                 </div>
             </div>
 
