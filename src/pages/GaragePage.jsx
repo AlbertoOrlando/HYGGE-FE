@@ -1,6 +1,6 @@
 import ProductCard from "../components/ProductCard" // Importa il componente ProductPage
 import {Link}from "react-router-dom"
-import "../components-CSS/GaragePageCSS.css";
+import "../components-CSS/CategoryPageCSS.css";
 
 import { useContext } from "react";
 import GlobalContext from '../cotext/GlobalContest'

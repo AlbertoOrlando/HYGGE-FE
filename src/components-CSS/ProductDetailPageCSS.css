@@ -94,3 +94,9 @@
     color: white;
     cursor: pointer;
   }
+
+  /* modifica form */
+  .form{
+    width: auto;
+    margin: 5%;
+  }
