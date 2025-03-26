@@ -33,8 +33,7 @@ export default function HomePage() {
             <div className="trending">
                 <h1>Trending</h1>
                 <div className="camera-da-letto">
-                    <h3>Camere da letto</h3>
-                    <Link to="/camera-da-letto">Shop Now</Link>
+                    <Link to="/camera-da-letto">Camere da letto</Link>
                 </div>
             </div>
 
@@ -66,6 +65,31 @@ export default function HomePage() {
                 </div>
                 <div className="bagno-img">
 
+                </div>
+            </div>
+
+            <div className="giardino-home">
+                <div className="giardino-img">
+                    <Link to="/giardino">Giardino</Link>
+                </div>
+                <div className="giardino">
+                    {products.slice(44, 47).map(product => (
+                        <Link to={`/prodotti/${product.id}`} className="card-evidence" key={product.id}>
+                            <div className="card">
+                                <div className="card-body">
+                                    <img src={product.images[0]} alt={product.name} className="product-image2" />
+                                    <img src={product.images[1]} alt={product.name} className="product-image12" />
+                                </div>
+                                <h4>{product.name}</h4>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </div>
+
+            <div className="sala-da-pranzo">
+                <div className="sala-da-pranzo-img">
+                    <Link to="/sala-da-pranzo">Sala da pranzo</Link>
                 </div>
             </div>
 
