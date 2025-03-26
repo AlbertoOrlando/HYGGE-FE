@@ -8,6 +8,9 @@ import "../components-CSS/ProductDetailPageCSS.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruckFast, faBoxOpen, faCreditCard, faMedal, faStar } from "@fortawesome/free-solid-svg-icons";
 
+// Form
+import FormReviews from "../components/FormRewiews";
+
 export default function ProductDetailPage() {
     const { products } = useContext(GlobalContext);
     const { id } = useParams();
@@ -100,6 +103,10 @@ export default function ProductDetailPage() {
                         </div>
                     </Link>
                 ))}
+            </div>
+
+            <div className="form-reviews">
+                <FormReviews product_id={id} reloadReviews={fetchProdact} />
             </div>
         </>
     );
