@@ -33,7 +33,7 @@ export default function HomePage() {
             <div className="trending">
                 <h1>Trending</h1>
                 <div className="camera-da-letto">
-                    <Link to="/camera-da-letto">Camere da letto</Link>
+                    <Link to="/camera-da-letto" onClick={() => window.scrollTo(0, 0)}>Camere da letto</Link>
                 </div>
             </div>
 
@@ -54,14 +54,14 @@ export default function HomePage() {
                     ))}
                 </div>
                 <div className="box-evidence">
-                    <Link className="btn-salotto" to="/salotto">View More</Link>
+                    <Link className="btn-salotto" to="/salotto" onClick={() => window.scrollTo(0, 0)}>View More</Link>
                 </div>
             </div>
 
             <div className="bagno-home">
                 <div className="bagno-text">
                     <h3>Bagno</h3>
-                    <Link to="/bagno">Shop Now</Link>
+                    <Link to="/bagno" onClick={() => window.scrollTo(0, 0)}>Shop Now</Link>
                 </div>
                 <div className="bagno-img">
 
@@ -70,7 +70,7 @@ export default function HomePage() {
 
             <div className="giardino-home">
                 <div className="giardino-img">
-                    <Link to="/giardino">Giardino</Link>
+                    <Link to="/giardino" onClick={() => window.scrollTo(0, 0)}>Giardino</Link>
                 </div>
                 <div className="giardino">
                     {products.slice(44, 47).map(product => (
@@ -81,6 +81,7 @@ export default function HomePage() {
                                     <img src={product.images[1]} alt={product.name} className="product-image12" />
                                 </div>
                                 <h4>{product.name}</h4>
+                                
                             </div>
                         </Link>
                     ))}
@@ -89,7 +90,7 @@ export default function HomePage() {
 
             <div className="sala-da-pranzo">
                 <div className="sala-da-pranzo-img">
-                    <Link to="/sala-da-pranzo">Sala da pranzo</Link>
+                    <Link to="/sala-da-pranzo" onClick={() => window.scrollTo(0, 0)}>Sala da pranzo</Link>
                 </div>
             </div>
 
