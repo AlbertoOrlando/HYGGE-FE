@@ -30,7 +30,7 @@
 
 /* Card new-arrivals */
 .card-box {
-    
+
     width: 100%;
 }
 
@@ -55,7 +55,9 @@
 .card-body:hover .product-image12 {
     opacity: 1;
 }
-.product-image2, .product-image12 {
+
+.product-image2,
+.product-image12 {
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -67,7 +69,7 @@
 /* Trending */
 .trending {
     width: 100%;
-    
+
 }
 
 /* Img - Camera da letto */
@@ -139,6 +141,19 @@ a {
     background-position: center;
     background-size: cover;
     width: 60%;
+    position: relative;
+}
+
+/* Btn */
+.box-evidence .btn-salotto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 15px;
 }
 
 /* Bagno */
@@ -179,6 +194,7 @@ a {
     height: 100%;
 
 }
-h1{
+
+h1 {
     margin-top: 20px;
 }
