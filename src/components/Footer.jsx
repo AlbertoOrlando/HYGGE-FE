@@ -48,7 +48,7 @@ export default function Footer() {
 
                 {/* Sezione social e link "About Us" */}
                 <div className="footer-newsletter">
-                    <Link to="/about-us" className="about"><h4>ABOUT US</h4></Link>
+                    <Link to="/about-us" className="about" onClick={() => window.scrollTo(0, 0)}><h4>ABOUT US</h4></Link>
                     <div className="social">
                         {/* Icone social */}
                         <a href="https://www.facebook.com/" target="_blank" rel="Facebook" className="facebook">
