@@ -76,7 +76,7 @@ export default function ProductDetailPage() {
             </div>
 
             <div className="form-reviews">
-                <FormReviews product_id={id} reloadReviews={fetchProdact} />
+                <FormReviews product_id={product.id} reloadReviews={fetchProdact} />
             </div>
         </>
     );

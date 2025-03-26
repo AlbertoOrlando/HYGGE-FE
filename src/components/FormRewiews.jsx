@@ -20,13 +20,14 @@ const FormReviews = ({ product_id, reloadReviews }) => {
     const submitReview = (e) => {
         e.preventDefault();
         console.log('Submitting review:', formData);
-        axios.post(urlEndpoint, formData).then(
-            () => {
-                console.log('Review submitted successfully');
-                setFormData(initialValue)
-                reloadReviews()
-            }
-        )
+        axios.post(urlEndpoint, formData)
+            .then(
+                () => {
+                    console.log('Review submitted successfully');
+                    setFormData(initialValue)
+                    reloadReviews()
+                }
+            )
             .catch(err => {
                 console.log('Error submitting review:', err);
             })
