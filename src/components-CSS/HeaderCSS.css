@@ -70,7 +70,7 @@
 /* Bottone di ricerca */
 
 .search-bar {
-  background: black;
+  
   height: 40px;
   border-radius: 40px;
   padding: 10px;
@@ -78,12 +78,15 @@
   right: 40px;
   bottom: 10px;
 }
+.search-bar:hover{
+  background-color: rgb(255, 255, 255);
+}
 
 .search-bar input {
   border: none;
   background: none;
   outline: none;
-  color: white;
+  color: rgb(0, 0, 0);
   width: 0px;
   transition: 0.4s;
 }
@@ -91,11 +94,13 @@
 .search-bar:hover>input {
   width: 200px;
   padding: 0 6px;
+  border-bottom: 1px solid black;
+ 
 }
 
 .search-bar a {
   float: right;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .search-bar a:hover {
