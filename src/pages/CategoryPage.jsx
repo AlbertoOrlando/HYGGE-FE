@@ -10,11 +10,14 @@ import GlobalContext from '../cotext/GlobalContest'
 
 
 const CategoryPage = () => {
+  const { categories } = useContext(GlobalContext);
+
 
   //  settaggio dello stato del componente
   const [category, setCategory] = useState([]);
   const { id } = useParams();
-
+   
+  const currentCategory = categories?.find(category => category.id === parseInt(id));
   function fetchProdact() {
     axios.get(`http://localhost:3000/api/products/category/${id}`)
         .then(res => setCategory(res.data))
@@ -31,8 +34,8 @@ const CategoryPage = () => {
   return (
     <div className="category-container">
       <div className="category-header">
-        <h1>Camere da Letto</h1>
-        <p>Scopri la nostra selezione di camere da letto per creare il tuo spazio perfetto per il relax.</p>
+        <h1>{currentCategory.name}</h1>
+        <p><i>Scopri i nostri prodotti migliori per {currentCategory.name}.</i></p>
       </div>
 
       <div className="product-grid-prodotti">
