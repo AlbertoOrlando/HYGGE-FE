@@ -6,14 +6,12 @@ const GlobalContext = createContext();
 export const GlobalProvider = ({ children }) => {
   const [products, setProducts] = useState([]); // Stato per i prodotti
   const [categories, setCategories] = useState([]); // Stato per le cateogorie
-  const [categoriCamera, setCategoriCamera] = useState([]);
-  const [categoriBagno, setCategoriBagno] = useState([]);
-  const [categoriSalotto, setCategoriSalotto] = useState([]);
-  const [categoriSala, setCategoriSala] = useState([]);
-  const [categoriGiardino, setCategoriGiardino] = useState([]);
-  const [categoriGarage, setCategoriGarage] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [search, setSearch] = useState([]);
+
+  console.log(search);
+
 
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []); // Salva il carrello nel localStorage
 
@@ -46,95 +44,7 @@ export const GlobalProvider = ({ children }) => {
     fetchCategories();
   }, []);
 
-  useEffect(() => {
-    const fetchCameraDaLetto = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/products/category/cameraDaLetto");
-        setCategoriCamera(response.data); // Salva i dati ricevuti
-      } catch (err) {
-        setError("Errore nel caricamento dei prodotti");
-      } finally {
-        setLoading(false);
-      }
-    };
 
-    fetchCameraDaLetto();
-  }, []);
-
-  useEffect(() => {
-    const fetchCameraDaLetto = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/products/category/bagno");
-        setCategoriBagno(response.data); // Salva i dati ricevuti
-      } catch (err) {
-        setError("Errore nel caricamento dei prodotti");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCameraDaLetto();
-  }, []);
-
-  useEffect(() => {
-    const fetchCameraDaLetto = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/products/category/salotto");
-        setCategoriSalotto(response.data); // Salva i dati ricevuti
-      } catch (err) {
-        setError("Errore nel caricamento dei prodotti");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCameraDaLetto();
-  }, []);
-
-  useEffect(() => {
-    const fetchCameraDaLetto = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/products/category/salaDaPranzo");
-        setCategoriSala(response.data); // Salva i dati ricevuti
-      } catch (err) {
-        setError("Errore nel caricamento dei prodotti");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCameraDaLetto();
-  }, []);
-
-  useEffect(() => {
-    const fetchCameraDaLetto = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/products/category/giardino");
-        setCategoriGiardino(response.data); // Salva i dati ricevuti
-      } catch (err) {
-        setError("Errore nel caricamento dei prodotti");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCameraDaLetto();
-  }, []);
-
-  useEffect(() => {
-    const fetchCameraDaLetto = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/products/category/garage");
-        setCategoriGarage(response.data); // Salva i dati ricevuti
-      } catch (err) {
-        setError("Errore nel caricamento dei prodotti");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCameraDaLetto();
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart)); // Salva il carrello nel localStorage ad ogni aggiornamento
@@ -156,9 +66,9 @@ export const GlobalProvider = ({ children }) => {
 
 
   return (
-    <GlobalContext.Provider value={{ products, categories, loading, error, categoriCamera, categoriBagno, categoriSalotto, categoriSala, categoriGiardino, categoriGarage, cart, setCart, addToCart }}>
+    <GlobalContext.Provider value={{ search, setSearch, products, categories, loading, error, cart, setCart, addToCart }}>
       {children}
-    </GlobalContext.Provider>
+    </GlobalContext.Provider >
   );
 };
 
