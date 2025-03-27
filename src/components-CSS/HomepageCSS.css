@@ -121,7 +121,7 @@ h1 {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    width: 50%;
+    width: calc(100% / 2);
 }
 
 /* Card evidence */
