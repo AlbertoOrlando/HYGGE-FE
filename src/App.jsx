@@ -7,13 +7,10 @@ import DefaultLayout from "./layout/DefaultLayout";
 import AboutUsPage from "./pages/AboutUsPage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
-import CameraDaLettoPage from "./pages/CameraDaLettoPage";
-import BagnoPage from "./pages/BagnoPage";
-import SalottoPage from "./pages/SalottoPage";
+import CategoryPage from "./pages/CategoryPage";
+
 import ProdottiPage from "./pages/ProdottiPage";
-import SalaDaPranzoPage from "./pages/SalaDaPranzoPage";
-import GiardinoPage from "./pages/GiardinoPage";
-import GaragePage from "./pages/GaragePage";
+
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CarrelloPage from "./pages/CarrelloPage";
 import PagamentoPage from "./pages/PagamentoPage";
@@ -29,14 +26,14 @@ function App() {
           <Route element={<DefaultLayout />} >
             <Route path="/" element={<HomePage />} />
             <Route path="/about-us" element={<AboutUsPage />} />
-            <Route path="/camera-da-letto" element={<CameraDaLettoPage />} />
-            <Route path="/bagno" element={<BagnoPage />} />
-            <Route path="/salotto" element={<SalottoPage />} />
+            <Route path="/category/:id" element={<CategoryPage />} />
+            
+            
             <Route path="/prodotti" element={<ProdottiPage />} />
             <Route path="/prodotti/:id" element={<ProductDetailPage />} />
-            <Route path="/sala-da-pranzo" element={<SalaDaPranzoPage />} />
-            <Route path="/giardino" element={<GiardinoPage />} />
-            <Route path="/garage" element={<GaragePage />} />
+            
+            
+           
             <Route path="/carrello" element={<CarrelloPage />} />
             <Route path="/pagamento" element={<PagamentoPage />} />
             <Route path="/*" element={<NotFoundPage />} />

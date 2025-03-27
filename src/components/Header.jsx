@@ -1,12 +1,17 @@
 import { NavLink, Link } from "react-router-dom"
 
+import { useContext } from "react";
+import GlobalContext from '../cotext/GlobalContest'
+
 import "../components-CSS/HeaderCSS.css";
 
 import { faSearch, faUser, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
+
 export default function Header() {
+    const { categories } = useContext(GlobalContext);
     return (
         <>
             <div className="codice-sconto"><p>20% SCONTO Per acquisti superiori a 299,99€ Codice: HYGGE-20</p></div>
@@ -15,13 +20,11 @@ export default function Header() {
                     <Link to="/" onClick={() => window.scrollTo(0, 0)}>HYGGE</Link>
                 </div>
                 <div className="nav">
-                    <NavLink to="/camera-da-letto" onClick={() => window.scrollTo(0, 0)}>Camera da letto</NavLink>
-                    <NavLink to="/bagno" onClick={() => window.scrollTo(0, 0)}>Bagno</NavLink>
-                    <NavLink to="/salotto" onClick={() => window.scrollTo(0, 0)}>Salotto</NavLink>
-                    <NavLink to="/prodotti" onClick={() => window.scrollTo(0, 0)}><strong>Prodotti</strong></NavLink>
-                    <NavLink to="/sala-da-pranzo" onClick={() => window.scrollTo(0, 0)}>Sala da pranzo</NavLink>
-                    <NavLink to="/giardino" onClick={() => window.scrollTo(0, 0)}>Giardino</NavLink>
-                    <NavLink to="/garage" onClick={() => window.scrollTo(0, 0)}>Garage</NavLink>
+                <NavLink to="/prodotti" onClick={() => window.scrollTo(0, 0)}>Prodotti</NavLink>
+                {categories.map(category => (
+                  <NavLink key={category.id} to={`/category/${category.id}`} onClick={() => window.scrollTo(0, 0)}>{category.name}</NavLink>
+                ))}
+                    
                 </div>
                 <div>
                     <div className="search-user-cart">
