@@ -2,6 +2,8 @@ import "../components-CSS/CarrelloPageCSS.css";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import GlobalContext from '../cotext/GlobalContest';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const CarrelloPage = () => {
   const { cart, setCart } = useContext(GlobalContext);
@@ -63,11 +65,12 @@ const CarrelloPage = () => {
                   <p>€{item.price}</p>
                   <div className="quantity-controls">
                     <button className="quantity-btn increase-btn" onClick={() => handleIncreaseQuantity(item.id)}>+</button>
-                    <p className="quantity-number">{item.quantity}</p>
+                    
                     <button className="quantity-btn decrease-btn" onClick={() => handleDecreaseQuantity(item.id)}>-</button>
+                    <p className="quantity-number">{item.quantity}</p>
                   </div>
                 </div>
-                <button className="remove-btn" onClick={() => handleRemoveItem(item.id)}>Rimuovi</button>
+                <button className="remove-btn" onClick={() => handleRemoveItem(item.id)}><FontAwesomeIcon icon={faTrash} /></button>
               </div>
             ))
           )}
