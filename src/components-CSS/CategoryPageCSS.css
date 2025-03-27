@@ -2,10 +2,15 @@
 .category-container {
    width: 100%;
    text-align: center;
-    padding: 20px;
+   
 }
 
 /* Titolo e descrizione */
+.category-header {
+    width: 100%;
+    
+}
+
 .category-header h1 {
     font-size: 2rem;
     font-weight: bold;

@@ -11,12 +11,15 @@ import { faTruckFast, faBoxOpen, faCreditCard, faMedal, faStar, faSpinner } from
 import FormReviews from "../components/FormRewiews";
 
 export default function ProductDetailPage() {
+    
     const { products, addToCart } = useContext(GlobalContext);
     const { id } = useParams();
 
     //  settaggio dello stato del componente
     const [product, setProducts] = useState({});
     const [loadingCart, setLoadingCart] = useState(false); // Nuovo stato per il caricamento del carrello
+
+    
 
     // funzione di chiamata verso la rotta store
     function fetchProdact() {
@@ -87,8 +90,11 @@ export default function ProductDetailPage() {
             <div className="container-reviews">
                 <h2>Recensioni</h2>
                 {product.reviews && product.reviews.length > 0 ? (
-                    product.reviews.map((review) => (
-                        <div key={review.id} className="review">
+                    product.reviews.map((review) => {
+                        const date = new Date(review.created_at);
+                        const formattedDate = `${date.getDate()} ${date.toLocaleString('it-IT', { month: 'long' })} ${date.getFullYear()}`;
+                        return (
+                            <div key={review.id} className="review">
                             <strong>{review.name}</strong> <br />
                             <span>
                                 {review.rating >= 1 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
@@ -98,8 +104,11 @@ export default function ProductDetailPage() {
                                 {review.rating >= 5 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
                             </span>
                             <p>{review.review}</p>
+
+                            <p className="data">{formattedDate}</p>
                         </div>
-                    ))
+                        );
+                    })
                 ) : (
                     <p>Nessuna recensione disponibile.</p>
                 )}

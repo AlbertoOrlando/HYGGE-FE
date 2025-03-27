@@ -8,9 +8,7 @@ import AboutUsPage from "./pages/AboutUsPage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import CategoryPage from "./pages/CategoryPage";
-
 import ProdottiPage from "./pages/ProdottiPage";
-
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CarrelloPage from "./pages/CarrelloPage";
 import PagamentoPage from "./pages/PagamentoPage";
@@ -27,13 +25,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about-us" element={<AboutUsPage />} />
             <Route path="/category/:id" element={<CategoryPage />} />
-            
-            
             <Route path="/prodotti" element={<ProdottiPage />} />
             <Route path="/prodotti/:id" element={<ProductDetailPage />} />
-            
-            
-           
             <Route path="/carrello" element={<CarrelloPage />} />
             <Route path="/pagamento" element={<PagamentoPage />} />
             <Route path="/*" element={<NotFoundPage />} />
