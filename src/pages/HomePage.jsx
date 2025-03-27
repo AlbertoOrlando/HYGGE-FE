@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import "../components-CSS/HomepageCSS.css"
 
 export default function HomePage() {
-    const { products } = useContext(GlobalContext);
+    const { products, categories } = useContext(GlobalContext);
     return (
         <>
             <div className="content-home">
@@ -33,7 +33,7 @@ export default function HomePage() {
             <div className="trending">
                 <h1>Trending</h1>
                 <div className="camera-da-letto">
-                    <Link to="/camera-da-letto" onClick={() => window.scrollTo(0, 0)}>Camere da letto</Link>
+                    <Link to={`/category/1`} onClick={() => window.scrollTo(0, 0)}>Camere da letto</Link>
                 </div>
             </div>
 
@@ -54,14 +54,14 @@ export default function HomePage() {
                     ))}
                 </div>
                 <div className="box-evidence">
-                    <Link className="btn-salotto" to="/salotto" onClick={() => window.scrollTo(0, 0)}>View More</Link>
+                    <Link className="btn-salotto" to={`/category/3`} onClick={() => window.scrollTo(0, 0)}>View More</Link>
                 </div>
             </div>
 
             <div className="bagno-home">
                 <div className="bagno-text">
                     
-                    <Link to="/bagno" onClick={() => window.scrollTo(0, 0)}>Shop Now</Link>
+                    <Link to={`/category/2`} onClick={() => window.scrollTo(0, 0)}>Shop Now</Link>
                     <div className="paragrafo-bagno">
                         <h3>Bagno</h3>
                         <i>"Rinnova il tuo bagno con stile ed eleganza."</i>
@@ -76,7 +76,7 @@ export default function HomePage() {
 
             <div className="giardino-home">
                 <div className="giardino-img">
-                    <Link to="/giardino" onClick={() => window.scrollTo(0, 0)}>Giardino</Link>
+                    <Link to={`/category/5`} onClick={() => window.scrollTo(0, 0)}>Giardino</Link>
                 </div>
                 <div className="giardino">
                     {products.slice(44, 47).map(product => (
@@ -96,7 +96,7 @@ export default function HomePage() {
 
             <div className="sala-da-pranzo">
                 <div className="sala-da-pranzo-img">
-                    <Link to="/sala-da-pranzo" onClick={() => window.scrollTo(0, 0)}>Sala da pranzo</Link>
+                    <Link to={`/category/4`} onClick={() => window.scrollTo(0, 0)}>Sala da pranzo</Link>
                 </div>
             </div>
 
