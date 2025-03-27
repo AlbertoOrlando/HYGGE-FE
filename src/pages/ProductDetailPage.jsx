@@ -43,7 +43,7 @@ export default function ProductDetailPage() {
         } catch (error) {
             console.error("Errore durante l'aggiunta al carrello:", error);
         } finally {
-            setLoadingCart(false); // Termina il caricamento
+            setLoadingCart(false); // Termina il caricamento    
             console.log("Caricamento terminato");
         }
     };
