@@ -261,15 +261,18 @@ a {
 
 .giardino .card {
     padding: 8px;
-    position: relative;
+    /* position: relative; */
 }
 
 .giardino h4 {
     padding: 10px;
-    font-size: 16px;
-    position: absolute;
+    font-size: 14px;
+    /* position: absolute;
     bottom: 0;
-    left: 0;
+    left: 0; */
+    background-color: black;
+    color: white;
+    text-align: center;
 }
 
 /* Sala da pranzo */
