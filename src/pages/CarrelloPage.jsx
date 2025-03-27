@@ -1,6 +1,6 @@
 import "../components-CSS/CarrelloPageCSS.css";
 import { useContext, useState } from "react";
-import GlobalContext from '../cotext/GlobalContest'
+import GlobalContext from '../cotext/GlobalContest';
 
 const CarrelloPage = () => {
   const { cart, setCart } = useContext(GlobalContext);
@@ -8,28 +8,31 @@ const CarrelloPage = () => {
   const [discount, setDiscount] = useState(0);
 
   const handleRemoveItem = (id) => {
-    setCart((prevCart) => {
-      const updatedCart = prevCart.map((item) => {
-        // Se troviamo il prodotto nel carrello, riduci la quantità
+    setCart((prevCart) => prevCart.filter(item => item.id !== id));
+  };
+
+  const handleIncreaseQuantity = (id) => {
+    setCart((prevCart) =>
+      prevCart.map(item =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+
+  const handleDecreaseQuantity = (id) => {
+    setCart((prevCart) =>
+      prevCart.map(item => {
         if (item.id === id) {
           if (item.quantity > 1) {
             return { ...item, quantity: item.quantity - 1 };
           } else {
-            return null; // Se la quantità è 1, rimuoviamo il prodotto
+            return null;
           }
         }
-        return item; // Altrimenti, lascia il prodotto invariato
-      }).filter(item => item !== null); // Filtra i null per rimuovere l'articolo
-  
-      return updatedCart;
-    });
+        return item;
+      }).filter(item => item !== null)
+    );
   };
-  
-  
-  console.log("Carrello prima della rimozione:", cart); // Questo ti dirà cosa c'è nel carrello
-
-  
-  
 
   const handleApplyDiscount = () => {
     if (discountCode === "SALE10") {
@@ -57,9 +60,13 @@ const CarrelloPage = () => {
                 <div className="cart-item-details">
                   <h3>{item.name}</h3>
                   <p>€{item.price}</p>
-                  <p>Quantità: {item.quantity}</p>
+                  <div className="quantity-controls">
+                    <button className="quantity-btn increase-btn" onClick={() => handleIncreaseQuantity(item.id)}>+</button>
+                    <p className="quantity-number">{item.quantity}</p>
+                    <button className="quantity-btn decrease-btn" onClick={() => handleDecreaseQuantity(item.id)}>-</button>
+                  </div>
                 </div>
-                <button onClick={() => handleRemoveItem(item.id)}>Rimuovi</button>
+                <button className="remove-btn" onClick={() => handleRemoveItem(item.id)}>Rimuovi</button>
               </div>
             ))
           )}
@@ -88,6 +95,10 @@ const CarrelloPage = () => {
           <button className="apply-coupon-btn" onClick={handleApplyDiscount}>
             Applica Sconto
           </button>
+          <button className="pagamento" onClick={handleApplyDiscount}>
+            Vai al pagamento
+          </button>
+          
         </div>
       </div>
     </div>
