@@ -64,7 +64,7 @@ export default function Header() {
                 <div>
                     <div className="search-user-cart">
                         <div className="search-bar">
-                            <form onSubmit={handleSubmit}>
+                            <form className="search-form" onSubmit={handleSubmit}>
                                 <input
                                     type="text"
                                     value={query}

@@ -66,8 +66,8 @@
   gap: 15px;
 }
 
-/* Bottone di ricerca */
-form {
+/* Bottone di ricerca - Form */
+.search-form {
   height: 40px;
   border-radius: 40px;
   padding: 10px;
@@ -76,11 +76,11 @@ form {
   bottom: 10px;
 }
 
-form:hover {
+.search-form:hover {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-form input {
+.search-form input {
   border: none;
   background: none;
   outline: none;
@@ -89,12 +89,12 @@ form input {
   transition: 0.4s;
 }
 
-form:hover>input {
+.search-form:hover>input {
   width: 200px;
   padding: 0 6px;
 }
 
-form button {
+.search-form button {
   float: right;
   color: black;
   border: none;
@@ -103,7 +103,7 @@ form button {
   font-size: 18px;
 }
 
-form button:hover {
+.search-form button:hover {
   color: rgba(153, 52, 15, 0.925);
 }
 
