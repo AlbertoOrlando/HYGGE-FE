@@ -44,7 +44,6 @@
   color: rgba(114, 42, 15, 0.925);
 }
 
-
 .nav {
   display: flex;
   gap: 40px;
@@ -68,9 +67,7 @@
 }
 
 /* Bottone di ricerca */
-
-.search-bar {
-
+form {
   height: 40px;
   border-radius: 40px;
   padding: 10px;
@@ -79,83 +76,57 @@
   bottom: 10px;
 }
 
-.search-bar:hover {
-  background-color: rgb(255, 255, 255);
+form:hover {
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
-.search-bar input {
-  /* border: none;
+form input {
+  border: none;
   background: none;
-  outline: none; */
-  width: 140px;
-  color: rgb(0, 0, 0);
-
+  outline: none;
+  color: black;
+  width: 0px;
   transition: 0.4s;
 }
 
-/* .search-bar:hover>input {
+form:hover>input {
   width: 200px;
   padding: 0 6px;
-  border-bottom: 1px solid black;
-
-} */
-
-.search-bar a {
-  float: right;
-  color: rgb(0, 0, 0);
 }
 
-.search-bar a:hover {
+form button {
+  float: right;
+  color: black;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 18px;
+}
+
+form button:hover {
   color: rgba(153, 52, 15, 0.925);
 }
 
 .search-user-cart a {
   font-size: 18px;
   cursor: pointer;
-  /* color: black; */
+  color: black;
   transition: color 0.3s;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.search-user-cart a:hover {
+.search-user-cart button:hover {
   color: rgba(153, 52, 15, 0.925);
   transform: scale(1.2);
 }
 
-/* .search-bar {
-  width: 200px;
-  position: relative;
-}
-
-.search-bar input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid rgba(3, 3, 3, 0.5);
-  border-radius: 20px;
-  background: rgba(207, 207, 207, 0.5);
-  color: rgb(0, 0, 0);
-  outline: none;
-  transition: all 0.3s;
-}
-
-.search-bar input::placeholder {
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.search-bar input:focus {
-  background: rgba(153, 153, 153, 0.3);
-  border: 1px solid white;
-} */
-
-/* .search-bar input{
-  padding: 3px;
-  border-radius: 6px;
- } */
-
-/* .search-bar{
-  display: flex;
- } */
-
 .active {
   border-bottom: 2px solid black;
+}
+
+/* Carrello */
+
+.search-user-cart a:hover {
+  color: rgba(153, 52, 15, 0.925);
+  transform: scale(1.2);
 }
