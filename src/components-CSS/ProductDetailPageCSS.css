@@ -1,40 +1,40 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.product-detail{
+.product-detail {
     display: flex;
     justify-content: space-evenly;
     margin-top: 20px;
 }
 
-.product-info{
+.product-info {
     font-size: 20px;
     width: 20%;
 }
 
-.product-image-detail{
+.product-image-detail {
     width: 50%;
     display: flex;
     gap: 20px;
 }
 
-.product-image-detail img{
+.product-image-detail img {
     width: 55%;
 }
 
-.original-price{
+.original-price {
     text-decoration: line-through;
     color: gray;
 }
 
-.discounted-price{
+.discounted-price {
     color: #A60000;
 }
 
-.product-info button{
+.product-info button {
     margin: 20px 0 20px 0;
     padding: 20px;
     width: 400px;
@@ -43,21 +43,27 @@
     font-size: 20px;
 }
 
-.icons{
+/* button */
+.fa-spinner {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.icons {
     font-size: 20px;
 }
 
-.icons ul{
+.icons ul {
     width: 350px;
     margin-top: 30px;
 }
 
-.icons ul li{
+.icons ul li {
     margin-bottom: 20px;
     list-style: none;
 }
 
-.reviews-section{
+.reviews-section {
     display: flex;
 }
 
@@ -66,21 +72,22 @@
     color: rgb(255, 230, 0);
     font-size: 14px;
     margin: 2px;
-  }
-  
-  .star2 {
+}
+
+.star2 {
     color: #444;
     font-size: 14px;
     margin: 2px;
-  }
-  .review{
+}
+
+.review {
     display: flex;
     flex-direction: column;
     border-top: 1px solid rgb(207, 207, 207);
     padding: 20px 0px;
-  }
- 
-  .container-reviews{
+}
+
+.container-reviews {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -88,15 +95,16 @@
     margin: 30px;
     padding: 20px 40px;
     border-radius: 5px;
-  }
-  .product-info button:hover{
+}
+
+.product-info button:hover {
     background-color: #2b2b2b;
     color: white;
     cursor: pointer;
-  }
+}
 
-  /* modifica form */
-  .form{
+/* modifica form */
+.form {
     width: auto;
     margin: 5%;
-  }
+}

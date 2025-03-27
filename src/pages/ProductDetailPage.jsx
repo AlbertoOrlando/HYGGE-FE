@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { useContext } from "react";
 import axios from "axios";
-import GlobalContext from '../cotext/GlobalContest'
+import GlobalContext from '../cotext/GlobalContest';
 import { Link } from "react-router-dom";
 import "../components-CSS/ProductDetailPageCSS.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTruckFast, faBoxOpen, faCreditCard, faMedal, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faTruckFast, faBoxOpen, faCreditCard, faMedal, faStar, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 // Form
 import FormReviews from "../components/FormRewiews";
@@ -15,8 +14,9 @@ export default function ProductDetailPage() {
     const { products, addToCart } = useContext(GlobalContext);
     const { id } = useParams();
 
-    //  settaggio dello stato del componente
+    //  settaggio dello stato del componente
     const [product, setProducts] = useState({});
+    const [loadingCart, setLoadingCart] = useState(false); // Nuovo stato per il caricamento del carrello
 
     // funzione di chiamata verso la rotta store
     function fetchProdact() {
@@ -24,14 +24,29 @@ export default function ProductDetailPage() {
             .then(res => setProducts(res.data))
             .catch(err => {
                 console.log(err);
-                if (err.status === 404) redirect("/404")
-            })
+            });
     }
+
     useEffect(() => {
         fetchProdact();
         window.scrollTo(0, 0); // Scorri in alto ogni volta che cambia il prodotto
     }, [id]);
 
+    const handleAddToCartClick = async () => {
+        console.log("Caricamento iniziato");
+        setLoadingCart(true); // Inizia il caricamento
+        try {
+            // Simula un ritardo nella funzione addToCart
+            await new Promise((resolve) => setTimeout(resolve, 2000)); // Ritardo di 2 secondi
+            await addToCart(product);
+            console.log("Prodotto aggiunto al carrello!");
+        } catch (error) {
+            console.error("Errore durante l'aggiunta al carrello:", error);
+        } finally {
+            setLoadingCart(false); // Termina il caricamento
+            console.log("Caricamento terminato");
+        }
+    };
 
     if (!product) {
         return <h2>Prodotto non trovato</h2>;
@@ -55,7 +70,9 @@ export default function ProductDetailPage() {
                     <p className="discounted-price"><strong>Prezzo Scontato:</strong> ${(product.price - (product.price * product.discount / 100)).toFixed(2)}</p>
                     <p className="original-price"><strong>Prezzo:</strong> ${product.price}</p>
                     <p><strong>Sconto:</strong> {product.discount}%</p>
-                    <button onClick={() => addToCart(product)}>Aggiungi al carrello</button>
+                    <button onClick={handleAddToCartClick} disabled={loadingCart}>
+                        {loadingCart ? <FontAwesomeIcon icon={faSpinner} spin /> : "Aggiungi al carrello"}
+                    </button>
                     <div className="icons">
                         <ul>
                             <li><p><FontAwesomeIcon icon={faBoxOpen} /> 14 giorni per restituzioni e cambi</p></li>
@@ -87,7 +104,7 @@ export default function ProductDetailPage() {
                     <p>Nessuna recensione disponibile.</p>
                 )}
             </div>
-            
+
             <div className="form-reviews">
                 <FormReviews product_id={id} reloadReviews={fetchProdact} />
             </div>
@@ -107,7 +124,6 @@ export default function ProductDetailPage() {
                     </Link>
                 ))}
             </div>
-
         </>
     );
 }
