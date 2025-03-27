@@ -94,7 +94,7 @@ export default function ProductDetailPage() {
 
             <h2>Prodotti correlati</h2>
             <div className="new-arrivals">
-                {products.slice(20, 25).map(product => (
+                {products.slice(10, 15).map(product => (
                     <Link to={`/prodotti/${product.id}`} className="card-box" key={product.id}>
                         <div className="card-body">
                             <img src={product.images[0]} alt={product.name} className="product-image2" />
