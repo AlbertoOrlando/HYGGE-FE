@@ -118,10 +118,13 @@ h1 {
 
 .evidence-img {
     display: flex;
+    gap: 5px;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    width: calc(80% / 2);
+    width: 45%;
+    margin: 4px;
+    
 }
 
 /* Card evidence */
