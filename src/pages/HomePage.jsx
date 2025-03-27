@@ -60,8 +60,14 @@ export default function HomePage() {
 
             <div className="bagno-home">
                 <div className="bagno-text">
-                    <h3>Bagno</h3>
+                    
                     <Link to="/bagno" onClick={() => window.scrollTo(0, 0)}>Shop Now</Link>
+                    <div className="paragrafo-bagno">
+                        <h3>Bagno</h3>
+                        <i>"Rinnova il tuo bagno con stile ed eleganza."</i>
+                        <br />
+                        <i>Lasciati ispirare dal design e dalla raffinatezza</i>
+                    </div>
                 </div>
                 <div className="bagno-img">
 
