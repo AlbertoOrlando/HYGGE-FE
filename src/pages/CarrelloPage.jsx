@@ -1,4 +1,5 @@
 import "../components-CSS/CarrelloPageCSS.css";
+import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import GlobalContext from '../cotext/GlobalContest';
 
@@ -95,9 +96,9 @@ const CarrelloPage = () => {
           <button className="apply-coupon-btn" onClick={handleApplyDiscount}>
             Applica Sconto
           </button>
-          <button className="pagamento" onClick={handleApplyDiscount}>
-            Vai al pagamento
-          </button>
+        
+          <Link className="pagamento" to={"/pagamento"}>Vai al pagamento</Link>
+          
           
         </div>
       </div>
