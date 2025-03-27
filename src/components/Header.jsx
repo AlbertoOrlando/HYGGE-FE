@@ -27,8 +27,8 @@ export default function Header() {
                     <div className="search-user-cart">
                         <div className="search-bar">
                             <input type="text" placeholder="Cerca..." />
+                            <Link><FontAwesomeIcon icon={faSearch} /></Link>
                         </div>
-                        <Link><FontAwesomeIcon icon={faSearch} /></Link>
                         <Link to="/carrello" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faShoppingBag} /></Link>
                     </div>
                 </div>
