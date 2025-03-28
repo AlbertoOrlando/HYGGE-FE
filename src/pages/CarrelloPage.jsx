@@ -1,12 +1,12 @@
 import "../components-CSS/CarrelloPageCSS.css";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import GlobalContext from '../cotext/GlobalContest';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const CarrelloPage = () => {
-  const { cart, setCart, total, setDiscount } = useContext(GlobalContext);
+  const { cart, setCart, setDiscount, discount } = useContext(GlobalContext);
   const [discountCode, setDiscountCode] = useState("");
 
   const handleRemoveItem = (id) => {
@@ -37,15 +37,38 @@ const CarrelloPage = () => {
   };
 
   const handleApplyDiscount = () => {
+    // Se il codice sconto è valido, applica il 10% di sconto
     if (discountCode === "SALE10") {
-      setDiscount(0.1);
+      setDiscount(0.1); // 10% di sconto
     } else {
-      setDiscount(0);
+      setDiscount(0); // Se il codice non è valido, nessun sconto
       alert("Codice sconto non valido");
     }
   };
 
-  const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  // Calcolare il subtotale con sconto sui prodotti
+  const subtotal = cart.reduce((acc, item) => {
+    const discountedPrice = item.price - (item.price * (item.discount || 0) / 100);
+    return acc + discountedPrice * item.quantity;
+  }, 0);
+
+  // Calcolare lo sconto prodotto (differenza tra il prezzo totale e il subtotale)
+  const discountProduct = cart.reduce((acc, item) => {
+    const originalPrice = item.price * item.quantity;
+    const discountedPrice = (item.price - (item.price * (item.discount || 0) / 100)) * item.quantity;
+    return acc + (originalPrice - discountedPrice);
+  }, 0);
+
+  // Calcolare il codice sconto
+  const codeDiscount = discount ? subtotal * discount : 0; // Calcoliamo il codice sconto se è presente
+
+  // Prezzo finale (totale - sconto prodotto - sconto codice)
+  const finalTotal = subtotal - discountProduct - codeDiscount;
+
+  useEffect(() => {
+    // Mostra il codice sconto applicato (per il debug, può essere rimosso in produzione)
+    console.log("Codice sconto applicato:", discount);
+  }, [discount]); // Rende visibile ogni cambio di stato per 'discount'
 
   return (
     <div className="cart-container">
@@ -60,15 +83,16 @@ const CarrelloPage = () => {
                 <img src={item.images[0]} alt={item.name} />
                 <div className="cart-item-details">
                   <h3>{item.name}</h3>
-                  <p>€{item.price}</p>
+                  <p>€{(item.price - (item.price * item.discount / 100)).toFixed(2)}</p>
                   <div className="quantity-controls">
                     <button className="quantity-btn increase-btn" onClick={() => handleIncreaseQuantity(item.id)}>+</button>
-                    
                     <button className="quantity-btn decrease-btn" onClick={() => handleDecreaseQuantity(item.id)}>-</button>
                     <p className="quantity-number">{item.quantity}</p>
                   </div>
                 </div>
-                <button className="remove-btn" onClick={() => handleRemoveItem(item.id)}><FontAwesomeIcon icon={faTrash} /></button>
+                <button className="remove-btn" onClick={() => handleRemoveItem(item.id)}>
+                  <FontAwesomeIcon icon={faTrash} />
+                </button>
               </div>
             ))
           )}
@@ -80,12 +104,16 @@ const CarrelloPage = () => {
             <span>€{subtotal.toFixed(2)}</span>
           </div>
           <div className="summary-item">
-            <span>Sconto:</span>
-            <span>-€{(subtotal - total).toFixed(2)}</span>
+            <span>Sconto prodotto:</span>
+            <span>-€{discountProduct.toFixed(2)}</span>
+          </div>
+          <div className="summary-item">
+            <span>Codice sconto:</span>
+            <span>-€{codeDiscount.toFixed(2)}</span> {/* Mostra il valore del codice sconto */}
           </div>
           <div className="summary-item">
             <span>Totale:</span>
-            <span>€{total.toFixed(2)}</span>
+            <span>€{finalTotal.toFixed(2)}</span>
           </div>
           <input
             type="text"
@@ -99,8 +127,6 @@ const CarrelloPage = () => {
           </button>
         
           <Link className="pagamento" to={"/pagamento"}>Vai al pagamento</Link>
-          
-          
         </div>
       </div>
     </div>

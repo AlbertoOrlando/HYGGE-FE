@@ -71,7 +71,7 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider value={{ 
       search, setSearch, products, categories, loading, error, 
       cart, setCart, addToCart, query, setQuery, 
-      cartCount, setCartCount, total, setDiscount
+      cartCount, setCartCount, total, setDiscount, discount
     }}>
       {children}
     </GlobalContext.Provider>
