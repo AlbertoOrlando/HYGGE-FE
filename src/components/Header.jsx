@@ -10,6 +10,9 @@ import { faSearch, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Header() {
+    // Ottieni il conteggio degli articoli nel carrello
+    const { cartCount } = useContext(GlobalContext);
+
     const { setSearch, categories, query, setQuery } = useContext(GlobalContext);
     const navigate = useNavigate();
 
@@ -38,6 +41,8 @@ export default function Header() {
                 console.error("Errore durante la ricerca:", error);
             });
     }
+
+
 
     return (
         <>
@@ -75,8 +80,10 @@ export default function Header() {
                                 </button>
                             </form>
                         </div>
-                        <Link to="/carrello" onClick={() => window.scrollTo(0, 0)}>
+                        <Link to="/carrello" onClick={() => window.scrollTo(0, 0)} className="cart-icon">
                             <FontAwesomeIcon icon={faShoppingBag} />
+                            {/* Visualizza il conteggio solo se il carrello non è vuoto */}
+                            {cartCount > 0 && <span className="cart-notification">{cartCount}</span>}
                         </Link>
                     </div>
                 </div>
