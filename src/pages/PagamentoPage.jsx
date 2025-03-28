@@ -7,7 +7,7 @@ export default function PagamentoPage() {
     const { total } = useContext(GlobalContext);
     return (
         <>
-            <h1>PAGINA DEL PAGAMENTO di {total} €</h1>
+            <h1>PAGINA DEL PAGAMENTO di {total.toFixed(2)} €</h1>
         </>
     );
 }
