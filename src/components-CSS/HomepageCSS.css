@@ -112,20 +112,17 @@ h1 {
 /* In evidenza */
 .evidence {
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
 }
 
 .evidence-img {
     display: flex;
     gap: 5px;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    width: 45%;
-    margin: 4px;
-
 }
 
 /* Card evidence */
@@ -140,13 +137,14 @@ a {
     color: black;
 }
 
-
 .box-evidence {
     background-image: url("/public/furniture-998265_1280.jpg");
     background-position: center;
     background-size: cover;
-    width: 60%;
+    width: 100%;
+    height: 100vh;
     position: relative;
+    margin: 20px 0;
 }
 
 /* Btn */
@@ -171,44 +169,44 @@ a {
 .bagno-text {
     width: 30%;
     background: linear-gradient(to right, #b8a99c, #e0d7cf);
-
 }
 
 .bagno-text h3 {
     padding: 10px;
     font-size: 40px;
-    margin-left: 28%;
-    margin-bottom: 10%;
+    text-align: center;
     font-style: sans-serif;
     font-family: 'Times New Roman', Times, serif;
 }
 
 .paragrafo-bagno {
     padding: 10px;
-    margin-left: 6%;
     margin-top: 120px;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .paragrafo-bagno i {
-    padding: 20px 0px;
-
+    text-align: center;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
 }
 
 /* Btn Bagno */
-.bagno-text a {
-    padding: 20px;
-    padding-left: 25px;
-    padding-right: 25px;
+.btn-bagno {
+    margin-top: 20px;
+}
+
+.btn-bagno a {
+    padding: 10px;
     border: 2px solid rgb(0, 0, 0);
     text-decoration: none;
     color: rgb(0, 0, 0);
-    position: absolute;
-    top: 460%;
-    left: 10%;
+    text-align: center;
 }
 
 /* Img Bagno */
@@ -267,9 +265,6 @@ a {
 .giardino h4 {
     padding: 10px;
     font-size: 14px;
-    /* position: absolute;
-    bottom: 0;
-    left: 0; */
     background-color: black;
     color: white;
     text-align: center;

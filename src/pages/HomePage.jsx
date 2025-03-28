@@ -53,20 +53,25 @@ export default function HomePage() {
                         </Link>
                     ))}
                 </div>
-                <div className="box-evidence">
-                    <Link className="btn-salotto" to={`/category/3`} onClick={() => window.scrollTo(0, 0)}>View More</Link>
-                </div>
+            </div>
+            <div className="box-evidence">
+                <Link className="btn-salotto" to={`/category/3`} onClick={() => window.scrollTo(0, 0)}>View More</Link>
             </div>
 
             <div className="bagno-home">
                 <div className="bagno-text">
-                    
-                    <Link to={`/category/2`} onClick={() => window.scrollTo(0, 0)}>Shop Now</Link>
+
                     <div className="paragrafo-bagno">
-                        <h3>Bagno</h3>
-                        <i>"Rinnova il tuo bagno con stile ed eleganza."</i>
-                        <br />
-                        <i>Lasciati ispirare dal design e dalla raffinatezza</i>
+                        <div className="titolo-bagno">
+                            <h3>Bagno</h3>
+                        </div>
+                        <div className="parag-bagno">
+                            <p>"Rinnova il tuo bagno con stile ed eleganza." </p>
+                            <i>  Lasciati ispirare dal design e dalla raffinatezza</i>
+                        </div>
+                        <div className="btn-bagno">
+                            <Link to={`/category/2`} onClick={() => window.scrollTo(0, 0)}>Shop Now</Link>
+                        </div>
                     </div>
                 </div>
                 <div className="bagno-img">
@@ -87,7 +92,7 @@ export default function HomePage() {
                                     <img src={product.images[1]} alt={product.name} className="product-image12" />
                                 </div>
                                 <h4>{product.name}</h4>
-                                
+
                             </div>
                         </Link>
                     ))}
