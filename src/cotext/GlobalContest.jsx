@@ -1,25 +1,27 @@
 import { createContext, useState, useEffect } from "react";
-import axios from "axios"; // Importa Axios
+import axios from "axios"; 
 
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  const [products, setProducts] = useState([]); // Stato per i prodotti
-  const [categories, setCategories] = useState([]); // Stato per le cateogorie
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [search, setSearch] = useState([]);
-
-  console.log(search);
-
-
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []); // Salva il carrello nel localStorage
+  const [query, setQuery] = useState("");
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
+  const [cartCount, setCartCount] = useState(0);
+  const [discount, setDiscount] = useState(0);
+  const [total, setTotal] = useState(0); // Stato globale per il totale
+  console.log("Total:", total); // Log del totale
+  
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get("http://localhost:3000/api/products");
-        setProducts(response.data); // Salva i dati ricevuti
+        setProducts(response.data);
       } catch (err) {
         setError("Errore nel caricamento dei prodotti");
       } finally {
@@ -29,13 +31,14 @@ export const GlobalProvider = ({ children }) => {
 
     fetchProducts();
   }, []);
+
   useEffect(() => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get("http://localhost:3000/api/products/category");
-        setCategories(response.data); // Salva i dati ricevuti
+        setCategories(response.data);
       } catch (err) {
-        setError("Errore nel caricamento dei prodotti");
+        setError("Errore nel caricamento delle categorie");
       } finally {
         setLoading(false);
       }
@@ -44,13 +47,13 @@ export const GlobalProvider = ({ children }) => {
     fetchCategories();
   }, []);
 
-
-
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart)); // Salva il carrello nel localStorage ad ogni aggiornamento
-  }, [cart]);
+    localStorage.setItem("cart", JSON.stringify(cart)); 
+    setCartCount(cart.reduce((acc, item) => acc + item.quantity, 0)); 
+    const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    setTotal(subtotal - subtotal * discount); // Calcola il totale con sconto
+  }, [cart, discount]);
 
-  // Funzione per aggiungere prodotti al carrello
   const addToCart = (product) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
@@ -64,11 +67,14 @@ export const GlobalProvider = ({ children }) => {
     });
   };
 
-
   return (
-    <GlobalContext.Provider value={{ search, setSearch, products, categories, loading, error, cart, setCart, addToCart }}>
+    <GlobalContext.Provider value={{ 
+      search, setSearch, products, categories, loading, error, 
+      cart, setCart, addToCart, query, setQuery, 
+      cartCount, setCartCount, total, setDiscount
+    }}>
       {children}
-    </GlobalContext.Provider >
+    </GlobalContext.Provider>
   );
 };
 

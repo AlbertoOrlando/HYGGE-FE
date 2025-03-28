@@ -6,9 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const CarrelloPage = () => {
-  const { cart, setCart } = useContext(GlobalContext);
+  const { cart, setCart, total, setDiscount } = useContext(GlobalContext);
   const [discountCode, setDiscountCode] = useState("");
-  const [discount, setDiscount] = useState(0);
 
   const handleRemoveItem = (id) => {
     setCart((prevCart) => prevCart.filter(item => item.id !== id));
@@ -47,7 +46,6 @@ const CarrelloPage = () => {
   };
 
   const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  const total = subtotal - subtotal * discount;
 
   return (
     <div className="cart-container">
@@ -83,7 +81,7 @@ const CarrelloPage = () => {
           </div>
           <div className="summary-item">
             <span>Sconto:</span>
-            <span>-€{(subtotal * discount).toFixed(2)}</span>
+            <span>-€{(subtotal - total).toFixed(2)}</span>
           </div>
           <div className="summary-item">
             <span>Totale:</span>
