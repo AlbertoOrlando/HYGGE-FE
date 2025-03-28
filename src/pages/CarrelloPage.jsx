@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const CarrelloPage = () => {
-  const { cart, setCart, setDiscount, discount } = useContext(GlobalContext);
+  const { cart, setCart, setDiscount, discount, setFinalTotal } = useContext(GlobalContext);
   const [discountCode, setDiscountCode] = useState("");
 
   const handleRemoveItem = (id) => {
@@ -66,9 +66,8 @@ const CarrelloPage = () => {
   const finalTotal = subtotal - discountProduct - codeDiscount;
 
   useEffect(() => {
-    // Mostra il codice sconto applicato (per il debug, può essere rimosso in produzione)
-    console.log("Codice sconto applicato:", discount);
-  }, [discount]); // Rende visibile ogni cambio di stato per 'discount'
+    setFinalTotal(finalTotal); // Imposta finalTotal nel contesto globale
+  }, [finalTotal, setFinalTotal]); // Effettua il calcolo quando finalTotal cambia
 
   return (
     <div className="cart-container">
@@ -83,7 +82,8 @@ const CarrelloPage = () => {
                 <img src={item.images[0]} alt={item.name} />
                 <div className="cart-item-details">
                   <h3>{item.name}</h3>
-                  <p>€{(item.price - (item.price * item.discount / 100)).toFixed(2)}</p>
+                  <p className="original-price"><strong>Prezzo:</strong> ${item.price}</p>
+                  <p><b>Prezzo scontato:</b> ${(item.price - (item.price * item.discount / 100)).toFixed(2)}</p>
                   <div className="quantity-controls">
                     <button className="quantity-btn increase-btn" onClick={() => handleIncreaseQuantity(item.id)}>+</button>
                     <button className="quantity-btn decrease-btn" onClick={() => handleDecreaseQuantity(item.id)}>-</button>
@@ -109,7 +109,7 @@ const CarrelloPage = () => {
           </div>
           <div className="summary-item">
             <span>Codice sconto:</span>
-            <span>-€{codeDiscount.toFixed(2)}</span> {/* Mostra il valore del codice sconto */}
+            <span>-€{codeDiscount.toFixed(2)}</span>
           </div>
           <div className="summary-item">
             <span>Totale:</span>

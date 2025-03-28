@@ -11,13 +11,13 @@ export const GlobalProvider = ({ children }) => {
   const [search, setSearch] = useState([]);
   const [query, setQuery] = useState("");
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
-  // Stato del carrello
   const [cartCount, setCartCount] = useState(0);
   const [discount, setDiscount] = useState(0);
-  const [total, setTotal] = useState(0); // Stato globale per il totale
-  console.log("Total:", total); // Log del totale
+  const [total, setTotal] = useState(0); // Totale senza sconto
+  const [finalTotal, setFinalTotal] = useState(0); // Totale finale con sconto
 
-
+  console.log("Total:", total); // Log del totale senza sconto
+  console.log("Final Total:", finalTotal); // Log del totale finale con sconto
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -52,14 +52,19 @@ export const GlobalProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
     setCartCount(cart.reduce((acc, item) => acc + item.quantity, 0));
+
+    // Calcolare il subtotale senza sconto
     const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    setTotal(subtotal - subtotal * discount); // Calcola il totale con sconto
+
+    // Calcolare il totale senza sconto
+    const totalWithoutDiscount = subtotal - subtotal * discount;
+
+    // Impostare i valori nel contesto
+    setTotal(totalWithoutDiscount); // Totale senza sconto
+    setFinalTotal(totalWithoutDiscount); // Totale finale senza sconto
   }, [cart, discount]);
 
   const addToCart = (product) => {
-
-    // Logica per aggiungere il prodotto al carrello
-    // Incrementa il conteggio
     setCartCount((prevCount) => prevCount + 1);
 
     setCart((prevCart) => {
@@ -78,7 +83,7 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider value={{ 
       search, setSearch, products, categories, loading, error, 
       cart, setCart, addToCart, query, setQuery, 
-      cartCount, setCartCount, total, setDiscount, discount
+      cartCount, setCartCount, total, setDiscount, discount, finalTotal, setFinalTotal
     }}>
       {children}
     </GlobalContext.Provider>
