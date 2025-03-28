@@ -6,7 +6,7 @@ import "../components-CSS/ProdottiPageCSS.css";
 import "../components-CSS/CategoryPageCSS.css";
 
 export default function RisultatiRicercaPage() {
-    const { search, categories } = useContext(GlobalContext);
+    const { search, categories, query } = useContext(GlobalContext);
     const [selectedCategory, setSelectedCategory] = useState();
 
     console.log("Categories:", categories);
@@ -31,9 +31,9 @@ export default function RisultatiRicercaPage() {
     console.log("Filtered products:", filteredProducts);
 
     return (
-        <div>
-            <h1>Risultati ricerca</h1>
-
+        <div className="ricerca-page">
+            <h1>Risultati ricerca per "{query}"</h1>
+            <span>Filtra per: </span>
             <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}

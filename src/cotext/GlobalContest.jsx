@@ -9,6 +9,7 @@ export const GlobalProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [search, setSearch] = useState([]);
+  const [query, setQuery] = useState("");
 
   console.log(search);
 
@@ -66,7 +67,7 @@ export const GlobalProvider = ({ children }) => {
 
 
   return (
-    <GlobalContext.Provider value={{ search, setSearch, products, categories, loading, error, cart, setCart, addToCart }}>
+    <GlobalContext.Provider value={{ search, setSearch, products, categories, loading, error, cart, setCart, addToCart, query, setQuery }}>
       {children}
     </GlobalContext.Provider >
   );

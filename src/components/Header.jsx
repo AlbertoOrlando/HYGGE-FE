@@ -10,8 +10,7 @@ import { faSearch, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Header() {
-    const { setSearch, categories } = useContext(GlobalContext);
-    const [query, setQuery] = useState("");
+    const { setSearch, categories, query, setQuery } = useContext(GlobalContext);
     const navigate = useNavigate();
 
     function handleFormQuery(e) {
