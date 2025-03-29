@@ -36,8 +36,12 @@ function PagamentoPage() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div className="payment-container">
+        <h2 className="payment-title">Conferma Pagamento</h2>
+        <form className="payment-form" onSubmit={handleSubmit}>
+          <div className="input-group">
             <input
+            className="payment-input"
                 type="text"
                 name="name"
                 placeholder="Name"
@@ -46,6 +50,7 @@ function PagamentoPage() {
                 required
             />
             <input
+            className="payment-input"
                 type="text"
                 name="surname"
                 placeholder="Surname"
@@ -53,7 +58,9 @@ function PagamentoPage() {
                 onChange={handleChange}
                 required
             />
+            </div>
             <input
+            className="payment-input"
                 type="email"
                 name="email"
                 placeholder="Email"
@@ -62,6 +69,7 @@ function PagamentoPage() {
                 required
             />
             <input
+            className="payment-input"
                 type="text"
                 name="tax_id_code"
                 placeholder="Tax ID Code"
@@ -70,6 +78,7 @@ function PagamentoPage() {
                 required
             />
             <input
+            className="payment-input"
                 type="text"
                 name="address"
                 placeholder="Address"
@@ -78,6 +87,7 @@ function PagamentoPage() {
                 required
             />
             <input
+            className="payment-input"
                 type="text"
                 name="phone_number"
                 placeholder="Phone Number"
@@ -86,9 +96,10 @@ function PagamentoPage() {
                 required
             />
             <p>Total Price: €{finalTotal.toFixed(2)}</p> {/* Mostra il prezzo totale */}
-            <button type="submit">Submit Order</button>
+            <button className="payment-button" type="submit">Conferma pagamento</button>
             {message && <p>{message}</p>}
-        </form>
+            </form>
+            </div>
     );
 }
 
