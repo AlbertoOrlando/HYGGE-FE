@@ -79,10 +79,37 @@ export const GlobalProvider = ({ children }) => {
     });
   };
 
+  const createOrder = async (orderData) => {
+    console.log('Payload inviato al server:', orderData); // Log del payload inviato
+    try {
+        const response = await fetch('http://localhost:3000/api/products/order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(orderData),
+        });
+
+        console.log('Risposta HTTP:', response.status); // Log dello stato HTTP
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error('Errore del server:', errorData); // Log dettagliato dell'errore del server
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log('Risultato della risposta:', result); // Log del risultato della risposta
+        return result;
+    } catch (error) {
+        console.error('Errore durante la creazione dell\'ordine:', error); // Log dell'errore
+        throw error;
+    }
+  };
+
   return (
     <GlobalContext.Provider value={{ 
       search, setSearch, products, categories, loading, error, 
-      cart, setCart, addToCart, query, setQuery, 
+      cart, setCart, addToCart, query, setQuery, createOrder, 
       cartCount, setCartCount, total, setDiscount, discount, finalTotal, setFinalTotal
     }}>
       {children}
