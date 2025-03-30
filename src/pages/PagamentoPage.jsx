@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import "../components-CSS/PagamentoCSS.css";
 import GlobalContext from '../cotext/GlobalContest';
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate
 
 function PagamentoPage() {
     const { createOrder, finalTotal } = useContext(GlobalContext);
+    const navigate = useNavigate(); // Inizializza useNavigate
     const [formData, setFormData] = useState({
         name: '',
         surname: '',
@@ -64,6 +66,7 @@ function PagamentoPage() {
             console.log('Risposta del server:', result); // Log della risposta del server
             setMessage(`Order created successfully! ID: ${result.id}`);
             await sendEmail(formData.email); // Invia l'email dopo aver creato l'ordine
+            navigate("/"); // Naviga alla pagina home
         } catch (error) {
             console.error('Errore durante la creazione dell\'ordine:', error); // Log dell'errore
             setMessage('Failed to create order. Please try again.');

@@ -37,11 +37,17 @@ const CarrelloPage = () => {
   };
 
   const handleApplyDiscount = () => {
-    // Se il codice sconto è valido, applica il 10% di sconto
     if (discountCode === "SALE10") {
       setDiscount(0.1); // 10% di sconto
+    } else if (discountCode === "HYGGE-20") {
+      if (subtotal > 299.99) {
+        setDiscount(0.2); // 20% di sconto
+      } else {
+        alert("Il codice HYGGE-20 è valido solo per ordini superiori a €299,99.");
+        setDiscount(0); // Nessuno sconto
+      }
     } else {
-      setDiscount(0); // Se il codice non è valido, nessun sconto
+      setDiscount(0); // Nessuno sconto
       alert("Codice sconto non valido");
     }
   };
