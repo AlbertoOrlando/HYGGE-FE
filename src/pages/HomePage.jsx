@@ -55,7 +55,7 @@ export default function HomePage() {
                 </div>
             </div>
             <div className="box-evidence">
-                <Link className="btn-salotto" to={`/category/3`} onClick={() => window.scrollTo(0, 0)}>View More</Link>
+                <Link className="btn-salotto" to={`/category/3`} onClick={() => window.scrollTo(0, 0)}>Salotto</Link>
             </div>
 
             <div className="bagno-home">
