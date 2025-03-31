@@ -1,0 +1,27 @@
+.container-pop {
+    width: 30%;
+    background-color: beige;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid gray;
+    line-height: 40px;
+}
+
+.email-pop input {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.button-pop button {
+    padding: 8px 12px;
+    background-color: transparent;
+    border: 1px solid gray;
+    cursor: pointer;
+}
