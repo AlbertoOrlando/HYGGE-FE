@@ -11,15 +11,14 @@ import { faTruckFast, faBoxOpen, faCreditCard, faMedal, faStar, faSpinner } from
 import FormReviews from "../components/FormRewiews";
 
 export default function ProductDetailPage() {
-    
+
     const { products, addToCart } = useContext(GlobalContext);
     const { id } = useParams();
 
     //  settaggio dello stato del componente
     const [product, setProducts] = useState({});
     const [loadingCart, setLoadingCart] = useState(false); // Nuovo stato per il caricamento del carrello
-
-    
+    const [confirmationMessage, setConfirmationMessage] = useState(""); // Nuovo stato per il messaggio di conferma
 
     // funzione di chiamata verso la rotta store
     function fetchProdact() {
@@ -35,6 +34,7 @@ export default function ProductDetailPage() {
         window.scrollTo(0, 0); // Scorri in alto ogni volta che cambia il prodotto
     }, [id]);
 
+    // Funzione Clickbutton Aggiungi al carrello
     const handleAddToCartClick = async () => {
         console.log("Caricamento iniziato");
         setLoadingCart(true); // Inizia il caricamento
@@ -43,11 +43,15 @@ export default function ProductDetailPage() {
             await new Promise((resolve) => setTimeout(resolve, 2000)); // Ritardo di 2 secondi
             await addToCart(product);
             console.log("Prodotto aggiunto al carrello!");
+            // Imposta il messaggio di conferma
+            setConfirmationMessage("Aggiunto con successo!");
         } catch (error) {
             console.error("Errore durante l'aggiunta al carrello:", error);
         } finally {
             setLoadingCart(false); // Termina il caricamento    
             console.log("Caricamento terminato");
+            // Ripristina il testo del bottone dopo 3 secondi
+            setTimeout(() => setConfirmationMessage(""), 3000);
         }
     };
 
@@ -73,9 +77,18 @@ export default function ProductDetailPage() {
                     <p className="discounted-price"><strong>Prezzo Scontato:</strong> ${(product.price - (product.price * product.discount / 100)).toFixed(2)}</p>
                     <p className="original-price"><strong>Prezzo:</strong> ${product.price}</p>
                     <p><strong>Sconto:</strong> {product.discount}%</p>
+
+                    {/* Button Aggiungi al carrello */}
                     <button onClick={handleAddToCartClick} disabled={loadingCart}>
-                        {loadingCart ? <FontAwesomeIcon icon={faSpinner} spin /> : "Aggiungi al carrello"}
+                        {loadingCart ? (
+                            <FontAwesomeIcon icon={faSpinner} spin />
+                        ) : confirmationMessage ? (
+                            confirmationMessage
+                        ) : (
+                            "Aggiungi al carrello"
+                        )}
                     </button>
+
                     <div className="icons">
                         <ul>
                             <li><p><FontAwesomeIcon icon={faBoxOpen} /> 14 giorni per restituzioni e cambi</p></li>
@@ -95,18 +108,18 @@ export default function ProductDetailPage() {
                         const formattedDate = `${date.getDate()} ${date.toLocaleString('it-IT', { month: 'long' })} ${date.getFullYear()}`;
                         return (
                             <div key={review.id} className="review">
-                            <strong>{review.name}</strong> <br />
-                            <span>
-                                {review.rating >= 1 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
-                                {review.rating >= 2 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
-                                {review.rating >= 3 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
-                                {review.rating >= 4 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
-                                {review.rating >= 5 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
-                            </span>
-                            <p>{review.review}</p>
+                                <strong>{review.name}</strong> <br />
+                                <span>
+                                    {review.rating >= 1 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                                    {review.rating >= 2 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                                    {review.rating >= 3 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                                    {review.rating >= 4 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                                    {review.rating >= 5 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                                </span>
+                                <p>{review.review}</p>
 
-                            <p className="data">{formattedDate}</p>
-                        </div>
+                                <p className="data">{formattedDate}</p>
+                            </div>
                         );
                     })
                 ) : (
