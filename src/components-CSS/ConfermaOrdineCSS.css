@@ -1,0 +1,112 @@
+.conferma-ordine-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.conferma-ordine-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.conferma-ordine-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.conferma-ordine-header p {
+    font-size: 1.2rem;
+    color: #34495e;
+}
+
+.riepilogo-ordine {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.riepilogo-ordine h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+
+.ordine-prodotti {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.ordine-prodotto {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #ecf0f1;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ordine-prodotto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.ordine-prodotto-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ecf0f1;
+}
+
+.ordine-prodotto-info h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.ordine-prodotto-info p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin: 2px 0;
+}
+
+.ordine-totale {
+    text-align: right;
+    font-size: 1.5rem;
+    color: #27ae60;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.conferma-ordine-footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.torna-home-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background: #3498db;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.torna-home-btn:hover {
+    background: #2980b9;
+}

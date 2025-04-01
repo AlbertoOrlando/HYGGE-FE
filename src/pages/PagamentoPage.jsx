@@ -66,7 +66,7 @@ function PagamentoPage() {
             console.log('Risposta del server:', result); // Log della risposta del server
             setMessage(`Order created successfully! ID: ${result.id}`);
             await sendEmail(formData.email); // Invia l'email dopo aver creato l'ordine
-            navigate("/"); // Naviga alla pagina home
+            navigate("/conferma-ordine"); // Naviga alla pagina home
         } catch (error) {
             console.error('Errore durante la creazione dell\'ordine:', error); // Log dell'errore
             setMessage('Failed to create order. Please try again.');
