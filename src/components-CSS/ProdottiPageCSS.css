@@ -21,6 +21,28 @@
     position: relative;
     width: 100%;
 }
+.heart2{
+  position: relative;
+}
+
+.heart {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 7px;
+    color: black; /* Colore originale */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.heart.active {
+    color: red; /* Colore rosso quando il cuore è attivo */
+}
+
+.heart:hover {
+    transform: scale(1.2); /* Effetto hover per ingrandire il cuore */
+}
 
 .product-image, .product-image1 {
     width: 100%;
@@ -69,7 +91,6 @@
     border: 1px solid #ccc;
   }
 
-  
 
 
-  
+

@@ -14,6 +14,7 @@ import CarrelloPage from "./pages/CarrelloPage";
 import PagamentoPage from "./pages/PagamentoPage";
 import RisultatiRicercaPage from "./pages/RisultatiRicercaPage";
 import ConfermaOrdinePage from "./pages/ConfermaOrdinePage";
+import WishListPage from "./pages/WishListPage";
 
 // Importiamo il Provider dal GlobalContext
 import { GlobalProvider } from "./cotext/GlobalContest";
@@ -32,7 +33,7 @@ function App() {
             <Route path="/prodotti/:id" element={<ProductDetailPage />} />
             <Route path="/conferma-ordine" element={<ConfermaOrdinePage />} />
             <Route path="/search" element={<RisultatiRicercaPage />} />
-
+            <Route path="/wishlist" element={<WishListPage />} />
             <Route path="/carrello" element={<CarrelloPage />} />
             <Route path="/pagamento" element={<PagamentoPage />} />
             <Route path="/*" element={<NotFoundPage />} />

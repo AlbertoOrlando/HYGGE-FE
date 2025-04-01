@@ -6,7 +6,7 @@ import GlobalContext from '../cotext/GlobalContest';
 
 import "../components-CSS/HeaderCSS.css";
 
-import { faSearch, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faShoppingBag, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Header() {
@@ -93,10 +93,12 @@ export default function Header() {
                                 </button>
                             </form>
                         </div>
+                        <Link to="/wishlist"><FontAwesomeIcon icon={faHeart} /></Link>
                         <Link to="/carrello" onClick={() => window.scrollTo(0, 0)} className="cart-icon">
                             <FontAwesomeIcon icon={faShoppingBag} />
                             {cartCount > 0 && <span className="cart-notification">{cartCount}</span>}
                         </Link>
+                        
                     </div>
                 </div>
             </div>

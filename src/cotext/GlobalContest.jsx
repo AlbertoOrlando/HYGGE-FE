@@ -15,6 +15,10 @@ export const GlobalProvider = ({ children }) => {
   const [discount, setDiscount] = useState(0);
   const [total, setTotal] = useState(0); // Totale senza sconto
   const [finalTotal, setFinalTotal] = useState(0); // Totale finale con sconto
+  const [wishlist, setWishlist] = useState(() => {
+    const savedWishlist = localStorage.getItem("wishlist");
+    return savedWishlist ? JSON.parse(savedWishlist) : [];
+  }); // Stato per la lista dei desideri
 
   console.log("Total:", total); // Log del totale senza sconto
   console.log("Final Total:", finalTotal); // Log del totale finale con sconto
@@ -64,6 +68,10 @@ export const GlobalProvider = ({ children }) => {
     setFinalTotal(totalWithoutDiscount); // Totale finale senza sconto
   }, [cart, discount]);
 
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist)); // Aggiorna il localStorage quando cambia la wishlist
+  }, [wishlist]);
+
   const addToCart = (product) => {
     setCartCount((prevCount) => prevCount + 1);
 
@@ -76,6 +84,18 @@ export const GlobalProvider = ({ children }) => {
       } else {
         return [...prevCart, { ...product, quantity: 1 }];
       }
+    });
+  };
+
+  const toggleWishlist = (product) => {
+    setWishlist((prevWishlist) => {
+      const isInWishlist = prevWishlist.some((item) => item.id === product.id);
+      const updatedWishlist = isInWishlist
+        ? prevWishlist.filter((item) => item.id !== product.id) // Rimuovi il prodotto
+        : [...prevWishlist, product]; // Aggiungi il prodotto
+
+      localStorage.setItem("wishlist", JSON.stringify(updatedWishlist)); // Salva nel localStorage
+      return updatedWishlist;
     });
   };
 
@@ -110,7 +130,8 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider value={{ 
       search, setSearch, products, categories, loading, error, 
       cart, setCart, addToCart, query, setQuery, createOrder, 
-      cartCount, setCartCount, total, setDiscount, discount, finalTotal, setFinalTotal
+      cartCount, setCartCount, total, setDiscount, discount, finalTotal, setFinalTotal,
+      wishlist, setWishlist, toggleWishlist
     }}>
       {children}
     </GlobalContext.Provider>
