@@ -6,8 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const CarrelloPage = () => {
-  const { cart, setCart, setDiscount, discount, setFinalTotal } = useContext(GlobalContext);
+  const { cart, setCart, setDiscount, discount, setFinalTotal, finalTotal } = useContext(GlobalContext);
   const [discountCode, setDiscountCode] = useState("");
+  const [discountProduct, setDiscountProduct] = useState(0); // Stato per lo sconto prodotto
 
   const handleRemoveItem = (id) => {
     setCart((prevCart) => prevCart.filter(item => item.id !== id));
@@ -40,6 +41,7 @@ const CarrelloPage = () => {
     if (discountCode === "SALE10") {
       setDiscount(0.1); // 10% di sconto
     } else if (discountCode === "HYGGE-20") {
+      const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
       if (subtotal > 299.99) {
         setDiscount(0.2); // 20% di sconto
       } else {
@@ -52,28 +54,36 @@ const CarrelloPage = () => {
     }
   };
 
-  // Calcolare il subtotale con sconto sui prodotti
-  const subtotal = cart.reduce((acc, item) => {
-    const discountedPrice = item.price - (item.price * (item.discount || 0) / 100);
-    return acc + discountedPrice * item.quantity;
-  }, 0);
+  useEffect(() => {
+    // Calcolare lo sconto prodotto solo dopo che il carrello è stato aggiornato
+    const calculateDiscountProduct = () => {
+      const discountValue = cart.reduce((acc, item) => {
+        const originalPrice = item.price * item.quantity;
+        const discountedPrice = (item.price - (item.price * (item.discount || 0) / 100)) * item.quantity;
+        return acc + (originalPrice - discountedPrice);
+      }, 0);
+      setDiscountProduct(discountValue || 0); // Aggiorna lo stato dello sconto prodotto
+    };
 
-  // Calcolare lo sconto prodotto (differenza tra il prezzo totale e il subtotale)
-  const discountProduct = cart.reduce((acc, item) => {
-    const originalPrice = item.price * item.quantity;
-    const discountedPrice = (item.price - (item.price * (item.discount || 0) / 100)) * item.quantity;
-    return acc + (originalPrice - discountedPrice);
-  }, 0);
-
-  // Calcolare il codice sconto
-  const codeDiscount = discount ? subtotal * discount : 0; // Calcoliamo il codice sconto se è presente
-
-  // Prezzo finale (totale - sconto prodotto - sconto codice)
-  const finalTotal = subtotal - discountProduct - codeDiscount;
+    calculateDiscountProduct();
+  }, [cart]); // Ricalcola lo sconto prodotto quando il carrello cambia
 
   useEffect(() => {
-    setFinalTotal(finalTotal); // Imposta finalTotal nel contesto globale
-  }, [finalTotal, setFinalTotal]); // Effettua il calcolo quando finalTotal cambia
+    const calculateFinalTotal = () => {
+      // Calcolare il subtotale (prezzo originale dei prodotti)
+      const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+      // Calcolare il codice sconto
+      const codeDiscount = discount ? subtotal * discount : 0;
+
+      // Calcolare il totale finale
+      const finalTotalValue = subtotal - discountProduct - codeDiscount;
+
+      setFinalTotal(finalTotalValue || 0); // Imposta finalTotal nel contesto globale
+    };
+
+    calculateFinalTotal(); // Esegui il calcolo
+  }, [cart, discount, discountProduct, setFinalTotal]); // Effettua il calcolo quando cart, discount o discountProduct cambiano
 
   return (
     <div className="cart-container">
@@ -88,8 +98,8 @@ const CarrelloPage = () => {
                 <img src={item.images[0]} alt={item.name} />
                 <div className="cart-item-details">
                   <h3>{item.name}</h3>
-                  <p className="original-price"><strong>Prezzo:</strong> ${item.price}</p>
-                  <p><b>Prezzo scontato:</b> ${(item.price - (item.price * item.discount / 100)).toFixed(2)}</p>
+                  <p className="original-price"><strong>Prezzo:</strong> €{item.price}</p>
+                  <p><b>Prezzo scontato:</b> €{(item.price - (item.price * item.discount / 100)).toFixed(2)}</p>
                   <div className="quantity-controls">
                     <button className="quantity-btn increase-btn" onClick={() => handleIncreaseQuantity(item.id)}>+</button>
                     <button className="quantity-btn decrease-btn" onClick={() => handleDecreaseQuantity(item.id)}>-</button>
@@ -107,7 +117,7 @@ const CarrelloPage = () => {
           <h2>Riepilogo Ordine</h2>
           <div className="summary-item">
             <span>Subtotale:</span>
-            <span>€{subtotal.toFixed(2)}</span>
+            <span>€{cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}</span>
           </div>
           <div className="summary-item">
             <span>Sconto prodotto:</span>
@@ -115,7 +125,7 @@ const CarrelloPage = () => {
           </div>
           <div className="summary-item">
             <span>Codice sconto:</span>
-            <span>-€{codeDiscount.toFixed(2)}</span>
+            <span>-€{(cart.reduce((acc, item) => acc + item.price * item.quantity, 0) * discount).toFixed(2)}</span>
           </div>
           <div className="summary-item">
             <span>Totale:</span>
