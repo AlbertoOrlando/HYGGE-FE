@@ -183,6 +183,7 @@ a {
     text-align: center;
     font-style: sans-serif;
     font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 25px;
 }
 
 .paragrafo-bagno {
@@ -202,9 +203,15 @@ a {
     font-family: 'Times New Roman', Times, serif;
 }
 
+.parag-bagno{
+    line-height: 60px;
+    text-align: center;
+}
+
 /* Btn Bagno */
 .btn-bagno {
-    margin-top: 20px;
+    margin-top: 60px;
+    width: 130px;
 }
 
 .btn-bagno a {
