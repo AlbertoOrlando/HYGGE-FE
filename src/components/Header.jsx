@@ -10,7 +10,7 @@ import { faSearch, faShoppingBag, faHeart } from "@fortawesome/free-solid-svg-ic
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Header() {
-    const { cartCount, setSearch, categories, query, setQuery } = useContext(GlobalContext);
+    const { cartCount, wishlistCount, setSearch, categories, query, setQuery } = useContext(GlobalContext);
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false); // Stato per il burger menu
 
@@ -93,7 +93,10 @@ export default function Header() {
                                 </button>
                             </form>
                         </div>
-                        <Link to="/wishlist"><FontAwesomeIcon icon={faHeart} /></Link>
+                        <Link to="/wishlist" className="wishlist-icon">
+                            <FontAwesomeIcon icon={faHeart} />
+                            {wishlistCount > 0 && <span className="wishlist-notification">{wishlistCount}</span>}
+                        </Link>
                         <Link to="/carrello" onClick={() => window.scrollTo(0, 0)} className="cart-icon">
                             <FontAwesomeIcon icon={faShoppingBag} />
                             {cartCount > 0 && <span className="cart-notification">{cartCount}</span>}

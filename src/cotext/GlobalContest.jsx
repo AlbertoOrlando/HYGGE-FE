@@ -19,6 +19,7 @@ export const GlobalProvider = ({ children }) => {
     const savedWishlist = localStorage.getItem("wishlist");
     return savedWishlist ? JSON.parse(savedWishlist) : [];
   }); // Stato per la lista dei desideri
+  const [wishlistCount, setWishlistCount] = useState(0); // Stato per il conteggio della wishlist
 
   console.log("Total:", total); // Log del totale senza sconto
   console.log("Final Total:", finalTotal); // Log del totale finale con sconto
@@ -70,6 +71,7 @@ export const GlobalProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("wishlist", JSON.stringify(wishlist)); // Aggiorna il localStorage quando cambia la wishlist
+    setWishlistCount(wishlist.length); // Aggiorna il conteggio della wishlist
   }, [wishlist]);
 
   const addToCart = (product) => {
@@ -131,7 +133,7 @@ export const GlobalProvider = ({ children }) => {
       search, setSearch, products, categories, loading, error, 
       cart, setCart, addToCart, query, setQuery, createOrder, 
       cartCount, setCartCount, total, setDiscount, discount, finalTotal, setFinalTotal,
-      wishlist, setWishlist, toggleWishlist
+      wishlist, setWishlist, toggleWishlist, wishlistCount // Esponi il conteggio della wishlist
     }}>
       {children}
     </GlobalContext.Provider>
