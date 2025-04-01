@@ -40,7 +40,7 @@ export default function ProductDetailPage() {
         setLoadingCart(true); // Inizia il caricamento
         try {
             // Simula un ritardo nella funzione addToCart
-            await new Promise((resolve) => setTimeout(resolve, 2000)); // Ritardo di 2 secondi
+            await new Promise((resolve) => setTimeout(resolve, 1000)); // Ritardo di 1 secondi
             await addToCart(product);
             console.log("Prodotto aggiunto al carrello!");
             // Imposta il messaggio di conferma
@@ -50,8 +50,8 @@ export default function ProductDetailPage() {
         } finally {
             setLoadingCart(false); // Termina il caricamento    
             console.log("Caricamento terminato");
-            // Ripristina il testo del bottone dopo 3 secondi
-            setTimeout(() => setConfirmationMessage(""), 3000);
+            // Ripristina il testo del bottone dopo 2 secondi
+            setTimeout(() => setConfirmationMessage(""), 2000);
         }
     };
 
