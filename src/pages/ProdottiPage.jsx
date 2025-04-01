@@ -16,12 +16,8 @@ export default function ProdottiPage() {
             <div className="product-grid-prodotti">
                 {products.map(product => (
                     <div className="product-card" key={product.id}>
-                        <ProductCard product={product} />
                         <Link to={`/prodotti/${product.id}`}>
-                            <div className="product-details-link">
-                                <h2>{product.name}</h2>
-                                <p><strong>Prezzo:</strong> €{product.price}</p>
-                            </div>
+                            <ProductCard product={product} />
                         </Link>
                     </div>
                 ))}
