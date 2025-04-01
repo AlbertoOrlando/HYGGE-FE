@@ -1,5 +1,7 @@
 // Import CSS
 import "../components-CSS/PopUpCSS.css"
+// Import Axios
+import axios from "axios";
 
 // useState
 import { useState, useEffect } from "react"
@@ -11,34 +13,27 @@ export default function PopUp() {
     // Stato dell'email per salvare il valore dell'email inserita dall'utente
     const [userMail, setUserMail] = useState("");
 
-    // Controlla localStorage per determinare se il pop-up è già stato mostrato
-    useEffect(() => {
-        const hasSeenPopup = localStorage.getItem("hasSeenPopup");
-        if (hasSeenPopup) {
-            setIsVisible(false);
-        }
-    }, []);
-
-    // gestione invio con tastiera
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.key === "Enter") {
-                handleClose();
-            }
-        };
-
-        window.addEventListener("keydown", handleKeyDown);
-
-        // Cleanup per rimuovere il listener quando il componente viene smontato
-        return () => {
-            window.removeEventListener("keydown", handleKeyDown);
-        };
-    }, []);
+    function getEmailPop() {
+        console.log("Tentativo di invio email:", userMail); // Log dell'email inserita
+        axios.post(`http://localhost:3000/api/products/email/create`, {
+            email: userMail, // Passa l'email come payload
+        }, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(response => {
+                console.log("Risposta dal server:", response.data); // Log della risposta
+            })
+            .catch(error => {
+                console.error("Errore durante il salvataggio dell'email:", error.response || error); // Log dettagliato dell'errore
+            });
+    }
 
     // Funzione per chiudere il pop-up e salvare lo stato in localStorage
     const handleClose = () => {
         setIsVisible(false);
-        localStorage.setItem("hasSeenPopup", "true");
+        // localStorage.setItem("hasSeenPopup", "true");
     };
 
     // Contenuto del componente
@@ -65,7 +60,7 @@ export default function PopUp() {
                 </div>
                 {/* Bottone */}
                 <div className="button-pop">
-                    <button onClick={handleClose}>Chiudi</button>
+                    <button onClick={() => { getEmailPop(); handleClose(); }}>Invia</button>
                 </div>
 
             </div>
