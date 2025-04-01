@@ -66,7 +66,7 @@ export default function HomePage() {
                             <h3>Bagno</h3>
                         </div>
                         <div className="parag-bagno">
-                            <p>"Rinnova il tuo bagno con stile ed eleganza." </p>
+                            <i>"Rinnova il tuo bagno con stile ed eleganza." </i>
                             <i>  Lasciati ispirare dal design e dalla raffinatezza</i>
                         </div>
                         <div className="btn-bagno">
