@@ -1,5 +1,9 @@
 // Import CSS
 import "../components-CSS/PopUpCSS.css"
+// Import fontAwesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+
 // Import Axios
 import axios from "axios";
 
@@ -12,9 +16,20 @@ export default function PopUp() {
     const [isVisible, setIsVisible] = useState(true);
     // Stato dell'email per salvare il valore dell'email inserita dall'utente
     const [userMail, setUserMail] = useState("");
+    const [errorMessage, setErrorMessage] = useState(""); // Stato per il messaggio di errore
 
-    function getEmailPop() {
+    function getEmailPop(e) {
+        e.preventDefault(); // Previene il comportamento predefinito del form
         console.log("Tentativo di invio email:", userMail); // Log dell'email inserita
+
+        if (!userMail.trim()) { // Controlla se l'input è vuoto o solo spazi
+            console.error("Errore: il campo email è vuoto.");
+            setErrorMessage("Per favore, inserisci un'email valida."); // Imposta il messaggio di errore
+            return;
+        }
+
+        setErrorMessage(""); // Resetta il messaggio di errore se l'email è valida
+
         axios.post(`http://localhost:3000/api/products/email/create`, {
             email: userMail, // Passa l'email come payload
         }, {
@@ -24,9 +39,12 @@ export default function PopUp() {
         })
             .then(response => {
                 console.log("Risposta dal server:", response.data); // Log della risposta
+                setErrorMessage(""); // Resetta eventuali messaggi di errore
+                handleClose(); // Chiude il pop-up dopo il successo
             })
             .catch(error => {
-                console.error("Errore durante il salvataggio dell'email:", error.response || error); // Log dettagliato dell'errore
+                console.error("Errore durante il salvataggio dell'email:", error.response?.data || error.message); // Log dettagliato dell'errore
+                setErrorMessage("Email già registrata"); // Mostra un messaggio di errore
             });
     }
 
@@ -38,32 +56,31 @@ export default function PopUp() {
 
     // Contenuto del componente
     return (
-
-        // Condizione per la visualizzazione del componente
         isVisible &&
         (
             <div className="container-pop">
-
-                {/* Messaggio */}
                 <div className="message-pop">
-                    <h1>Benvenuti</h1>
+                    <h2>Benvenuti</h2>
                 </div>
-                {/* Email */}
-                <div className="email-pop">
-                    <label htmlFor="email">Inserisci la tua mail</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={userMail}
-                        //   Evento onChage per aggiornare lo stato
-                        onChange={(e) => setUserMail(e.target.value)} />
+                <form onSubmit={getEmailPop}>
+                    <div className="email-pop">
+                        <label htmlFor="email">Registra la tua email</label>
+                        <input
+                            type="email"
+                            placeholder="Inserisci email..."
+                            name="email"
+                            value={userMail}
+                            onChange={(e) => setUserMail(e.target.value)} />
+                        {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Mostra il messaggio di errore */}
+                    </div>
+                    <div className="button-pop">
+                        <button type="submit">Invia</button>
+                    </div>
+                </form>
+                <div className="button-close">
+                    <button className="x-button" onClick={handleClose}><FontAwesomeIcon icon={faXmark} /></button>
                 </div>
-                {/* Bottone */}
-                <div className="button-pop">
-                    <button onClick={() => { getEmailPop(); handleClose(); }}>Invia</button>
-                </div>
-
             </div>
         )
-    )
+    );
 }
