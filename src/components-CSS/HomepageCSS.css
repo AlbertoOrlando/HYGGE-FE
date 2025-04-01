@@ -18,13 +18,18 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: 500;
     text-decoration: none;
     border: 2px solid white;
     color: white;
     padding: 10px 15px;
 }
 
-
+.content-home a:hover {
+    background-color: rgba(211, 211, 211, 0.3);
+    color: white;
+}
 
 .new-arrivals {
     padding: 10px;
@@ -101,12 +106,17 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     text-decoration: none;
-    color: black;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 700;
     font-size: 20px;
-    background-color: rgba(255, 255, 255, 0.71);
-    padding: 15px 40px;
+    font-weight: 400;
+    text-decoration: none;
+    border: 2px solid white;
+    color: white;
+    padding: 20px 35px;
+}
+
+.camera-da-letto a:hover {
+    background-color: rgba(211, 211, 211, 0.3);
+    color: white;
 }
 
 /* In evidenza */
@@ -153,15 +163,16 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: 400;
     text-decoration: none;
     border: 2px solid white;
-    color: black;
-    background-color: rgba(255, 255, 255, 0.421);
-    padding: 10px 15px;
+    color: white;
+    padding: 20px 35px;
 }
 
 .btn-salotto:hover {
-    background-color: black;
+    background-color: rgba(211, 211, 211, 0.3);
     color: white;
 }
 
@@ -254,13 +265,16 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     text-decoration: none;
-    color: black;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 700;
+    color: white;
     font-size: 20px;
-    background-color: rgba(255, 255, 255, 0.71);
+    font-weight: 500;
     padding: 15px 40px;
+    border: white solid 2px;
+}
 
+.giardino-img a:hover {
+    background-color: rgba(211, 211, 211, 0.3);
+    color: white;
 }
 
 .giardino {
@@ -305,9 +319,16 @@ a {
     position: absolute;
     top: 50%;
     left: 50%;
+    font-size: 20px;
+    font-weight: 500;
     transform: translate(-50%, -50%);
     text-decoration: none;
     border: 2px solid black;
     color: black;
     padding: 10px 15px;
+}
+
+.sala-da-pranzo-img a:hover {
+    background-color: rgba(62, 62, 62, 0.3);
+    color: black;
 }
