@@ -30,7 +30,10 @@ const CategoryPage = () => {
           window.scrollTo(0, 0); // Scorri in alto ogni volta che cambia il prodotto
       }, [id]);
 
-
+ // Controllo per evitare errori se currentCategory è undefined
+ if (!currentCategory) {
+  return <p>Caricamento della categoria...</p>;
+}
   return (
     <div className="category-container">
       <div className="category-header">

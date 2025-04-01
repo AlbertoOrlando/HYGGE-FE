@@ -10,11 +10,9 @@ import { faSearch, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Header() {
-    // Ottieni il conteggio degli articoli nel carrello
-    const { cartCount } = useContext(GlobalContext);
-
-    const { setSearch, categories, query, setQuery } = useContext(GlobalContext);
+    const { cartCount, setSearch, categories, query, setQuery } = useContext(GlobalContext);
     const navigate = useNavigate();
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // Stato per il burger menu
 
     function handleFormQuery(e) {
         setQuery(e.target.value);
@@ -42,8 +40,6 @@ export default function Header() {
             });
     }
 
-
-
     return (
         <>
             <div className="codice-sconto">
@@ -60,6 +56,23 @@ export default function Header() {
                             key={category.id}
                             to={`/category/${category.id}`}
                             onClick={() => window.scrollTo(0, 0)}
+                        >
+                            {category.name}
+                        </NavLink>
+                    ))}
+                </div>
+                <div className="burger-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div className={`nav-dropdown ${isMenuOpen ? "active" : ""}`}>
+                    <NavLink to="/prodotti" onClick={() => setIsMenuOpen(false)}>Prodotti</NavLink>
+                    {categories.map(category => (
+                        <NavLink
+                            key={category.id}
+                            to={`/category/${category.id}`}
+                            onClick={() => setIsMenuOpen(false)}
                         >
                             {category.name}
                         </NavLink>
@@ -82,7 +95,6 @@ export default function Header() {
                         </div>
                         <Link to="/carrello" onClick={() => window.scrollTo(0, 0)} className="cart-icon">
                             <FontAwesomeIcon icon={faShoppingBag} />
-                            {/* Visualizza il conteggio solo se il carrello non è vuoto */}
                             {cartCount > 0 && <span className="cart-notification">{cartCount}</span>}
                         </Link>
                     </div>
