@@ -52,7 +52,7 @@ export default function PopUp() {
                 <div className="email-pop">
                     <label htmlFor="email">Inserisci la tua mail</label>
                     <input
-                        type="text"
+                        type="email"
                         name="email"
                         value={userMail}
                         //   Evento onChage per aggiornare lo stato
