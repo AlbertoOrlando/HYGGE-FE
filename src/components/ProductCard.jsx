@@ -8,6 +8,11 @@ export default function ProductCard({ product }) {
 
     const isInWishlist = wishlist.some((item) => item.id === product.id);
 
+    const handleHeartClick = (e) => {
+        e.preventDefault(); // Impedisce il comportamento predefinito del link
+        toggleWishlist(product);
+    };
+
     return (       
         <div className="heart2">
         <div className="product-image-container">
@@ -18,7 +23,7 @@ export default function ProductCard({ product }) {
                 <FontAwesomeIcon 
                     className={`heart ${isInWishlist ? "active" : ""}`} 
                     icon={faHeart} 
-                    onClick={() => toggleWishlist(product)} 
+                    onClick={handleHeartClick} // Usa il gestore per prevenire il comportamento predefinito
                 />
             </div>
             <h2>{product.name}</h2>
