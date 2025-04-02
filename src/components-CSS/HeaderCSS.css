@@ -154,14 +154,13 @@
 /* Wishlist Icon */
 .wishlist-icon {
   position: relative;
-  
 }
 
 .wishlist-notification {
   position: absolute;
   top: -5px;
   right: -12px;
-  background-color:red;
+  background-color: red;
   color: white;
   font-size: 12px;
   font-weight: bold;
@@ -226,11 +225,17 @@
 /* Media query per tablet e mobile */
 @media (max-width: 920px) {
   .nav {
-    display: none; /* Nascondi la navbar principale */
+    display: none;
+    /* Nascondi la navbar principale */
   }
 
   .burger-menu {
-  display: block;
-    display: flex; /* Mostra il burger menu */
+    display: block;
+    display: flex;
+    /* Mostra il burger menu */
+  }
+
+  .search-form {
+    right: 107px;
   }
 }
