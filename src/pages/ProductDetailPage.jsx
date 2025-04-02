@@ -13,17 +13,16 @@ import FormReviews from "../components/FormRewiews";
 export default function ProductDetailPage() {
 
     const { products, addToCart } = useContext(GlobalContext);
-    const { id } = useParams();
+    const { slug } = useParams(); // Usa slug invece di id
 
     //  settaggio dello stato del componente
     const [product, setProducts] = useState({});
     const [loadingCart, setLoadingCart] = useState(false); // Nuovo stato per il caricamento del carrello
     const [confirmationMessage, setConfirmationMessage] = useState(""); // Nuovo stato per il messaggio di conferma
-    const [relatedProducts, setRelatedProducts] = useState([]); // Nuovo stato per i prodotti correlati
 
     // funzione di chiamata verso la rotta store
     function fetchProdact() {
-        axios.get(`http://localhost:3000/api/products/${id}`)
+        axios.get(`http://localhost:3000/api/products/${slug}`) // Usa slug nella chiamata API
             .then(res => setProducts(res.data))
             .catch(err => {
                 console.log(err);
@@ -33,17 +32,7 @@ export default function ProductDetailPage() {
     useEffect(() => {
         fetchProdact();
         window.scrollTo(0, 0); // Scorri in alto ogni volta che cambia il prodotto
-    }, [id]);
-
-    // Nuovo useEffect per gestire i prodotti correlati
-    useEffect(() => {
-        if (product && product.category_id) {
-            const related = products
-                .filter(p => p.category_id === product.category_id && p.id !== product.id)
-                .slice(0, 5); // Prendi solo 4 prodotti correlati
-            setRelatedProducts(related);
-        }
-    }, [product, products]);
+    }, [slug]);
 
     // Funzione Clickbutton Aggiungi al carrello
     const handleAddToCartClick = async () => {
@@ -139,27 +128,24 @@ export default function ProductDetailPage() {
             </div>
 
             <div className="form-reviews">
-                <FormReviews product_id={id} reloadReviews={fetchProdact} />
+                <FormReviews product_id={slug} reloadReviews={fetchProdact} /> {/* Passa lo slug */}
             </div>
 
             <h2>Prodotti correlati</h2>
             <div className="new-arrivals">
-                {relatedProducts.length > 0 ? (
-                    relatedProducts.map(product => (
-                        <Link to={`/prodotti/${product.id}`} className="card-box" key={product.id}>
-                            <div className="card-body">
-                                <img src={product.images[0]} alt={product.name} className="product-image2" />
-                                <img src={product.images[1]} alt={product.name} className="product-image12" />
-                            </div>
-                            <div className="card-text">
-                                <h3>{product.name}</h3>
-                                <span>{product.price} €</span>
-                            </div>
-                        </Link>
-                    ))
-                ) : (
-                    <p>Nessun prodotto correlato disponibile.</p>
-                )}
+                {products.slice(10, 15).map(product => (
+                    <Link to={`/prodotti/${product.slug}`} className="card-box" key={product.id}> 
+                        {/* Usa slug per i link ai prodotti correlati */}
+                        <div className="card-body">
+                            <img src={product.images[0]} alt={product.name} className="product-image2" />
+                            <img src={product.images[1]} alt={product.name} className="product-image12" />
+                        </div>
+                        <div className="card-text">
+                            <h3>{product.name}</h3>
+                            <span>{product.price} €</span>
+                        </div>
+                    </Link>
+                ))}
             </div>
         </>
     );
