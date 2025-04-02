@@ -21,6 +21,19 @@ export default function PopUp() {
     // Stato per memorizzare le email esistenti
     // const [existingEmails, setExistingEmails] = useState([]);
 
+    // Aggiungi useEffect per gestire lo scroll
+    useEffect(() => {
+        if (isVisible) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isVisible]);
+
     // useEffect(() => {
     //     // Check localStorage to see if the popup has already been shown
     //     const hasSeenPopup = localStorage.getItem("hasSeenPopup");
@@ -103,27 +116,29 @@ export default function PopUp() {
     return (
         isVisible &&
         (
-            <div className="container-pop">
-                <div className="message-pop">
-                    <h2>Benvenuti</h2>
-                </div>
-                <form onSubmit={getEmailPop}>
-                    <div className="email-pop">
-                        <label htmlFor="email">Registra la tua email</label>
-                        <input
-                            type="email"
-                            placeholder="Inserisci email..."
-                            name="email"
-                            value={userMail}
-                            onChange={(e) => setUserMail(e.target.value)} />
-                        {errorMessage && <p className="error-message">{errorMessage}</p>}
+            <div className="popup-overlay">
+                <div className="container-pop">
+                    <div className="message-pop">
+                        <h2>Benvenuti</h2>
                     </div>
-                    <div className="button-pop">
-                        <button type="submit">Invia</button>
+                    <form onSubmit={getEmailPop}>
+                        <div className="email-pop">
+                            <label htmlFor="email">Registra la tua email</label>
+                            <input
+                                type="email"
+                                placeholder="Inserisci email..."
+                                name="email"
+                                value={userMail}
+                                onChange={(e) => setUserMail(e.target.value)} />
+                            {errorMessage && <p className="error-message">{errorMessage}</p>}
+                        </div>
+                        <div className="button-pop">
+                            <button type="submit">Invia</button>
+                        </div>
+                    </form>
+                    <div className="button-close">
+                        <button className="x-button" onClick={handleClose}><FontAwesomeIcon icon={faXmark} /></button>
                     </div>
-                </form>
-                <div className="button-close">
-                    <button className="x-button" onClick={handleClose}><FontAwesomeIcon icon={faXmark} /></button>
                 </div>
             </div>
         )
