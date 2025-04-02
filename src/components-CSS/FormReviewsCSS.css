@@ -1,83 +1,112 @@
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    /* Spazio tra gli elementi */
-    padding: 1.5rem;
-    border: 1px solid #ccc;
-    /* Bordo leggero per delimitare il form */
-    border-radius: 8px;
-    /* Bordi arrotondati per un aspetto più moderno */
-    background-color: #f9f9f9;
-    /* Leggero sfondo per il form */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Leggera ombra per profondità */
+.reviews-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 20px;
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+    transition: all 0.3s ease;
 }
 
-.form h5 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #333;
+.reviews-title {
     text-align: center;
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.form form {
+.reviews-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
-.form div {
-    display: flex;
-    flex-direction: column;
+.form-group {
+    position: relative;
 }
 
-.form label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #555;
-}
-
-.form input[type="text"],
-.form input[type="number"],
-.form textarea {
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    color: #444;
-}
-
-.form textarea {
-    resize: vertical;
-    /* Permette di ridimensionare verticalmente la textarea */
-}
-
-.form button[type="submit"] {
-    background-color: #007bff;
-    /* Colore primario */
-    color: white;
-    padding: 0.75rem 1.5rem;
+.reviews-input,
+.reviews-textarea {
+    width: 100%;
+    padding: 1rem;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-    /* Transizione per l'effetto hover */
+    background: white;
+    border-radius: 15px;
+    box-shadow: inset 5px 5px 10px #e6e6e6, 
+                inset -5px -5px 10px #ffffff;
+    transition: all 0.3s ease;
 }
 
-.form button[type="submit"]:hover {
-    background-color: #0056b3;
-    /* Scurimento del colore al passaggio del mouse */
-}
-
-/* Stili aggiuntivi per migliorare l'aspetto (opzionali) */
-.form input[type="text"]:focus,
-.form input[type="number"]:focus,
-.form textarea:focus {
+.reviews-input:focus,
+.reviews-textarea:focus {
     outline: none;
-    border-color: #007bff;
-    /* Evidenzia il campo attivo */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    /* Aggiunge un'ombra leggera al focus */
+    box-shadow: inset 8px 8px 15px #e6e6e6, 
+                inset -8px -8px 15px #ffffff;
+    transform: scale(1.02);
+}
+
+.reviews-textarea {
+    min-height: 150px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.rating-group {
+    display: flex;
+    justify-content: center;
+}
+
+.reviews-rating {
+    width: 100px;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    box-shadow: inset 3px 3px 7px #e6e6e6, 
+                inset -3px -3px 7px #ffffff;
+}
+
+.reviews-submit {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #b8a99c, rgba(153, 52, 15, 0.925));
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(153, 52, 15, 0.4);
+}
+
+.reviews-submit::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: translateX(-100%);
+    transition: 0.5s;
+}
+
+.reviews-submit:hover::after {
+    transform: translateX(100%);
+}
+
+@media (max-width: 768px) {
+    .reviews-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
 }
