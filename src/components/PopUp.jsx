@@ -18,6 +18,19 @@ export default function PopUp() {
     const [userMail, setUserMail] = useState("");
     const [errorMessage, setErrorMessage] = useState(""); // Stato per il messaggio di errore
 
+    // Aggiungi useEffect per gestire lo scroll
+    useEffect(() => {
+        if (isVisible) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isVisible]);
+
     function getEmailPop(e) {
         e.preventDefault(); // Previene il comportamento predefinito del form
         console.log("Tentativo di invio email:", userMail); // Log dell'email inserita
@@ -56,31 +69,33 @@ export default function PopUp() {
 
     // Contenuto del componente
     return (
-        isVisible &&
-        (
-            <div className="container-pop">
-                <div className="message-pop">
-                    <h2>Benvenuti</h2>
-                </div>
-                <form onSubmit={getEmailPop}>
-                    <div className="email-pop">
-                        <label htmlFor="email">Registra la tua email</label>
-                        <input
-                            type="email"
-                            placeholder="Inserisci email..."
-                            name="email"
-                            value={userMail}
-                            onChange={(e) => setUserMail(e.target.value)} />
-                        {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Mostra il messaggio di errore */}
+        isVisible && (
+            <>
+                <div className="popup-overlay"></div>
+                <div className="container-pop">
+                    <div className="message-pop">
+                        <h2>Benvenuti</h2>
                     </div>
-                    <div className="button-pop">
-                        <button type="submit">Invia</button>
+                    <form onSubmit={getEmailPop}>
+                        <div className="email-pop">
+                            <label htmlFor="email">Registra la tua email</label>
+                            <input
+                                type="email"
+                                placeholder="Inserisci email..."
+                                name="email"
+                                value={userMail}
+                                onChange={(e) => setUserMail(e.target.value)} />
+                            {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Mostra il messaggio di errore */}
+                        </div>
+                        <div className="button-pop">
+                            <button type="submit">Invia</button>
+                        </div>
+                    </form>
+                    <div className="button-close">
+                        <button className="x-button" onClick={handleClose}><FontAwesomeIcon icon={faXmark} /></button>
                     </div>
-                </form>
-                <div className="button-close">
-                    <button className="x-button" onClick={handleClose}><FontAwesomeIcon icon={faXmark} /></button>
                 </div>
-            </div>
+            </>
         )
     );
 }
