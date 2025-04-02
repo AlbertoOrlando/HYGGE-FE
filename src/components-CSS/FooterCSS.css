@@ -1,18 +1,74 @@
-/* Contenitore principale del footer */
-.container-Footer {
-    background-color: #fff;
-    height: 80px;
-    color: black;
-    text-align: center;
+/* Blocco superiore del footer */
+.footer-blockUp {
     display: flex;
-    gap: 30px;
-    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f5f5f5;
+    flex-wrap: wrap;
 }
 
-/* Stile per i link all'interno del footer */
-.container-Footer a {
+.footer-blockUp ul {
+    list-style: none;
+}
+
+.footer-blockUp h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.footer-blockUp li {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.footer-blockUp li a {
     text-decoration: none;
-    color: black;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.footer-blockUp li a:hover {
+    color: #3498db;
+}
+
+/* Stile per la sezione contatti */
+
+.footer-contatti h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Stile per la sezione informazioni */
+
+.footer-informazioni h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Stile per la sezione legale */
+.footer-legale ul {
+    list-style: none;
+}
+
+.footer-legale h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Stile per il titolo della sezione contatti */
+.footer-contatti h4 {
+    margin-bottom: 8px;
+}
+
+/* Copyright */
+.copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+    padding: 10px;
+    background-color: #f5f5f5;
 }
 
 /* Contenitore per le icone social */
@@ -107,90 +163,11 @@
     width: 40px;
 }
 
-/* Blocco superiore del footer */
-.footer-blockUp {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #f5f5f5;
-    flex-wrap: wrap; /* Permette il wrapping degli elementi */
-}
-
-.footer-blockUp ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-blockUp h4 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.footer-blockUp li {
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-    color: #555;
-}
-
-.footer-blockUp li a {
-    text-decoration: none;
-    color: #555;
-    transition: color 0.3s ease;
-}
-
-.footer-blockUp li a:hover {
-    color: #3498db;
-}
-
-/* Stile per la sezione contatti */
-.footer-contatti ul {
-    list-style: none;
-}
-
-.footer-contatti h4 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-/* Stile per la sezione informazioni */
-.footer-informazioni ul {
-    list-style: none;
-}
-
-.footer-informazioni h4 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-/* Stile per la sezione legale */
-.footer-legale ul {
-    list-style: none;
-}
-
-.footer-legale h4 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-/* Stile per il titolo della sezione contatti */
-.footer-contatti h4 {
-    margin-bottom: 8px;
-}
-
-/* Copyright */
-.copyright {
-    text-align: center;
-    font-size: 0.8rem;
-    color: #777;
-    padding: 10px;
-    background-color: #f5f5f5;
-}
-
 /* Media query per tablet (max-width: 768px) */
 @media (max-width: 768px) {
     .footer-blockUp {
-        flex-direction: column; /* Disposizione verticale */
+        flex-direction: column;
+        /* Disposizione verticale */
         align-items: center;
         text-align: center;
     }
@@ -219,7 +196,8 @@
     }
 
     .payment ul li img {
-        width: 30px; /* Riduci la dimensione delle icone di pagamento */
+        width: 30px;
+        /* Riduci la dimensione delle icone di pagamento */
     }
 
     .copyright {
