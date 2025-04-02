@@ -10,7 +10,7 @@ import GlobalContext from '../cotext/GlobalContest'
 
 
 const CategoryPage = () => {
-  const { categories } = useContext(GlobalContext);
+  const { categories, products} = useContext(GlobalContext);
 
 
   //  settaggio dello stato del componente
@@ -42,14 +42,18 @@ const CategoryPage = () => {
       </div>
 
       <div className="product-grid-prodotti">
-          {category.length > 0 ? (
-              category.map(product => (
-                  <div className="product-card" key={product.id}>
-                      <Link to={`/prodotti/${product.id}`}>
-                          <ProductCard product={product} />                       
-                      </Link>
-                  </div>
-              ))
+          {category && category.length > 0 ? (
+              category.map(product => {
+                  const slug = product.slug || product.name.toLowerCase().replace(/\s+/g, "-");
+                  console.log("Slug calcolato:", slug);
+                  return (
+                      <div className="product-card" key={product.id}>
+                          <Link to={`/prodotti/${slug}`}>
+                              <ProductCard product={product} />                       
+                          </Link>
+                      </div>
+                  );
+              })
           ) : (
               <p>Nessun prodotto disponibile in questa categoria.</p>
           )}
