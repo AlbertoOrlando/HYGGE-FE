@@ -443,7 +443,7 @@ a {
     .camera-da-letto,
     .box-evidence,
     .sala-da-pranzo {
-        height: auto;
+        height: 100vh;
         /* Adjust height for mobile screens */
     }
 
@@ -452,8 +452,19 @@ a {
     .giardino-img {
         width: 100%;
         /* Full width for stacked layout */
-        height: auto;
+        height: 100vh;
         /* Adjust height for mobile screens */
+    }
+
+    .sala-da-pranzo-img {
+        height: 100vh;
+        /* Adjust height for the dining room image */
+    }
+
+    .giardino {
+        display: block;
+        width: 100%;
+
     }
 
     .btn-bagno a,
