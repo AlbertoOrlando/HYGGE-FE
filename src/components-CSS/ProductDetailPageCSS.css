@@ -22,7 +22,7 @@
 }
 
 .product-image-detail img {
-    width: 55%;
+    width: 50%;
 }
 
 .original-price {
@@ -155,22 +155,6 @@
     margin-top: 5px;
 }
 
-@media (max-width: 768px) {
-    .container-reviews {
-        margin: 2rem 1rem;
-        padding: 1.5rem;
-    }
-
-    .review {
-        padding: 1rem;
-    }
-
-    .data {
-        position: static;
-        margin-top: 1rem;
-    }
-}
-
 /* Sezione Prodotti Correlati */
 .new-arrivals {
     max-width: 1400px;
@@ -234,13 +218,87 @@
     color: #e74c3c;
     font-weight: bold;
 }
-h2{
+
+h2 {
     text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .new-arrivals {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         padding: 0 1rem;
+    }
+
+    .product-detail {
+        display: block;
+        background-color: whitesmoke;
+        margin: 10px;
+        border-radius: 10px;
+    }
+
+    .product-image-detail {
+        margin: 0 auto;
+        padding: 10px;
+        width: 80%;
+    }
+
+    .product-info {
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        /* border: 2px solid black; */
+        width: 90%;
+        text-align: center;
+    }
+
+    .product-info button {
+        margin: 10px auto;
+        width: 50%;
+        padding: 8px;
+        font-size: 18px;
+    }
+
+    .product-info .icons {
+        text-align: start;
+        padding: 10px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .container-reviews {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+    }
+
+    .review {
+        padding: 1rem;
+    }
+
+    .data {
+        position: static;
+        margin-top: 1rem;
+    }
+
+
+    @media (max-width: 768px) {
+        .container-reviews {
+            margin: 2rem 1rem;
+            padding: 1.5rem;
+        }
+
+        .review {
+            padding: 1rem;
+        }
+
+        .data {
+            position: static;
+            margin-top: 1rem;
+        }
+
+        .product-image-detail {
+            gap: 0;
+            height: 250px;
+        }
     }
 }
