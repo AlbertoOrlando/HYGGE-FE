@@ -17,6 +17,7 @@ export default function ProductDetailPage() {
 
     //  settaggio dello stato del componente
     const [product, setProducts] = useState({});
+    const [relatedProducts, setRelatedProducts] = useState([]); // Stato per i prodotti correlati
     const [loadingCart, setLoadingCart] = useState(false); // Nuovo stato per il caricamento del carrello
     const [confirmationMessage, setConfirmationMessage] = useState(""); // Nuovo stato per il messaggio di conferma
 
@@ -33,6 +34,17 @@ export default function ProductDetailPage() {
         fetchProdact();
         window.scrollTo(0, 0); // Scorri in alto ogni volta che cambia il prodotto
     }, [slug]);
+
+    // Effect per gestire i prodotti correlati
+    useEffect(() => {
+        if (product && product.category_id) {
+            // Filtra i prodotti per categoria e rimuovi il prodotto corrente
+            const related = products
+                .filter(p => p.category_id === product.category_id && p.id !== product.id)
+                .slice(0, 5); // Limita a 4 prodotti correlati
+            setRelatedProducts(related);
+        }
+    }, [product, products]);
 
     // Funzione Clickbutton Aggiungi al carrello
     const handleAddToCartClick = async () => {
@@ -133,19 +145,22 @@ export default function ProductDetailPage() {
 
             <h2>Prodotti correlati</h2>
             <div className="new-arrivals">
-                {products.slice(10, 15).map(product => (
-                    <Link to={`/prodotti/${product.slug}`} className="card-box" key={product.id}> 
-                        {/* Usa slug per i link ai prodotti correlati */}
-                        <div className="card-body">
-                            <img src={product.images[0]} alt={product.name} className="product-image2" />
-                            <img src={product.images[1]} alt={product.name} className="product-image12" />
-                        </div>
-                        <div className="card-text">
-                            <h3>{product.name}</h3>
-                            <span>{product.price} €</span>
-                        </div>
-                    </Link>
-                ))}
+                {relatedProducts.length > 0 ? (
+                    relatedProducts.map(product => (
+                        <Link to={`/prodotti/${product.slug}`} className="card-box" key={product.id}>
+                            <div className="card-body">
+                                <img src={product.images[0]} alt={product.name} className="product-image2" />
+                                <img src={product.images[1]} alt={product.name} className="product-image12" />
+                            </div>
+                            <div className="card-text">
+                                <h3>{product.name}</h3>
+                                <span>{product.price} €</span>
+                            </div>
+                        </Link>
+                    ))
+                ) : (
+                    <p>Nessun prodotto correlato disponibile.</p>
+                )}
             </div>
         </>
     );
