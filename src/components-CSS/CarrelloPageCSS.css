@@ -1,12 +1,15 @@
 /* Stili generali */
 .cart-container {
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 20px;
     gap: 20px;
 }
 
-.container-blockup{
+.container-blockup {
     display: flex;
-    gap: 20px;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 /* Sezione superiore: carrello + riepilogo ordine */
@@ -24,92 +27,96 @@
 /* Sezione carrello */
 .cart-items {
     flex: 2;
-    border: 1px solid #ddd;
+    min-width: 300px;
+    background: white;
+    border-radius: 15px;
     padding: 20px;
-    border-radius: 8px;
-    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 /* Stile degli articoli nel carrello */
 .cart-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
     border-bottom: 1px solid #eee;
-    padding: 10px 0;
+    position: relative;
 }
 
 .cart-item img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .cart-item-details {
     flex: 1;
-    margin-left: 15px;
 }
 
 /* Sezione riepilogo ordine */
 .order-summary {
     flex: 1;
-    border: 1px solid #ddd;
+    min-width: 250px;
+    background: white;
+    border-radius: 15px;
     padding: 20px;
-    border-radius: 8px;
-    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
 }
 
 .summary-item {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin: 15px 0;
+    font-size: 1.1rem;
 }
 
 /* Input codice sconto */
 .coupon-input {
     width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
 }
 
 /* Pulsante applica sconto */
-.apply-coupon-btn {
+.apply-coupon-btn,
+.pagamento {
     width: 100%;
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
+    padding: 12px;
+    margin: 10px 0;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
     cursor: pointer;
-    margin-top: 10px;
+    transition: all 0.3s ease;
 }
 
+.apply-coupon-btn {
+    background: #28a745;
+    color: white;
+}
 
-
-.pagamento{
-    display: flex;
-    justify-content: center;
+.pagamento {
+    display: block;
+    background: #006eff;
+    color: white;
+    text-align: center;
     text-decoration: none;
-    color: white;
-    padding: 10px;
-    background-color: #006eff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px ;
-
-    
 }
 
 .apply-coupon-btn:hover {
-    background-color: #218838;
+    background: #218838;
 }
+
 .pagamento:hover {
-    background-color: #005eda;
+    background: #0056b3;
 }
 
 /* Sezione "Spesso acquistati insieme" */
@@ -152,67 +159,88 @@
 .quantity-controls {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
-    background: #f4f4f4;
-    border-radius: 10px;
-    padding: 5px 10px;
-    width: 120px;
-  }
-  
-  .quantity-btn {
-    width: 20px;
-    height: 20px;
+    margin: 10px 0;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
     border: none;
-    font-size: 18px;
-    cursor: pointer;
-    background: #f4f4f4;
-    color: rgb(0, 0, 0);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-  }
-  
-  .quantity-btn:hover {
-    background-color: #bfbfbf;
-  }
-  
-  .increase-btn {
+    background: #f4f4f4;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background: #e0e0e0;
+}
+
+.increase-btn {
     order: 1; /* Mette il "+" a sinistra */
-  }
-  
-  .decrease-btn {
+}
+
+.decrease-btn {
     order: 0; /* Mette il "-" a destra */
     padding-bottom: 2px;
-  }
-  
-  .quantity-number {
+}
+
+.quantity-number {
     font-size: 16px;
     font-weight: bold;
     width: 30px;
     text-align: center;
-  }
-  
-  .remove-btn {
-    background-color: #c3c3c3;
-    color: white;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
     border: none;
-    padding: 8px 12px;
+    color: #999;
     cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-  }
-  
-  .remove-btn:hover {
-    background-color: #979797;
-  }
-  
+    transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+    color: #e74c3c;
+    transform: scale(1.1);
+}
 
 /* Su schermi più grandi, mostra tre colonne */
 @media (min-width: 768px) {
     .related-products-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .container-blockup {
+        flex-direction: column;
+    }
+
+    .order-summary {
+        position: static;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .cart-items,
+    .order-summary {
+        padding: 15px;
+    }
+
+    .summary-item {
+        font-size: 0.9rem;
+    }
+
+    .cart-item img {
+        width: 120px;
+        height: 120px;
     }
 }
