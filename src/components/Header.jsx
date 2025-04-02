@@ -3,7 +3,7 @@ import { NavLink, Link, useNavigate } from "react-router-dom";
 // Importa axios per le chiamate HTTP
 import axios from "axios";
 // Importa gli hook di React e il contesto globale
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import GlobalContext from '../cotext/GlobalContest';
 // Importa il CSS per l'header
 import "../components-CSS/HeaderCSS.css";
@@ -30,38 +30,79 @@ export default function Header() {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    // Add loading state for search
+    const [isSearching, setIsSearching] = useState(false);
+    const [searchError, setSearchError] = useState(null);
+
+    // Debug current state
+    useEffect(() => {
+        console.log('Header State:', {
+            query,
+            selectedCategory,
+            sortPrice,
+            isSearching,
+            searchError
+        });
+    }, [query, selectedCategory, sortPrice, isSearching, searchError]);
+
     // Gestisce il cambio del testo nella barra di ricerca
     function handleFormQuery(e) {
+        console.log('Search input changed:', e.target.value);
         setQuery(e.target.value);
     }
 
     // Gestisce l'invio del form di ricerca
     function handleSubmit(e) {
         e.preventDefault();
-        // Controlla se la query è vuota
-        if (query === "") {
-            console.error("La query è vuota. Inserisci un termine di ricerca.");
+        setSearchError(null);
+
+        console.log('Search submitted:', {
+            query,
+            currentCategory: selectedCategory,
+            currentSortPrice: sortPrice
+        });
+
+        if (query.trim() === "") {
+            console.error(error);
+            setSearchError(error);
             return;
         }
 
-        // Resetta i filtri nel contesto globale
+        setIsSearching(true);
+
+        // Reset filters and build URL params
         setSelectedCategory("");
         setSortPrice("");
 
-        // Crea i parametri URL solo per la query di ricerca
         const params = new URLSearchParams();
         params.set('q', query);
 
-        // Effettua la chiamata API per la ricerca
-        axios.get(`http://localhost:3000/api/products/search?name=${query}`)
+        const apiUrl = `http://localhost:3000/api/products/search?name=${encodeURIComponent(query)}`;
+        console.log('Calling API:', apiUrl);
+
+        axios.get(apiUrl)
             .then(response => {
-                // Imposta i risultati della ricerca
+                console.log('Search results:', {
+                    count: response.data.length,
+                    data: response.data
+                });
                 setSearch(response.data);
-                // Naviga alla pagina dei risultati
-                navigate(`/search?${params.toString()}`);
+
+                const navigationUrl = `/search?${params.toString()}`;
+                console.log('Navigating to:', navigationUrl);
+                navigate(navigationUrl);
             })
             .catch(err => {
-                console.error("Error during search:", err);
+                const errorMessage = err.response?.data?.message || err.message;
+                console.error('Search error:', {
+                    status: err.response?.status,
+                    message: errorMessage,
+                    error: err
+                });
+                setSearchError(errorMessage);
+            })
+            .finally(() => {
+                setIsSearching(false);
             });
     }
 
@@ -108,11 +149,21 @@ export default function Header() {
                                     value={query}
                                     onChange={handleFormQuery}
                                     placeholder="Cerca..."
+                                    disabled={isSearching}
                                 />
-                                <button type="submit">
-                                    <FontAwesomeIcon icon={faSearch} />
+                                <button type="submit" disabled={isSearching}>
+                                    {isSearching ? (
+                                        "..."
+                                    ) : (
+                                        <FontAwesomeIcon icon={faSearch} />
+                                    )}
                                 </button>
                             </form>
+                            {searchError && (
+                                <div className="search-error" style={{ color: 'red', fontSize: '0.8em' }}>
+                                    {searchError}
+                                </div>
+                            )}
                         </div>
                         <Link to="/wishlist" className="wishlist-icon">
                             <FontAwesomeIcon icon={faHeart} />

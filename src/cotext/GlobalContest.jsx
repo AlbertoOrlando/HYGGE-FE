@@ -39,11 +39,15 @@ export const GlobalProvider = ({ children }) => {
   // Effect per caricare i prodotti all'avvio
   useEffect(() => {
     const fetchProducts = async () => {
+      console.log('Fetching products...');
       try {
         const response = await axios.get("http://localhost:3000/api/products");
+        console.log('Products fetched:', response.data.length);
         setProducts(response.data);
       } catch (err) {
-        setError("Errore nel caricamento dei prodotti");
+        const errorMessage = "Errore nel caricamento dei prodotti";
+        console.error('fetchProducts error:', err);
+        setError(errorMessage);
       } finally {
         setLoading(false);
       }
@@ -90,32 +94,73 @@ export const GlobalProvider = ({ children }) => {
     setWishlistCount(wishlist.length); // Aggiorna il conteggio della wishlist
   }, [wishlist]);
 
+  // Debug state changes
+  useEffect(() => {
+    console.group('GlobalContext State Changes');
+    console.log('Products:', products.length);
+    console.log('Categories:', categories);
+    console.log('Search Results:', search.length);
+    console.log('Cart Items:', cart.length);
+    console.log('Wishlist Items:', wishlist.length);
+    console.log('Current Query:', query);
+    console.log('Selected Category:', selectedCategory);
+    console.log('Sort Price:', sortPrice);
+    console.groupEnd();
+  }, [products, categories, search, cart, wishlist, query, selectedCategory, sortPrice]);
+
+  // Debug cart calculations
+  useEffect(() => {
+    console.group('Cart Calculations');
+    console.log('Cart Count:', cartCount);
+    console.log('Subtotal:', total);
+    console.log('Discount:', discount);
+    console.log('Final Total:', finalTotal);
+    console.groupEnd();
+  }, [cartCount, total, discount, finalTotal]);
+
   // Funzione per aggiungere prodotti al carrello
   const addToCart = (product) => {
-    setCartCount((prevCount) => prevCount + 1);
+    console.group('Adding to Cart');
+    console.log('Product:', product);
+    console.log('Current Cart:', cart);
+
+    setCartCount((prevCount) => {
+      console.log('Previous Count:', prevCount);
+      console.log('New Count:', prevCount + 1);
+      return prevCount + 1;
+    });
 
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
-      if (existingItem) {
-        // Aggiorna la quantità se il prodotto esiste già
-        return prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      } else {
-        // Aggiunge il nuovo prodotto se non esiste
-        return [...prevCart, { ...product, quantity: 1 }];
-      }
+      const newCart = existingItem
+        ? prevCart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+        : [...prevCart, { ...product, quantity: 1 }];
+
+      console.log('Updated Cart:', newCart);
+      console.groupEnd();
+      return newCart;
     });
   };
 
   const toggleWishlist = (product) => {
+    console.group('Toggling Wishlist');
+    console.log('Product:', product);
+    console.log('Current Wishlist:', wishlist);
+
     setWishlist((prevWishlist) => {
       const isInWishlist = prevWishlist.some((item) => item.id === product.id);
-      const updatedWishlist = isInWishlist
-        ? prevWishlist.filter((item) => item.id !== product.id) // Rimuovi il prodotto
-        : [...prevWishlist, product]; // Aggiungi il prodotto
+      console.log('Is in wishlist:', isInWishlist);
 
-      localStorage.setItem("wishlist", JSON.stringify(updatedWishlist)); // Salva nel localStorage
+      const updatedWishlist = isInWishlist
+        ? prevWishlist.filter((item) => item.id !== product.id)
+        : [...prevWishlist, product];
+
+      console.log('Updated Wishlist:', updatedWishlist);
+      console.groupEnd();
       return updatedWishlist;
     });
   };
@@ -151,9 +196,21 @@ export const GlobalProvider = ({ children }) => {
   // Fornisce il contesto a tutti i componenti figli
   return (
     <GlobalContext.Provider value={{
-      search, setSearch, products, categories, loading, error,
-      cart, setCart, addToCart, query, setQuery, createOrder,
-      cartCount, setCartCount, total, setDiscount, discount, finalTotal, setFinalTotal
+      search, setSearch,
+      products, categories,
+      loading, error,
+      cart, setCart,
+      addToCart,
+      query, setQuery,
+      createOrder,
+      cartCount, setCartCount,
+      total, setDiscount,
+      discount, finalTotal, setFinalTotal,
+      selectedCategory, setSelectedCategory,
+      sortPrice, setSortPrice,
+      wishlist, setWishlist,
+      toggleWishlist,
+      wishlistCount
     }}>
       {children}
     </GlobalContext.Provider>

@@ -56,9 +56,10 @@
 }
 
 .product-list h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  z-index: 1500;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
 }
 
 /* modifica pagina ricerca */
@@ -86,7 +87,6 @@
 .product-grid-prodotti {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 20px;
   padding: 20px;
 }
