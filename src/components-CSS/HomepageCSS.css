@@ -214,7 +214,7 @@ a {
     font-family: 'Times New Roman', Times, serif;
 }
 
-.parag-bagno{
+.parag-bagno {
     line-height: 60px;
     text-align: center;
 }
@@ -331,4 +331,136 @@ a {
 .sala-da-pranzo-img a:hover {
     background-color: rgba(62, 62, 62, 0.3);
     color: black;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1200px) {
+    .new-arrivals {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card-box {
+        flex: 0 0 30%;
+        /* 3 cards per row */
+    }
+
+    .camera-da-letto,
+    .box-evidence,
+    .sala-da-pranzo {
+        height: 70vh;
+        /* Reduce height for medium screens */
+    }
+
+    .evidence-img {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        /* Adjust gap for medium screens */
+    }
+
+    .evidence-img .card-body {
+        flex: 0 0 30%;
+        /* 3 cards per row */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .new-arrivals {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card-box {
+        flex: 0 0 45%;
+        /* 2 cards per row */
+    }
+
+    .camera-da-letto,
+    .box-evidence,
+    .sala-da-pranzo {
+        height: 60vh;
+        /* Further reduce height for tablets */
+    }
+
+    .bagno-home,
+    .giardino-home {
+        flex-direction: column;
+        /* Stack sections vertically */
+        height: auto;
+    }
+
+    .bagno-text,
+    .bagno-img,
+    .giardino-img {
+        width: 100%;
+        /* Full width for stacked layout */
+        height: 90vh;
+    }
+
+    .evidence-img {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        /* Adjust gap for tablets */
+    }
+
+    .evidence-img .card-body {
+        flex: 0 0 45%;
+        /* 2 cards per row */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .new-arrivals {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card-box {
+        flex: 0 0 100%;
+        /* 1 card per row */
+    }
+
+    .camera-da-letto,
+    .box-evidence,
+    .sala-da-pranzo {
+        height: 100vh;
+        /* Reduce height for mobile screens */
+    }
+
+    .bagno-text,
+    .bagno-img,
+    .giardino-img {
+        width: 100%;
+        /* Full width for stacked layout */
+        height: 100vh;
+    }
+
+    .btn-bagno a,
+    .giardino-img a,
+    .sala-da-pranzo-img a {
+        font-size: 16px;
+        /* Adjust button font size */
+        padding: 8px 20px;
+        /* Adjust button padding */
+    }
+
+    .evidence-img {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        /* Adjust gap for mobile screens */
+    }
+
+    .evidence-img .card-body {
+        flex: 0 0 100%;
+        /* 1 card per row */
+
+    }
+
+    .evidence-img .card {
+        border: 2px solid gray;
+        box-shadow: 10px 5px 5px gray;
+    }
 }
