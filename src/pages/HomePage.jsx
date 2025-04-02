@@ -17,7 +17,7 @@ export default function HomePage() {
             <h1>New arrivals</h1>
             <div className="new-arrivals">
                 {products.slice(-5).map(product => (
-                    <Link to={`/prodotti/${product.id}`} className="card-box" key={product.id}>
+                    <Link to={`/prodotti/${product.slug}`} className="card-box" key={product.id}>
                         <div className="card-body">
                             <img src={product.images[0]} alt={product.name} className="product-image2" />
                             <img src={product.images[1]} alt={product.name} className="product-image12" />
@@ -40,8 +40,8 @@ export default function HomePage() {
             <h1>In evidenza</h1>
             <div className="evidence">
                 <div className="evidence-img">
-                    {products.slice(15, 19).map(product => (
-                        <Link to={`/prodotti/${product.id}`} className="card-evidence" key={product.id}>
+                    {products.slice(15, 20).map(product => (
+                        <Link to={`/prodotti/${product.slug}`} className="card-evidence" key={product.id}>
                             <div className="card">
                                 <div className="card-body">
                                     <img src={product.images[0]} alt={product.name} className="product-image2" />
@@ -85,7 +85,7 @@ export default function HomePage() {
                 </div>
                 <div className="giardino">
                     {products.slice(44, 47).map(product => (
-                        <Link to={`/prodotti/${product.id}`} className="card-evidence" key={product.id}>
+                        <Link to={`/prodotti/${product.slug}`} className="card-evidence" key={product.id}>
                             <div className="card">
                                 <div className="card-body">
                                     <img src={product.images[0]} alt={product.name} className="product-image2" />
