@@ -1,62 +1,54 @@
+import { useState } from "react";
 import axios from "axios";
 
-// Import FormCSS
-import "../components-CSS/FormReviewsCSS.css";
+export default function FormReviews({ product_id, reloadReviews }) { // Usa product_slug invece di product_id
+    const [name, setName] = useState("");
+    const [review, setReview] = useState("");
+    const [rating, setRating] = useState(0);
 
-import { useState } from "react";
-
-const FormReviews = ({ product_id, reloadReviews }) => {
-    const initialValue = { name: "", review: "", rating: 1 }
-
-    const [formData, setFormData] = useState(initialValue)
-
-    const setFieldValue = (e) => {
-        const { value, name } = e.target;
-        setFormData({ ...formData, [name]: value })
-    }
-
-    const urlEndpoint = `http://localhost:3000/api/products/${product_id}/reviews/create`
-
-    const submitReview = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Submitting review:', formData);
-        axios.post(urlEndpoint, formData)
-            .then(
-                () => {
-                    console.log('Review submitted successfully');
-                    setFormData(initialValue)
-                    reloadReviews()
-                }
-            )
-            .catch(err => {
-                console.log('Error submitting review:', err);
-            })
-    }
+        console.log("Dati inviati:", { name, review, rating }); // Log dei dati inviati
+        try {
+            await axios.post(`http://localhost:3000/api/products/${product_id}/reviews/create`, {
+                name,
+                review,
+                rating,
+            });
+            reloadReviews(); // Ricarica le recensioni dopo l'invio
+            setName("");
+            setReview("");
+            setRating(0);
+        } catch (error) {
+            console.error("Errore durante l'invio della recensione:", error);
+        }
+    };
 
     return (
-        <div className="form">
-            <h5>Aggiungi una recensione</h5>
-            <form onSubmit={submitReview}>
-                <div className="">
-                    <label>Name</label>
-                    <input type="text" name="name" className="" value={formData.name} onChange={setFieldValue} />
-                </div>
-                <div className="">
-                    <label>Review</label>
-                    <textarea className="" name="review" value={formData.review} onChange={setFieldValue} ></textarea>
-                </div>
-                <div className="">
-                    <label>Voto</label>
-                    <input type="number" min="1" max="5" className="" name='rating' value={formData.rating} onChange={setFieldValue} />
-                </div>
-                <div className="">
-                    <button type="submit" className="">
-                        Send
-                    </button>
-                </div>
-            </form>
-        </div>
-    )
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                placeholder="Il tuo nome"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+            />
+            <textarea
+                placeholder="Scrivi la tua recensione"
+                value={review}
+                onChange={(e) => setReview(e.target.value)}
+                required
+            />
+            <input
+                type="number"
+                placeholder="Valutazione (1-5)"
+                value={rating}
+                onChange={(e) => setRating(Number(e.target.value))}
+                min="1"
+                max="5"
+                required
+            />
+            <button type="submit">Invia Recensione</button>
+        </form>
+    );
 }
-
-export default FormReviews

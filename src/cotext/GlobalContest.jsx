@@ -22,6 +22,11 @@ export const GlobalProvider = ({ children }) => {
   const [discount, setDiscount] = useState(0); // Sconto applicato
   const [total, setTotal] = useState(0); // Totale senza sconto
   const [finalTotal, setFinalTotal] = useState(0); // Totale finale con sconto
+  const [wishlist, setWishlist] = useState(() => {
+    const savedWishlist = localStorage.getItem("wishlist");
+    return savedWishlist ? JSON.parse(savedWishlist) : [];
+  }); // Stato per la lista dei desideri
+  const [wishlistCount, setWishlistCount] = useState(0); // Stato per il conteggio della wishlist
 
   // Stati per i filtri
   const [selectedCategory, setSelectedCategory] = useState(""); // Categoria selezionata
@@ -80,6 +85,11 @@ export const GlobalProvider = ({ children }) => {
     setFinalTotal(totalWithoutDiscount);
   }, [cart, discount]);
 
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist)); // Aggiorna il localStorage quando cambia la wishlist
+    setWishlistCount(wishlist.length); // Aggiorna il conteggio della wishlist
+  }, [wishlist]);
+
   // Funzione per aggiungere prodotti al carrello
   const addToCart = (product) => {
     setCartCount((prevCount) => prevCount + 1);
@@ -95,6 +105,18 @@ export const GlobalProvider = ({ children }) => {
         // Aggiunge il nuovo prodotto se non esiste
         return [...prevCart, { ...product, quantity: 1 }];
       }
+    });
+  };
+
+  const toggleWishlist = (product) => {
+    setWishlist((prevWishlist) => {
+      const isInWishlist = prevWishlist.some((item) => item.id === product.id);
+      const updatedWishlist = isInWishlist
+        ? prevWishlist.filter((item) => item.id !== product.id) // Rimuovi il prodotto
+        : [...prevWishlist, product]; // Aggiungi il prodotto
+
+      localStorage.setItem("wishlist", JSON.stringify(updatedWishlist)); // Salva nel localStorage
+      return updatedWishlist;
     });
   };
 
@@ -129,19 +151,9 @@ export const GlobalProvider = ({ children }) => {
   // Fornisce il contesto a tutti i componenti figli
   return (
     <GlobalContext.Provider value={{
-      search, setSearch,
-      products, categories,
-      loading, error,
-      cart, setCart,
-      addToCart,
-      query, setQuery,
-      createOrder,
-      cartCount, setCartCount,
-      total, setDiscount,
-      discount, finalTotal,
-      setFinalTotal,
-      selectedCategory, setSelectedCategory,
-      sortPrice, setSortPrice
+      search, setSearch, products, categories, loading, error,
+      cart, setCart, addToCart, query, setQuery, createOrder,
+      cartCount, setCartCount, total, setDiscount, discount, finalTotal, setFinalTotal
     }}>
       {children}
     </GlobalContext.Provider>

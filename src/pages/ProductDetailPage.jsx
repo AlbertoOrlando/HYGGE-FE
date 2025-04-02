@@ -13,7 +13,7 @@ import FormReviews from "../components/FormRewiews";
 export default function ProductDetailPage() {
 
     const { products, addToCart } = useContext(GlobalContext);
-    const { id } = useParams();
+    const { slug } = useParams(); // Usa slug invece di id
 
     //  settaggio dello stato del componente
     const [product, setProducts] = useState({});
@@ -22,7 +22,7 @@ export default function ProductDetailPage() {
 
     // funzione di chiamata verso la rotta store
     function fetchProdact() {
-        axios.get(`http://localhost:3000/api/products/${id}`)
+        axios.get(`http://localhost:3000/api/products/${slug}`) // Usa slug nella chiamata API
             .then(res => setProducts(res.data))
             .catch(err => {
                 console.log(err);
@@ -32,7 +32,7 @@ export default function ProductDetailPage() {
     useEffect(() => {
         fetchProdact();
         window.scrollTo(0, 0); // Scorri in alto ogni volta che cambia il prodotto
-    }, [id]);
+    }, [slug]);
 
     // Funzione Clickbutton Aggiungi al carrello
     const handleAddToCartClick = async () => {
@@ -128,13 +128,14 @@ export default function ProductDetailPage() {
             </div>
 
             <div className="form-reviews">
-                <FormReviews product_id={id} reloadReviews={fetchProdact} />
+                <FormReviews product_id={slug} reloadReviews={fetchProdact} /> {/* Passa lo slug */}
             </div>
 
             <h2>Prodotti correlati</h2>
             <div className="new-arrivals">
                 {products.slice(10, 15).map(product => (
-                    <Link to={`/prodotti/${product.id}`} className="card-box" key={product.id}>
+                    <Link to={`/prodotti/${product.slug}`} className="card-box" key={product.id}> 
+                        {/* Usa slug per i link ai prodotti correlati */}
                         <div className="card-body">
                             <img src={product.images[0]} alt={product.name} className="product-image2" />
                             <img src={product.images[1]} alt={product.name} className="product-image12" />

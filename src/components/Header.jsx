@@ -2,35 +2,32 @@
 import { NavLink, Link, useNavigate } from "react-router-dom";
 // Importa axios per le chiamate HTTP
 import axios from "axios";
-
 // Importa gli hook di React e il contesto globale
 import { useContext, useState } from "react";
 import GlobalContext from '../cotext/GlobalContest';
-
 // Importa il CSS per l'header
 import "../components-CSS/HeaderCSS.css";
-
 // Importa le icone di FontAwesome
-import { faSearch, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faShoppingBag, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Header() {
-    // Estrae i valori e le funzioni dal contesto globale
+    // Estrai tutti i valori necessari dal contesto in un'unica destructuring
     const {
-        cartCount,        // Numero di elementi nel carrello
-        setSearch,        // Funzione per impostare i risultati della ricerca
-        categories,       // Lista delle categorie
-        query,           // Testo della ricerca
-        setQuery,        // Funzione per impostare il testo della ricerca
-        selectedCategory, // Categoria selezionata
-        setSelectedCategory, // Funzione per impostare la categoria
-        sortPrice,       // Ordinamento per prezzo
-        setSortPrice     // Funzione per impostare l'ordinamento
+        cartCount,
+        wishlistCount,
+        setSearch,
+        categories,
+        query,
+        setQuery,
+        selectedCategory,
+        setSelectedCategory,
+        sortPrice,
+        setSortPrice
     } = useContext(GlobalContext);
 
-    // Hook per la navigazione
+    // Usa una sola istanza di navigate e isMenuOpen
     const navigate = useNavigate();
-    // Stato per il menu mobile
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // Gestisce il cambio del testo nella barra di ricerca
@@ -89,11 +86,7 @@ export default function Header() {
                         </NavLink>
                     ))}
                 </div>
-                <div className="burger-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
+
                 <div className={`nav-dropdown ${isMenuOpen ? "active" : ""}`}>
                     <NavLink to="/prodotti" onClick={() => setIsMenuOpen(false)}>Prodotti</NavLink>
                     {categories.map(category => (
@@ -121,10 +114,19 @@ export default function Header() {
                                 </button>
                             </form>
                         </div>
+                        <Link to="/wishlist" className="wishlist-icon">
+                            <FontAwesomeIcon icon={faHeart} />
+                            {wishlistCount > 0 && <span className="wishlist-notification">{wishlistCount}</span>}
+                        </Link>
                         <Link to="/carrello" onClick={() => window.scrollTo(0, 0)} className="cart-icon">
                             <FontAwesomeIcon icon={faShoppingBag} />
                             {cartCount > 0 && <span className="cart-notification">{cartCount}</span>}
                         </Link>
+                        <div className="burger-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 999;
   background-color: white;
 }
 
@@ -72,7 +72,7 @@
   border-radius: 40px;
   padding: 10px;
   position: absolute;
-  right: 40px;
+  right: 70px;
   bottom: 10px;
 }
 
@@ -120,9 +120,7 @@
   transform: scale(1.2);
 }
 
-.active {
-  border-bottom: 2px solid black;
-}
+
 
 /* Carrello */
 
@@ -148,6 +146,26 @@
   border-radius: 50%;
   width: 15px;
   height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wishlist Icon */
+.wishlist-icon {
+  position: relative;
+}
+
+.wishlist-notification {
+  position: absolute;
+  top: -5px;
+  right: -12px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 1px 4px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,11 +225,17 @@
 /* Media query per tablet e mobile */
 @media (max-width: 920px) {
   .nav {
-    display: none; /* Nascondi la navbar principale */
+    display: none;
+    /* Nascondi la navbar principale */
   }
 
   .burger-menu {
-  display: block;
-    display: flex; /* Mostra il burger menu */
+    display: block;
+    display: flex;
+    /* Mostra il burger menu */
+  }
+
+  .search-form {
+    right: 107px;
   }
 }
