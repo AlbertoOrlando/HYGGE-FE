@@ -61,11 +61,7 @@ export default function Header() {
                         </NavLink>
                     ))}
                 </div>
-                <div className="burger-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
+
                 <div className={`nav-dropdown ${isMenuOpen ? "active" : ""}`}>
                     <NavLink to="/prodotti" onClick={() => setIsMenuOpen(false)}>Prodotti</NavLink>
                     {categories.map(category => (
@@ -101,7 +97,11 @@ export default function Header() {
                             <FontAwesomeIcon icon={faShoppingBag} />
                             {cartCount > 0 && <span className="cart-notification">{cartCount}</span>}
                         </Link>
-                        
+                        <div className="burger-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
                     </div>
                 </div>
             </div>
