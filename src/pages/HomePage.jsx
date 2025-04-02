@@ -16,7 +16,7 @@ export default function HomePage() {
 
             <h1>New arrivals</h1>
             <div className="new-arrivals">
-                {products.slice(-5).map(product => (
+                {products.slice(-4).map(product => (
                     <Link to={`/prodotti/${product.slug}`} className="card-box" key={product.id}>
                         <div className="card-body">
                             <img src={product.images[0]} alt={product.name} className="product-image2" />

@@ -41,7 +41,7 @@ export default function ProductDetailPage() {
             // Filtra i prodotti per categoria e rimuovi il prodotto corrente
             const related = products
                 .filter(p => p.category_id === product.category_id && p.id !== product.id)
-                .slice(0, 5); // Limita a 4 prodotti correlati
+                .slice(0, 4); // Limita a 4 prodotti correlati
             setRelatedProducts(related);
         }
     }, [product, products]);
