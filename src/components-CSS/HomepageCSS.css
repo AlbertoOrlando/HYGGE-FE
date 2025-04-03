@@ -14,7 +14,7 @@
 h1 {
     margin-top: 20px;
     /* Spaziatura sopra il titolo */
-    /* padding: 10px; */
+    padding: 10px 0;
     /* Spaziatura interna */
 }
 
@@ -172,8 +172,6 @@ h1 {
     /* Spaziatura sotto il titolo */
     color: #333;
     /* Colore del testo */
-    /* padding: 10px; */
-    /* Spaziatura interna */
 }
 
 /* Prezzo della card */
@@ -310,8 +308,6 @@ h1 {
 
 /* Testo della card */
 .card-evidence .card-text {
-    /* padding: 1rem; */
-    /* Spaziatura interna */
     text-align: center;
     /* Allinea il testo al centro */
 }
