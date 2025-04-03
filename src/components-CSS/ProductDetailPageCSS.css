@@ -1,304 +1,436 @@
+/* Reset di base */
 * {
     margin: 0;
+    /* Rimuove i margini predefiniti */
     padding: 0;
+    /* Rimuove i padding predefiniti */
     box-sizing: border-box;
+    /* Include padding e bordi nella dimensione totale */
 }
 
+/* Contenitore principale della pagina di dettaglio prodotto */
 .product-detail {
     display: flex;
+    /* Disposizione degli elementi in riga */
     justify-content: space-evenly;
+    /* Spaziatura uniforme tra gli elementi */
     margin-top: 20px;
+    /* Spaziatura sopra il contenitore */
 }
 
+/* Sezione delle informazioni del prodotto */
 .product-info {
     font-size: 20px;
+    /* Dimensione del testo */
     width: 20%;
+    /* Larghezza relativa */
 }
 
+/* Contenitore per le immagini del prodotto */
 .product-image-detail {
     width: 50%;
+    /* Larghezza relativa */
     display: flex;
+    /* Disposizione degli elementi in riga */
     gap: 20px;
+    /* Spaziatura tra le immagini */
 }
 
+/* Stile per le immagini del prodotto */
 .product-image-detail img {
     width: 50%;
+    /* L'immagine occupa metà della larghezza del contenitore */
 }
 
+/* Prezzo originale del prodotto */
 .original-price {
     text-decoration: line-through;
+    /* Testo barrato */
     color: gray;
+    /* Colore grigio */
 }
 
+/* Prezzo scontato del prodotto */
 .discounted-price {
     color: #A60000;
+    /* Colore rosso scuro */
 }
 
+/* Stile per il pulsante di acquisto */
 .product-info button {
-    margin: 20px 0 20px 0;
+    margin: 20px 0;
+    /* Spaziatura sopra e sotto */
     padding: 20px;
+    /* Spaziatura interna */
     width: 400px;
+    /* Larghezza del pulsante */
     background-color: black;
+    /* Sfondo nero */
     color: white;
+    /* Testo bianco */
     font-size: 20px;
+    /* Dimensione del testo */
 }
 
-/* button */
-.fa-spinner {
-    font-size: 1.3rem;
+/* Effetto hover per il pulsante */
+.product-info button:hover {
+    background-color: #2b2b2b;
+    /* Cambia il colore di sfondo */
     color: white;
+    /* Mantiene il testo bianco */
+    cursor: pointer;
+    /* Cambia il cursore al passaggio del mouse */
 }
 
+/* Icone */
 .icons {
     font-size: 20px;
+    /* Dimensione delle icone */
 }
 
 .icons ul {
     width: 350px;
+    /* Larghezza della lista */
     margin-top: 30px;
+    /* Spaziatura sopra la lista */
 }
 
 .icons ul li {
     margin-bottom: 20px;
+    /* Spaziatura tra gli elementi della lista */
     list-style: none;
+    /* Rimuove i punti elenco */
 }
 
+/* Sezione delle recensioni */
 .reviews-section {
     display: flex;
+    /* Disposizione degli elementi in riga */
 }
 
-/* modifica voto star */
+/* Stile per le stelle di valutazione */
 .star {
     color: #FFD700;
+    /* Colore giallo oro */
     font-size: 16px;
+    /* Dimensione delle stelle */
     margin: 0 2px;
+    /* Spaziatura tra le stelle */
     filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.3));
+    /* Ombreggiatura leggera */
     margin-bottom: 10px;
+    /* Spaziatura sotto le stelle */
 }
 
 .star2 {
     color: #ddd;
+    /* Colore grigio chiaro */
     font-size: 16px;
+    /* Dimensione delle stelle */
     margin: 0 2px;
+    /* Spaziatura tra le stelle */
     margin-bottom: 10px;
+    /* Spaziatura sotto le stelle */
 }
 
+/* Stile per ogni recensione */
 .review {
     display: flex;
+    /* Disposizione degli elementi in riga */
     flex-direction: column;
+    /* Dispone gli elementi in colonna */
     background: white;
+    /* Sfondo bianco */
     padding: 1.5rem;
+    /* Spaziatura interna */
     margin: 1.5rem 0;
+    /* Spaziatura sopra e sotto */
     border-radius: 15px;
+    /* Angoli arrotondati */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* Ombreggiatura leggera */
     transition: transform 0.3s ease;
+    /* Transizione per l'effetto hover */
     position: relative;
+    /* Posizionamento relativo */
     border: none;
+    /* Nessun bordo */
 }
 
+/* Effetto hover per la recensione */
 .review:hover {
     transform: translateY(-5px);
+    /* Solleva leggermente la recensione */
 }
 
+/* Contenitore principale delle recensioni */
 .container-reviews {
     display: flex;
+    /* Disposizione degli elementi in riga */
     flex-direction: column;
+    /* Dispone gli elementi in colonna */
     gap: 10px;
+    /* Spaziatura tra le recensioni */
     max-width: 1200px;
+    /* Larghezza massima */
     margin: 50px auto;
+    /* Centra il contenitore orizzontalmente */
     padding: 2rem;
+    /* Spaziatura interna */
     background: linear-gradient(145deg, #ffffff, #f8f8f8);
+    /* Sfondo con gradiente */
     border-radius: 20px;
+    /* Angoli arrotondati */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Ombreggiatura leggera */
 }
 
+/* Titolo della sezione recensioni */
 .container-reviews h2 {
     font-size: 2rem;
+    /* Dimensione del testo */
     color: #333;
+    /* Colore del testo */
     text-align: center;
+    /* Allinea il testo al centro */
     margin-bottom: 2rem;
+    /* Spaziatura sotto il titolo */
     position: relative;
+    /* Posizionamento relativo */
 }
 
+/* Linea decorativa sotto il titolo */
 .container-reviews h2::after {
     content: '';
+    /* Contenuto vuoto */
     position: absolute;
+    /* Posizionamento assoluto */
     bottom: -10px;
+    /* Posiziona la linea sotto il titolo */
     left: 50%;
+    /* Centra la linea orizzontalmente */
     transform: translateX(-50%);
+    /* Centra esattamente la linea */
     width: 50px;
+    /* Larghezza della linea */
     height: 3px;
+    /* Altezza della linea */
     background: linear-gradient(45deg, #b8a99c, rgba(153, 52, 15, 0.925));
+    /* Gradiente della linea */
     border-radius: 2px;
+    /* Angoli arrotondati */
 }
 
-.product-info button:hover {
-    background-color: #2b2b2b;
-    color: white;
-    cursor: pointer;
-}
-
-/* modifica form */
-.form {
-    width: auto;
-    margin: 5%;
-}
-
-/* modifica data reviews */
+/* Data della recensione */
 .data {
     position: absolute;
+    /* Posizionamento assoluto */
     top: 1.5rem;
+    /* Posiziona in alto */
     right: 1.5rem;
+    /* Posiziona a destra */
     font-size: 0.85rem;
+    /* Dimensione del testo */
     color: #999;
+    /* Colore grigio */
     font-style: italic;
+    /* Testo in corsivo */
     margin-top: 5px;
+    /* Spaziatura sopra */
 }
 
-/* Sezione Prodotti Correlati */
+/* Sezione "Prodotti Correlati" */
 .new-arrivals {
     max-width: 1400px;
+    /* Larghezza massima */
     margin: 3rem auto;
+    /* Centra il contenitore orizzontalmente */
     padding: 0 2rem;
+    /* Spaziatura interna */
     display: grid;
+    /* Layout a griglia */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Colonne adattive */
     gap: 2rem;
+    /* Spaziatura tra gli elementi */
 }
 
+/* Card dei prodotti correlati */
 .card-box {
     background: white;
+    /* Sfondo bianco */
     overflow: hidden;
+    /* Nasconde gli elementi che escono dai bordi */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* Ombreggiatura leggera */
     transition: all 0.3s ease;
+    /* Transizione per l'effetto hover */
     text-decoration: none;
+    /* Rimuove la sottolineatura */
     color: inherit;
+    /* Mantiene il colore del testo */
 }
 
+/* Effetto hover per le card */
 .card-box:hover {
     transform: translateY(-10px);
+    /* Solleva leggermente la card */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    /* Ombreggiatura più intensa */
 }
 
+/* Corpo della card */
 .card-body {
     position: relative;
+    /* Posizionamento relativo */
     overflow: hidden;
+    /* Nasconde gli elementi che escono dai bordi */
     aspect-ratio: 1;
+    /* Mantiene un rapporto 1:1 */
 }
 
+/* Immagini della card */
 .card-body img {
     width: 100%;
+    /* L'immagine occupa tutta la larghezza */
     height: 100%;
+    /* L'immagine occupa tutta l'altezza */
     object-fit: cover;
+    /* Adatta l'immagine senza deformarla */
     transition: opacity 0.3s ease;
+    /* Transizione per l'opacità */
 }
 
+/* Immagine secondaria (hover) */
 .card-body .product-image12 {
     position: absolute;
+    /* Posizionamento assoluto */
     top: 0;
+    /* Posiziona in alto */
     left: 0;
+    /* Posiziona a sinistra */
     opacity: 0;
+    /* Nasconde l'immagine inizialmente */
 }
 
+/* Effetto hover per cambiare immagine */
 .card-box:hover .product-image12 {
     opacity: 1;
+    /* Mostra l'immagine secondaria */
 }
 
+/* Testo della card */
 .card-text {
     padding: 1rem;
+    /* Spaziatura interna */
     text-align: center;
+    /* Allinea il testo al centro */
 }
 
+/* Titolo della card */
 .card-text h3 {
     font-size: 1.1rem;
+    /* Dimensione del testo */
     margin-bottom: 0.5rem;
+    /* Spaziatura sotto il titolo */
     color: #333;
+    /* Colore del testo */
 }
 
+/* Prezzo della card */
 .card-text span {
     color: #e74c3c;
+    /* Colore rosso */
     font-weight: bold;
+    /* Testo in grassetto */
 }
 
-h2 {
-    text-align: center;
-}
-
+/* Media query per schermi medi */
 @media (max-width: 1000px) {
     .new-arrivals {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        /* Colonne adattive */
         padding: 0 1rem;
+        /* Riduce la spaziatura interna */
     }
 
     .product-detail {
         display: block;
+        /* Disposizione verticale */
         background-color: whitesmoke;
+        /* Sfondo grigio chiaro */
         margin: 10px;
+        /* Spaziatura esterna */
         border-radius: 10px;
+        /* Angoli arrotondati */
     }
 
     .product-image-detail {
         margin: 0 auto;
+        /* Centra il contenitore */
         padding: 10px;
+        /* Spaziatura interna */
         width: 80%;
+        /* Larghezza relativa */
     }
 
     .product-info {
         display: flex;
+        /* Disposizione degli elementi in riga */
         margin: 0 auto;
+        /* Centra il contenitore */
         flex-direction: column;
-        /* border: 2px solid black; */
+        /* Dispone gli elementi in colonna */
         width: 90%;
+        /* Larghezza relativa */
         text-align: center;
+        /* Allinea il testo al centro */
     }
 
     .product-info button {
         margin: 10px auto;
+        /* Spaziatura sopra e sotto */
         width: 50%;
+        /* Larghezza relativa */
         padding: 8px;
+        /* Spaziatura interna */
         font-size: 18px;
+        /* Dimensione del testo */
     }
 
     .product-info .icons {
         text-align: start;
+        /* Allinea il testo a sinistra */
         padding: 10px;
+        /* Spaziatura interna */
     }
 }
 
-
+/* Media query per tablet */
 @media (max-width: 768px) {
     .container-reviews {
         margin: 2rem 1rem;
+        /* Riduce la spaziatura esterna */
         padding: 1.5rem;
+        /* Riduce la spaziatura interna */
     }
 
     .review {
         padding: 1rem;
+        /* Riduce la spaziatura interna */
     }
 
     .data {
         position: static;
+        /* Posizionamento statico */
         margin-top: 1rem;
+        /* Spaziatura sopra */
     }
 
-
-    @media (max-width: 768px) {
-        .container-reviews {
-            margin: 2rem 1rem;
-            padding: 1.5rem;
-        }
-
-        .review {
-            padding: 1rem;
-        }
-
-        .data {
-            position: static;
-            margin-top: 1rem;
-        }
-
-        .product-image-detail {
-            gap: 0;
-            height: 250px;
-        }
+    .product-image-detail {
+        gap: 0;
+        /* Rimuove la spaziatura tra le immagini */
+        height: 250px;
+        /* Altezza fissa */
     }
 }

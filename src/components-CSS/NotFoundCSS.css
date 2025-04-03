@@ -1,50 +1,81 @@
+/* Stile per il contenitore principale della pagina "Not Found" */
 .home1 {
     background-image: url("../../img-notFoundPage/not-found-img.jpg");
+    /* Immagine di sfondo */
     background-size: cover;
+    /* Adatta l'immagine alla dimensione del contenitore */
     background-position: center;
+    /* Centra l'immagine */
     background-repeat: no-repeat;
+    /* Non ripete l'immagine */
     width: 100%;
+    /* Larghezza completa */
     height: 100vh;
+    /* Altezza pari alla viewport */
     display: flex;
+    /* Usa il layout flexbox */
     justify-content: center;
-    /* Centra orizzontalmente */
+    /* Centra il contenuto orizzontalmente */
     align-items: center;
-    /* Centra verticalmente */
+    /* Centra il contenuto verticalmente */
     text-align: center;
+    /* Allinea il testo al centro */
     color: white;
+    /* Colore del testo bianco */
     backdrop-filter: blur(5px);
-    /* Effetto sfocato elegante */
+    /* Applica un effetto sfocato elegante */
 }
 
+/* Contenitore per il contenuto della pagina "Not Found" */
 .notFoundContent {
     background: rgba(0, 0, 0, 0.6);
-    /* Sfondo semi-trasparente */
+    /* Sfondo semi-trasparente nero */
     padding: 30px;
+    /* Spaziatura interna */
     border-radius: 15px;
+    /* Angoli arrotondati */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /* Ombreggiatura leggera */
 }
 
+/* Stile per il titolo principale (H1) */
 .notFoundContent h1 {
     font-size: 2.5rem;
+    /* Dimensione del titolo */
     margin-bottom: 10px;
+    /* Spaziatura sotto il titolo */
 }
 
+/* Stile per il paragrafo descrittivo */
 .notFoundContent p {
     font-size: 1.2rem;
+    /* Dimensione del testo */
     margin-bottom: 20px;
+    /* Spaziatura sotto il paragrafo */
 }
 
+/* Stile per il link di navigazione */
 .notFoundContent a {
     display: inline-block;
+    /* Mostra il link come blocco inline */
     padding: 10px 20px;
+    /* Spaziatura interna */
     background-color: black;
+    /* Sfondo nero */
     color: white;
+    /* Colore del testo bianco */
     text-decoration: none;
+    /* Rimuove la sottolineatura */
     border-radius: 5px;
+    /* Angoli arrotondati */
     font-weight: bold;
+    /* Testo in grassetto */
     transition: background 0.3s ease;
+    /* Transizione per il cambio di sfondo */
 }
 
+/* Effetto hover per il link di navigazione */
 .notFoundContent a:hover {
     background-color: gray;
+    /* Cambia il colore di sfondo al passaggio del mouse */
 }

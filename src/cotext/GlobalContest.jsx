@@ -1,52 +1,71 @@
-// Importa gli hook necessari da React
+// Importa gli hook fondamentali di React per la gestione dello stato e del contesto
 import { createContext, useState, useEffect } from "react";
-// Importa axios per le chiamate HTTP
+// Importa axios per effettuare chiamate HTTP al backend
 import axios from "axios";
 
-// Crea il contesto globale
+// Crea un nuovo contesto React che sarà utilizzato in tutta l'applicazione
 const GlobalContext = createContext();
 
-// Componente Provider che fornisce il contesto a tutta l'applicazione
+// Componente Provider che avvolgerà l'intera applicazione per fornire il contesto globale
 export const GlobalProvider = ({ children }) => {
-  // Stati per la gestione dei prodotti
-  const [products, setProducts] = useState([]); // Lista di tutti i prodotti
-  const [categories, setCategories] = useState([]); // Lista delle categorie
-  const [loading, setLoading] = useState(true); // Stato di caricamento
-  const [error, setError] = useState(null); // Gestione errori
-  const [search, setSearch] = useState([]); // Risultati della ricerca
-  const [query, setQuery] = useState(""); // Query di ricerca
+  // --- GESTIONE STATI PRODOTTI ---
+  // Stato per memorizzare l'elenco completo dei prodotti
+  const [products, setProducts] = useState([]);
+  // Stato per memorizzare le categorie disponibili
+  const [categories, setCategories] = useState([]);
+  // Stato per indicare se è in corso un caricamento dati
+  const [loading, setLoading] = useState(true);
+  // Stato per la gestione degli errori
+  const [error, setError] = useState(null);
+  // Stato per memorizzare i risultati della ricerca
+  const [search, setSearch] = useState([]);
+  // Stato per memorizzare il testo della ricerca corrente
+  const [query, setQuery] = useState("");
 
-  // Stati per la gestione del carrello
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []); // Carrello
-  const [cartCount, setCartCount] = useState(0); // Numero di elementi nel carrello
-  const [discount, setDiscount] = useState(0); // Sconto applicato
-  const [total, setTotal] = useState(0); // Totale senza sconto
-  const [finalTotal, setFinalTotal] = useState(0); // Totale finale con sconto
+  // --- GESTIONE STATI CARRELLO ---
+  // Stato del carrello, inizializzato dal localStorage o vuoto
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
+  // Contatore degli elementi nel carrello
+  const [cartCount, setCartCount] = useState(0);
+  // Percentuale di sconto applicata
+  const [discount, setDiscount] = useState(0);
+  // Totale del carrello prima dello sconto
+  const [total, setTotal] = useState(0);
+  // Totale finale dopo l'applicazione dello sconto
+  const [finalTotal, setFinalTotal] = useState(0);
+
+  // --- GESTIONE STATI WISHLIST ---
+  // Stato della lista dei desideri, inizializzato dal localStorage o vuoto
   const [wishlist, setWishlist] = useState(() => {
     const savedWishlist = localStorage.getItem("wishlist");
     return savedWishlist ? JSON.parse(savedWishlist) : [];
-  }); // Stato per la lista dei desideri
-  const [wishlistCount, setWishlistCount] = useState(0); // Stato per il conteggio della wishlist
+  });
+  // Contatore degli elementi nella wishlist
+  const [wishlistCount, setWishlistCount] = useState(0);
 
-  // Stati per i filtri
-  const [selectedCategory, setSelectedCategory] = useState(""); // Categoria selezionata
-  const [sortPrice, setSortPrice] = useState(""); // Ordinamento per prezzo
+  // --- GESTIONE STATI FILTRI ---
+  // Categoria attualmente selezionata per il filtro
+  const [selectedCategory, setSelectedCategory] = useState("");
+  // Ordinamento per prezzo selezionato
+  const [sortPrice, setSortPrice] = useState("");
 
-  // Log per debugging
-  console.log("Total:", total);
-  console.log("Final Total:", finalTotal);
+  // --- DEBUG LOGS ---
+  // Log per debugging dei totali
+  console.log("Totale carrello:", total);
+  console.log("Totale finale con sconto:", finalTotal);
 
-  // Effect per caricare i prodotti all'avvio
+  // --- EFFETTI COLLATERALI ---
+  // Effetto per caricare i prodotti all'avvio dell'applicazione
   useEffect(() => {
     const fetchProducts = async () => {
-      console.log('Fetching products...');
+      console.log('Recupero prodotti in corso...');
       try {
         const response = await axios.get("http://localhost:3000/api/products");
-        console.log('Products fetched:', response.data.length);
+        console.log('Prodotti recuperati:', response.data.length);
         setProducts(response.data);
       } catch (err) {
         const errorMessage = "Errore nel caricamento dei prodotti";
-        console.error('fetchProducts error:', err);
+        console.error('Errore recupero prodotti:', err);
         setError(errorMessage);
       } finally {
         setLoading(false);
@@ -56,7 +75,7 @@ export const GlobalProvider = ({ children }) => {
     fetchProducts();
   }, []);
 
-  // Effect per caricare le categorie all'avvio
+  // Effetto per caricare le categorie all'avvio
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -72,19 +91,19 @@ export const GlobalProvider = ({ children }) => {
     fetchCategories();
   }, []);
 
-  // Effect per gestire il carrello e i totali
+  // Effetto per gestire gli aggiornamenti del carrello
   useEffect(() => {
-    // Salva il carrello nel localStorage
+    // Salva il carrello nel localStorage ad ogni modifica
     localStorage.setItem("cart", JSON.stringify(cart));
-    // Aggiorna il conteggio degli elementi
+    // Aggiorna il numero totale di elementi nel carrello
     setCartCount(cart.reduce((acc, item) => acc + item.quantity, 0));
 
-    // Calcola il subtotale
+    // Calcola il subtotale del carrello
     const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    // Calcola il totale con lo sconto
+    // Applica lo sconto al subtotale
     const totalWithoutDiscount = subtotal - subtotal * discount;
 
-    // Aggiorna i totali
+    // Aggiorna i totali nel contesto
     setTotal(totalWithoutDiscount);
     setFinalTotal(totalWithoutDiscount);
   }, [cart, discount]);

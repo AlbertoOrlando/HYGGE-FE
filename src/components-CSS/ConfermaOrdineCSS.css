@@ -1,113 +1,189 @@
+/* Contenitore principale della pagina di conferma ordine */
 .conferma-ordine-container {
     max-width: 1200px;
+    /* Larghezza massima del contenitore */
     margin: 0 auto;
+    /* Centra il contenitore orizzontalmente */
     padding: 20px;
+    /* Spaziatura interna */
     background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    /* Sfondo con gradiente */
     border-radius: 10px;
+    /* Angoli arrotondati */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Ombreggiatura leggera */
     font-family: 'Arial', sans-serif;
+    /* Font principale */
     margin: 50px auto;
+    /* Spaziatura verticale per centrare il contenitore */
 }
 
+/* Intestazione della pagina di conferma ordine */
 .conferma-ordine-header {
     text-align: center;
+    /* Allinea il testo al centro */
     margin-bottom: 30px;
+    /* Spaziatura sotto l'intestazione */
 }
 
 .conferma-ordine-header h1 {
     font-size: 2.5rem;
+    /* Dimensione del titolo principale */
     color: #2c3e50;
+    /* Colore del testo */
     margin-bottom: 10px;
+    /* Spaziatura sotto il titolo */
 }
 
 .conferma-ordine-header p {
     font-size: 1.2rem;
+    /* Dimensione del testo del paragrafo */
     color: #34495e;
+    /* Colore del testo */
 }
 
+/* Sezione del riepilogo ordine */
 .riepilogo-ordine {
     background: #ffffff;
+    /* Sfondo bianco */
     padding: 20px;
+    /* Spaziatura interna */
     border-radius: 10px;
+    /* Angoli arrotondati */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Ombreggiatura leggera */
 }
 
 .riepilogo-ordine h2 {
     font-size: 1.8rem;
+    /* Dimensione del titolo della sezione */
     color: #2c3e50;
+    /* Colore del testo */
     margin-bottom: 20px;
+    /* Spaziatura sotto il titolo */
     border-bottom: 2px solid #ecf0f1;
+    /* Linea divisoria sotto il titolo */
     padding-bottom: 10px;
+    /* Spaziatura sotto il titolo */
 }
 
+/* Lista dei prodotti ordinati */
 .ordine-prodotti {
     display: flex;
+    /* Usa il layout flexbox */
     flex-direction: column;
+    /* Dispone gli elementi in colonna */
     gap: 15px;
+    /* Spaziatura tra i prodotti */
     margin-bottom: 20px;
+    /* Spaziatura sotto la lista */
 }
 
+/* Stile per ogni prodotto nella lista */
 .ordine-prodotto {
     display: flex;
+    /* Disposizione degli elementi in riga */
     align-items: center;
+    /* Allinea gli elementi verticalmente */
     gap: 15px;
+    /* Spaziatura tra gli elementi */
     padding: 15px;
+    /* Spaziatura interna */
     border: 1px solid #ecf0f1;
+    /* Bordo grigio chiaro */
     border-radius: 8px;
+    /* Angoli arrotondati */
     background: #f9f9f9;
+    /* Sfondo grigio chiaro */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Transizione per hover */
 }
 
 .ordine-prodotto:hover {
     transform: translateY(-5px);
+    /* Solleva il prodotto al passaggio del mouse */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    /* Ombreggiatura più intensa */
 }
 
+/* Immagine del prodotto */
 .ordine-prodotto-img {
     width: 80px;
+    /* Larghezza dell'immagine */
     height: 80px;
+    /* Altezza dell'immagine */
     object-fit: cover;
+    /* Adatta l'immagine senza deformarla */
     border-radius: 8px;
+    /* Angoli arrotondati */
     border: 1px solid #ecf0f1;
+    /* Bordo grigio chiaro */
 }
 
+/* Informazioni del prodotto */
 .ordine-prodotto-info h3 {
     font-size: 1.2rem;
+    /* Dimensione del titolo del prodotto */
     color: #2c3e50;
+    /* Colore del testo */
     margin-bottom: 5px;
+    /* Spaziatura sotto il titolo */
 }
 
 .ordine-prodotto-info p {
     font-size: 1rem;
+    /* Dimensione del testo */
     color: #7f8c8d;
+    /* Colore del testo */
     margin: 2px 0;
+    /* Spaziatura verticale tra i paragrafi */
 }
 
+/* Totale dell'ordine */
 .ordine-totale {
     text-align: right;
+    /* Allinea il testo a destra */
     font-size: 1.5rem;
+    /* Dimensione del testo */
     color: #27ae60;
+    /* Colore verde per il totale */
     font-weight: bold;
+    /* Testo in grassetto */
     margin-top: 20px;
+    /* Spaziatura sopra il totale */
 }
 
+/* Footer della pagina di conferma ordine */
 .conferma-ordine-footer {
     text-align: center;
+    /* Allinea il contenuto al centro */
     margin-top: 30px;
+    /* Spaziatura sopra il footer */
 }
 
+/* Pulsante per tornare alla homepage */
 .torna-home-btn {
     display: inline-block;
+    /* Mostra il pulsante come blocco inline */
     padding: 10px 20px;
+    /* Spaziatura interna */
     font-size: 1rem;
+    /* Dimensione del testo */
     color: #ffffff;
+    /* Colore del testo bianco */
     background: #3498db;
+    /* Sfondo blu */
     border: none;
+    /* Nessun bordo */
     border-radius: 5px;
+    /* Angoli arrotondati */
     text-decoration: none;
+    /* Rimuove la sottolineatura */
     transition: background 0.3s ease;
+    /* Transizione per il cambio di colore */
 }
 
 .torna-home-btn:hover {
     background: #2980b9;
+    /* Cambia il colore di sfondo al passaggio del mouse */
 }

@@ -1,131 +1,200 @@
+/* Contenitore per l'immagine del prodotto */
 .product-image-container {
   position: relative;
+  /* Posizionamento relativo per elementi interni */
   width: 100%;
+  /* Larghezza completa */
 }
 
+/* Icona del cuore per wishlist */
 .heart2 {
   position: relative;
+  /* Posizionamento relativo */
 }
 
 .heart {
   position: absolute;
+  /* Posizionamento assoluto */
   top: 5px;
+  /* Posiziona il cuore in alto */
   right: 5px;
+  /* Posiziona il cuore a destra */
   background-color: white;
+  /* Sfondo bianco */
   border-radius: 50%;
+  /* Forma circolare */
   padding: 7px;
+  /* Spaziatura interna */
   color: black;
-  /* Colore originale */
+  /* Colore originale del cuore */
   transition: color 0.3s ease, transform 0.3s ease;
+  /* Transizione per colore e dimensione */
 }
 
 .heart.active {
   color: red;
-  /* Colore rosso quando il cuore è attivo */
+  /* Cambia il colore a rosso quando il cuore è attivo */
 }
 
 .heart:hover {
   transform: scale(1.2);
-  /* Effetto hover per ingrandire il cuore */
+  /* Ingrandisce il cuore al passaggio del mouse */
 }
 
+/* Immagini del prodotto */
 .product-image,
 .product-image1 {
   width: 100%;
+  /* L'immagine occupa tutta la larghezza */
   transition: opacity 0.3s ease-in-out;
+  /* Transizione per l'opacità */
 }
 
 .product-image1 {
   position: absolute;
+  /* Posizionamento assoluto */
   top: 0;
+  /* Posiziona l'immagine in alto */
   left: 0;
+  /* Posiziona l'immagine a sinistra */
   opacity: 0;
+  /* Nasconde l'immagine secondaria inizialmente */
 }
 
+/* Effetto hover per cambiare immagine */
 .product-card:hover .product-image {
   opacity: 0;
+  /* Nasconde l'immagine principale */
 }
 
 .product-card:hover .product-image1 {
   opacity: 1;
+  /* Mostra l'immagine secondaria */
 }
 
+/* Link all'interno della card prodotto */
 .product-card a {
   color: black;
+  /* Colore del testo */
   text-decoration: none;
+  /* Rimuove la sottolineatura */
 }
 
+/* Titolo della lista dei prodotti */
 .product-list h1 {
   font-size: 2rem;
+  /* Dimensione del testo */
   font-weight: bold;
+  /* Testo in grassetto */
   color: #333;
+  /* Colore del testo */
   text-align: center;
+  /* Allinea il testo al centro */
 }
 
-/* modifica pagina ricerca */
+/* Contenitore per i filtri */
 .filter-container {
   display: flex;
+  /* Disposizione degli elementi in riga */
   justify-content: space-between;
+  /* Spaziatura uniforme tra gli elementi */
 }
 
+/* Contenitore per l'ordinamento */
 .sort-container {
   font-size: 24px;
+  /* Dimensione del testo */
   margin-bottom: 20px;
+  /* Spaziatura sotto il contenitore */
   z-index: 1500;
+  /* Porta il contenitore in primo piano */
   padding-right: 20px;
+  /* Spaziatura a destra */
 }
 
-
+/* Stile per la pagina di ricerca */
 .ricerca-page span {
   font-size: 24px;
+  /* Dimensione del testo */
   margin-bottom: 20px;
+  /* Spaziatura sotto il testo */
   z-index: 1500;
+  /* Porta il contenitore in primo piano */
   padding-left: 20px;
-
+  /* Spaziatura a sinistra */
 }
 
 .ricerca-page select {
   margin-left: 20px;
+  /* Spaziatura a sinistra */
   padding: 5px;
+  /* Spaziatura interna */
   font-size: 16px;
+  /* Dimensione del testo */
   border-radius: 5px;
+  /* Angoli arrotondati */
   border: 1px solid #ccc;
+  /* Bordo grigio chiaro */
 }
 
+/* Lista dei prodotti */
 .product-list {
   text-align: center;
-  padding: 20px;
+  /* Allinea il testo al centro */
+
 }
 
+/* Griglia dei prodotti */
 .product-grid-prodotti {
   display: flex;
+  /* Disposizione degli elementi in riga */
   flex-wrap: wrap;
+  /* Permette agli elementi di andare a capo */
   gap: 20px;
+  /* Spaziatura tra gli elementi */
   padding: 20px;
+  /* Spaziatura interna */
 }
 
+/* Card del prodotto */
 .product-card {
   flex: 0 0 calc(25% - 20px);
+  /* Quattro card per riga con spaziatura */
   border: 1px solid #fff;
+  /* Bordo bianco */
   background-color: #fff;
+  /* Sfondo bianco */
   box-sizing: border-box;
+  /* Include padding e bordo nella larghezza totale */
 }
 
-/* Responsive */
+.prodotti-page-descrizione {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* Media query per schermi medi */
 @media screen and (max-width: 1200px) {
   .product-card {
     flex: 0 0 calc(33.33% - 20px);
+    /* Tre card per riga */
   }
 }
 
+/* Media query per tablet */
 @media screen and (max-width: 768px) {
   .product-card {
     flex: 0 0 calc(50% - 20px);
+    /* Due card per riga */
   }
 }
 
+/* Media query per dispositivi mobili */
 @media screen and (max-width: 480px) {
   .product-card {
     flex: 0 0 100%;
+    /* Una card per riga */
   }
 }

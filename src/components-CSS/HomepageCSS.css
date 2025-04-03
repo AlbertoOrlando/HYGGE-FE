@@ -1,121 +1,405 @@
-/* Immagine iniziale */
+/* Immagine iniziale della homepage */
 .content-home {
     width: 100%;
+    /* Larghezza completa */
     height: 100vh;
+    /* Altezza pari alla viewport */
     background-image: url("https://rspiscinesrl.it/wp-content/uploads/2018/03/arredi-per-piscine-03.jpg");
+    /* Immagine di sfondo */
     position: relative;
+    /* Posizionamento relativo per elementi interni */
 }
 
-/* H1 */
+/* Stile per il titolo principale (H1) */
 h1 {
     margin-top: 20px;
+    /* Spaziatura sopra il titolo */
     padding: 10px;
+    /* Spaziatura interna */
 }
 
-/* Btn */
+/* Stile per il pulsante nella sezione iniziale */
 .content-home a {
     position: absolute;
+    /* Posizionamento assoluto */
     top: 50%;
+    /* Centra verticalmente */
     left: 50%;
+    /* Centra orizzontalmente */
     transform: translate(-50%, -50%);
+    /* Centra esattamente al centro */
     font-size: 20px;
+    /* Dimensione del testo */
     font-weight: 500;
+    /* Peso del testo */
     text-decoration: none;
+    /* Rimuove la sottolineatura */
     border: 2px solid white;
+    /* Bordo bianco */
     color: white;
+    /* Colore del testo */
     padding: 10px 15px;
+    /* Spaziatura interna */
 }
 
+/* Effetto hover per il pulsante */
 .content-home a:hover {
     background-color: rgba(211, 211, 211, 0.3);
+    /* Sfondo trasparente grigio */
     color: white;
+    /* Mantiene il testo bianco */
 }
 
+/* Sezione "Nuovi arrivi" */
 .new-arrivals {
     padding: 10px;
+    /* Spaziatura interna */
     display: flex;
+    /* Disposizione degli elementi in riga */
     align-items: center;
+    /* Allinea gli elementi verticalmente */
     text-align: center;
+    /* Allinea il testo al centro */
     gap: 8px;
+    /* Spaziatura tra gli elementi */
 }
 
-/* Card new-arrivals */
+/* Card per i nuovi arrivi */
 .card-box {
     width: 100%;
+    /* Larghezza completa */
     background: white;
+    /* Sfondo bianco */
     overflow: hidden;
+    /* Nasconde gli elementi che escono dai bordi */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* Ombreggiatura leggera */
     transition: all 0.3s ease;
+    /* Transizione per effetti hover */
     text-decoration: none;
+    /* Rimuove la sottolineatura */
     color: inherit;
+    /* Mantiene il colore del testo */
 }
 
+/* Effetto hover per le card */
 .card-box:hover {
     transform: translateY(-10px);
+    /* Solleva leggermente la card */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    /* Ombreggiatura più intensa */
 }
 
+/* Corpo della card */
 .card-body {
     width: 100%;
+    /* Larghezza completa */
     height: 300px;
+    /* Altezza fissa */
     position: relative;
+    /* Posizionamento relativo per elementi interni */
     overflow: hidden;
+    /* Nasconde gli elementi che escono dai bordi */
     aspect-ratio: 1;
+    /* Mantiene un rapporto 1:1 */
 }
 
+/* Immagine principale della card */
 .card-body img {
     width: 100%;
+    /* L'immagine occupa tutta la larghezza */
     height: 100%;
+    /* L'immagine occupa tutta l'altezza */
     object-fit: cover;
+    /* Adatta l'immagine senza deformarla */
     transition: opacity 0.3s ease;
+    /* Transizione per l'opacità */
 }
 
-/* hover immagine */
+/* Immagine secondaria (hover) */
 .card-body .product-image12 {
     position: absolute;
+    /* Posizionamento assoluto */
     top: 0;
+    /* Posiziona in alto */
     left: 0;
+    /* Posiziona a sinistra */
     opacity: 0;
+    /* Nasconde l'immagine inizialmente */
 }
 
+/* Effetto hover per cambiare immagine */
 .card-body:hover .product-image2 {
     opacity: 0;
+    /* Nasconde l'immagine principale */
 }
 
 .card-body:hover .product-image12 {
     opacity: 1;
+    /* Mostra l'immagine secondaria */
 }
 
+/* Stile per le immagini della card */
 .product-image2,
 .product-image12 {
     width: 100%;
+    /* L'immagine occupa tutta la larghezza */
     height: 100%;
+    /* L'immagine occupa tutta l'altezza */
     object-fit: cover;
+    /* Adatta l'immagine senza deformarla */
     transition: opacity 0.3s ease-in-out;
+    /* Transizione per l'opacità */
 }
 
+/* Testo della card */
 .card-text {
     width: 100%;
+    /* Larghezza completa */
     text-align: start;
+    /* Allinea il testo a sinistra */
     padding: 1rem;
+    /* Spaziatura interna */
     text-align: center;
+    /* Allinea il testo al centro */
 }
 
+/* Titolo della card */
 .card-text h3 {
     font-size: 1.1rem;
+    /* Dimensione del testo */
     margin-bottom: 0.5rem;
+    /* Spaziatura sotto il titolo */
     color: #333;
+    /* Colore del testo */
     padding: 10px;
+    /* Spaziatura interna */
 }
 
+/* Prezzo della card */
 .card-text span {
     color: #e74c3c;
+    /* Colore rosso */
     font-weight: bold;
+    /* Testo in grassetto */
 }
 
-/* Trending */
+/* Sezione "Trending" */
 .trending {
     width: 100%;
+    /* Larghezza completa */
+}
+
+/* Sezione "Camera da letto" */
+.camera-da-letto {
+    width: 100%;
+    /* Larghezza completa */
+    height: 100vh;
+    /* Altezza pari alla viewport */
+    background-image: url("/public/bed-1839184_1280.jpg");
+    /* Immagine di sfondo */
+    background-repeat: no-repeat;
+    /* Non ripete l'immagine */
+    background-size: cover;
+    /* Adatta l'immagine alla dimensione */
+    background-position: center;
+    /* Centra l'immagine */
+    position: relative;
+    /* Posizionamento relativo per elementi interni */
+}
+
+/* Titolo della sezione "Camera da letto" */
+.camera-da-letto h3 {
+    padding: 10px;
+    /* Spaziatura interna */
+    font-size: 25px;
+    /* Dimensione del testo */
+    text-align: center;
+    /* Allinea il testo al centro */
+}
+
+/* Pulsante della sezione "Camera da letto" */
+.camera-da-letto a {
+    position: absolute;
+    /* Posizionamento assoluto */
+    top: 50%;
+    /* Centra verticalmente */
+    left: 50%;
+    /* Centra orizzontalmente */
+    transform: translate(-50%, -50%);
+    /* Centra esattamente al centro */
+    text-decoration: none;
+    /* Rimuove la sottolineatura */
+    font-size: 20px;
+    /* Dimensione del testo */
+    font-weight: 400;
+    /* Peso del testo */
+    border: 2px solid white;
+    /* Bordo bianco */
+    color: white;
+    /* Colore del testo */
+    padding: 20px 35px;
+    /* Spaziatura interna */
+}
+
+/* Effetto hover per il pulsante */
+.camera-da-letto a:hover {
+    background-color: rgba(211, 211, 211, 0.3);
+    /* Sfondo trasparente grigio */
+    color: white;
+    /* Mantiene il testo bianco */
+}
+
+/* Sezione "In evidenza" */
+.evidence {
+    width: 100%;
+    /* Larghezza completa */
+    display: flex;
+    /* Disposizione degli elementi in riga */
+    flex-direction: column;
+    /* Dispone gli elementi in colonna */
+    margin-bottom: 20px;
+    /* Spaziatura sotto la sezione */
+}
+
+/* Contenitore per le immagini in evidenza */
+.evidence-img {
+    display: flex;
+    /* Disposizione degli elementi in riga */
+    gap: 5px;
+    /* Spaziatura tra gli elementi */
+    align-items: center;
+    /* Allinea gli elementi verticalmente */
+    justify-content: space-around;
+    /* Spaziatura uniforme tra gli elementi */
+}
+
+/* Card per la sezione "In evidenza" */
+.card-evidence .card {
+    background: white;
+    /* Sfondo bianco */
+    overflow: hidden;
+    /* Nasconde gli elementi che escono dai bordi */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* Ombreggiatura leggera */
+    transition: all 0.3s ease;
+    /* Transizione per effetti hover */
+    text-decoration: none;
+    /* Rimuove la sottolineatura */
+    color: inherit;
+    /* Mantiene il colore del testo */
+}
+
+/* Effetto hover per le card */
+.card-evidence .card:hover {
+    transform: translateY(-10px);
+    /* Solleva leggermente la card */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    /* Ombreggiatura più intensa */
+}
+
+/* Corpo della card */
+.card-evidence .card-body {
+    position: relative;
+    /* Posizionamento relativo per elementi interni */
+    overflow: hidden;
+    /* Nasconde gli elementi che escono dai bordi */
+    aspect-ratio: 1;
+    /* Mantiene un rapporto 1:1 */
+}
+
+/* Testo della card */
+.card-evidence .card-text {
+    padding: 1rem;
+    /* Spaziatura interna */
+    text-align: center;
+    /* Allinea il testo al centro */
+}
+
+/* Titolo della card */
+.card-evidence h4 {
+    font-size: 1.1rem;
+    /* Dimensione del testo */
+    margin-bottom: 0.5rem;
+    /* Spaziatura sotto il titolo */
+    color: #333;
+    /* Colore del testo */
+    padding: 10px;
+    /* Spaziatura interna */
+}
+
+/* Prezzo della card */
+.card-evidence span {
+    color: #e74c3c;
+    /* Colore rosso */
+    font-weight: bold;
+    /* Testo in grassetto */
+}
+
+/* Media query per schermi medi */
+@media screen and (max-width: 1200px) {
+    .new-arrivals {
+        flex-wrap: wrap;
+        /* Permette agli elementi di andare a capo */
+        justify-content: center;
+        /* Centra gli elementi */
+    }
+
+    .card-box {
+        flex: 0 0 30%;
+        /* Tre card per riga */
+    }
+
+    .camera-da-letto,
+    .box-evidence,
+    .sala-da-pranzo {
+        height: 70vh;
+        /* Altezza ridotta per schermi medi */
+    }
+}
+
+/* Media query per tablet */
+@media screen and (max-width: 768px) {
+    .new-arrivals {
+        flex-wrap: wrap;
+        /* Permette agli elementi di andare a capo */
+        justify-content: center;
+        /* Centra gli elementi */
+    }
+
+    .card-box {
+        flex: 0 0 45%;
+        /* Due card per riga */
+    }
+
+    .camera-da-letto,
+    .box-evidence,
+    .sala-da-pranzo {
+        height: 60vh;
+        /* Altezza ridotta per tablet */
+    }
+}
+
+/* Media query per dispositivi mobili */
+@media screen and (max-width: 480px) {
+    .new-arrivals {
+        flex-wrap: wrap;
+        /* Permette agli elementi di andare a capo */
+        justify-content: center;
+        /* Centra gli elementi */
+    }
+
+    .card-box {
+        flex: 0 0 100%;
+        /* Una card per riga */
+    }
+
+    .camera-da-letto,
+    .box-evidence,
+    .sala-da-pranzo {
+        height: 100vh;
+        /* Altezza completa per dispositivi mobili */
+    }
 }
 
 /* Img - Camera da letto */

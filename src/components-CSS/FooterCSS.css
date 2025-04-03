@@ -1,166 +1,205 @@
 /* Blocco superiore del footer */
 .footer-blockUp {
     display: flex;
+    /* Disposizione degli elementi in riga */
     justify-content: space-around;
+    /* Spaziatura uniforme tra gli elementi */
     padding: 20px;
+    /* Spaziatura interna */
     background-color: #f5f5f5;
+    /* Sfondo grigio chiaro */
     flex-wrap: wrap;
+    /* Permette agli elementi di andare a capo su schermi piccoli */
 }
 
 .footer-blockUp ul {
     list-style: none;
+    /* Rimuove i punti elenco */
 }
 
 .footer-blockUp h4 {
     font-size: 1.2rem;
+    /* Dimensione del titolo */
     margin-bottom: 10px;
+    /* Spaziatura sotto il titolo */
     color: #333;
+    /* Colore del testo */
 }
 
 .footer-blockUp li {
     font-size: 0.9rem;
+    /* Dimensione del testo degli elementi */
     margin-bottom: 5px;
+    /* Spaziatura tra gli elementi */
     color: #555;
+    /* Colore del testo */
 }
 
 .footer-blockUp li a {
     text-decoration: none;
+    /* Rimuove la sottolineatura dai link */
     color: #555;
+    /* Colore del link */
     transition: color 0.3s ease;
+    /* Transizione per il cambio di colore */
 }
 
 .footer-blockUp li a:hover {
     color: #3498db;
+    /* Cambia il colore del link al passaggio del mouse */
 }
 
 /* Stile per la sezione contatti */
-
 .footer-contatti h4 {
     font-size: 24px;
+    /* Dimensione del titolo della sezione contatti */
     margin-bottom: 20px;
+    /* Spaziatura sotto il titolo */
 }
 
 /* Stile per la sezione informazioni */
-
 .footer-informazioni h4 {
     font-size: 24px;
+    /* Dimensione del titolo della sezione informazioni */
     margin-bottom: 20px;
+    /* Spaziatura sotto il titolo */
 }
 
 /* Stile per la sezione legale */
 .footer-legale ul {
     list-style: none;
+    /* Rimuove i punti elenco */
 }
 
 .footer-legale h4 {
     font-size: 24px;
+    /* Dimensione del titolo della sezione legale */
     margin-bottom: 20px;
-}
-
-/* Stile per il titolo della sezione contatti */
-.footer-contatti h4 {
-    margin-bottom: 8px;
+    /* Spaziatura sotto il titolo */
 }
 
 /* Copyright */
 .copyright {
     text-align: center;
+    /* Allinea il testo al centro */
     font-size: 0.8rem;
+    /* Dimensione del testo */
     color: #777;
+    /* Colore del testo */
     padding: 10px;
+    /* Spaziatura interna */
     background-color: #f5f5f5;
+    /* Sfondo grigio chiaro */
 }
 
 /* Contenitore per le icone social */
 .social {
     display: flex;
+    /* Disposizione degli elementi in riga */
     gap: 10px;
+    /* Spaziatura tra le icone */
     margin-top: 10px;
+    /* Spaziatura sopra le icone */
 }
 
 /* Colore specifico per l'icona di LinkedIn */
 .social a .fa-linkedin {
     color: #0A63BC;
+    /* Colore blu scuro */
 }
 
 /* Colore specifico per l'icona di YouTube */
 .social a .fa-youtube {
     color: red;
+    /* Colore rosso */
 }
 
 /* Colore specifico per l'icona di Instagram */
 .social a .fa-instagram {
     color: #E802D4;
+    /* Colore viola */
 }
 
 /* Colore specifico per l'icona di Facebook */
 .social a .fa-facebook-f {
     color: blue;
+    /* Colore blu */
 }
 
 /* Colore specifico per l'icona di Twitter */
 .social a .fa-twitter {
     color: #1C9CEA;
+    /* Colore blu chiaro */
 }
 
 /* Stile generale per i link social */
 .social a {
     font-size: 1.2rem;
+    /* Dimensione delle icone */
     color: #555;
+    /* Colore delle icone */
     text-decoration: none;
+    /* Rimuove la sottolineatura */
     transition: color 0.3s ease, transform 0.3s ease;
+    /* Transizione per colore e dimensione */
 }
 
 .social a:hover {
     color: #3498db;
+    /* Cambia il colore al passaggio del mouse */
     transform: scale(1.2);
+    /* Ingrandisce leggermente l'icona */
 }
 
+/* Stile per la sezione newsletter */
 .footer-newsletter {
     gap: 20px;
+    /* Spaziatura tra gli elementi */
     margin-bottom: 20px;
-}
-
-.about {
-    font-size: 24px;
-    color: black;
+    /* Spaziatura sotto la sezione */
 }
 
 /* Stile per la sezione dei metodi di pagamento */
 .payment {
     text-align: center;
+    /* Allinea il contenuto al centro */
     padding: 15px;
+    /* Spaziatura interna */
     background-color: #f5f5f5;
+    /* Sfondo grigio chiaro */
     font-size: 0.9rem;
+    /* Dimensione del testo */
     color: #555;
+    /* Colore del testo */
 }
 
 .payment ul {
     display: flex;
+    /* Disposizione degli elementi in riga */
     justify-content: center;
+    /* Centra gli elementi */
     gap: 15px;
+    /* Spaziatura tra le icone */
     list-style: none;
+    /* Rimuove i punti elenco */
     padding: 0;
+    /* Rimuove la spaziatura interna */
     margin-top: 10px;
-}
-
-.payment p {
-    border-bottom: black 1px solid;
-    margin: 0 20px 20px 20px;
+    /* Spaziatura sopra la lista */
 }
 
 .payment ul li img {
     width: 40px;
+    /* Larghezza delle icone */
     height: auto;
+    /* Altezza proporzionale */
     transition: transform 0.3s ease;
+    /* Transizione per l'effetto hover */
 }
 
 .payment ul li img:hover {
     transform: scale(1.2);
-}
-
-.payment img {
-    width: 40px;
+    /* Ingrandisce l'icona al passaggio del mouse */
 }
 
 /* Media query per tablet (max-width: 768px) */
@@ -169,15 +208,19 @@
         flex-direction: column;
         /* Disposizione verticale */
         align-items: center;
+        /* Centra gli elementi */
         text-align: center;
+        /* Allinea il testo al centro */
     }
 
     .footer-blockUp ul {
         margin-bottom: 20px;
+        /* Spaziatura sotto le liste */
     }
 
     .social {
         justify-content: center;
+        /* Centra le icone social */
     }
 }
 
@@ -185,22 +228,26 @@
 @media (max-width: 480px) {
     .footer-blockUp h4 {
         font-size: 1rem;
+        /* Riduce la dimensione del titolo */
     }
 
     .footer-blockUp li {
         font-size: 0.8rem;
+        /* Riduce la dimensione del testo */
     }
 
     .social a {
         font-size: 1rem;
+        /* Riduce la dimensione delle icone */
     }
 
     .payment ul li img {
         width: 30px;
-        /* Riduci la dimensione delle icone di pagamento */
+        /* Riduce la dimensione delle icone di pagamento */
     }
 
     .copyright {
         font-size: 0.7rem;
+        /* Riduce la dimensione del testo */
     }
 }

@@ -1,75 +1,121 @@
+/* Contenitore principale della pagina "Chi siamo" */
 .container-about {
     margin: 0 auto;
+    /* Centra il contenitore orizzontalmente */
 }
 
-/* Chi siamo */
+/* Sezione "Chi siamo" */
+
+/* Contenitore relativo per posizionare elementi assoluti */
 .about-img .relative {
     position: relative;
+    /* Imposta il contesto per il posizionamento assoluto */
 }
 
+/* Stile per l'immagine di sfondo della sezione */
 .about-img img {
     opacity: 0.95;
+    /* Leggera trasparenza per un effetto visivo elegante */
 }
 
+/* Contenitore del testo sovrapposto all'immagine */
 .aboutUs {
     position: absolute;
+    /* Posiziona il testo sopra l'immagine */
     top: 50%;
+    /* Centra verticalmente */
     left: 50%;
+    /* Centra orizzontalmente */
     transform: translate(-50%, -50%);
+    /* Centra esattamente al centro */
     font-size: 25px;
+    /* Dimensione del testo */
 }
 
-/* Hygge */
+/* Sezione "Hygge" */
 
+/* Contenitore principale della sezione Hygge */
 .about-hygge {
     width: 80%;
+    /* Larghezza relativa al contenitore principale */
     height: 70vh;
+    /* Altezza relativa alla viewport */
     padding: 10px;
+    /* Spaziatura interna */
     line-height: 25px;
+    /* Altezza delle righe per migliorare la leggibilità */
     margin: 0 auto;
+    /* Centra il contenitore orizzontalmente */
     display: flex;
+    /* Usa il layout flexbox */
     align-items: center;
+    /* Allinea gli elementi al centro verticalmente */
     flex-direction: column;
+    /* Dispone gli elementi in colonna */
     justify-content: center;
+    /* Centra gli elementi verticalmente */
     font-size: 18px;
+    /* Dimensione del testo */
 }
 
+/* Stile per il titolo della sezione Hygge */
 .about-hygge h2 {
     text-align: center;
+    /* Centra il testo */
     margin-bottom: 20px;
+    /* Spaziatura sotto il titolo */
     padding: 10px;
+    /* Spaziatura interna */
 }
 
-/* About */
+/* Sezione "About" */
 
+/* Contenitore principale della sezione About */
 .about-box {
     width: 100%;
+    /* Larghezza completa */
     display: flex;
+    /* Usa il layout flexbox */
     justify-content: center;
+    /* Centra gli elementi orizzontalmente */
     align-items: center;
+    /* Centra gli elementi verticalmente */
 }
 
+/* Contenitore per l'immagine nella sezione About */
 .about-img {
     width: 100%;
+    /* Larghezza completa */
     height: 100vh;
+    /* Altezza relativa alla viewport */
 }
 
-
+/* Stile per l'immagine nella sezione About */
 .about-img img {
     width: 100%;
+    /* L'immagine occupa tutta la larghezza */
     height: 100%;
+    /* L'immagine occupa tutta l'altezza */
 }
 
+/* Contenitore per il testo nella sezione About */
 .about-text {
     width: 50%;
+    /* Larghezza relativa al contenitore principale */
     padding: 20px;
+    /* Spaziatura interna */
     line-height: 25px;
+    /* Altezza delle righe per migliorare la leggibilità */
 }
 
+/* Stile per il titolo principale nella sezione About */
 .about-text h1 {
     margin-bottom: 30px;
+    /* Spaziatura sotto il titolo */
 }
 
+/* Stile per i sottotitoli nella sezione About */
 .about-text h2 {
     margin-bottom: 20px;
+    /* Spaziatura sotto il sottotitolo */
 }

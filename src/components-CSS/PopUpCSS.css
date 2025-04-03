@@ -1,79 +1,135 @@
+/* Overlay del popup */
 .popup-overlay {
     position: fixed;
+    /* Posiziona l'overlay in modo fisso rispetto alla finestra */
     top: 0;
+    /* Posiziona l'overlay in alto */
     left: 0;
+    /* Posiziona l'overlay a sinistra */
     width: 100%;
+    /* Larghezza completa */
     height: 100%;
+    /* Altezza completa */
     background: rgba(0, 0, 0, 0.5);
+    /* Sfondo semi-trasparente nero */
     backdrop-filter: blur(3px);
+    /* Applica un effetto sfocato allo sfondo */
     z-index: 999;
+    /* Porta l'overlay in primo piano */
 }
 
+/* Contenitore principale del popup */
 .container-pop {
     width: 30%;
+    /* Larghezza del popup */
     background: rgb(255, 255, 255);
+    /* Sfondo bianco */
     position: fixed;
+    /* Posiziona il popup in modo fisso rispetto alla finestra */
     top: 50%;
+    /* Centra verticalmente */
     left: 50%;
+    /* Centra orizzontalmente */
     transform: translate(-50%, -50%);
+    /* Centra esattamente al centro */
     z-index: 1000;
+    /* Porta il popup sopra l'overlay */
     text-align: center;
+    /* Allinea il testo al centro */
     line-height: 40px;
+    /* Altezza delle righe */
     box-shadow: 8px 5px 5px rgba(0, 0, 0, 0.738);
+    /* Ombreggiatura per dare profondità */
 }
 
+/* Contenitore per l'email */
 .email-pop {
     padding: 20px;
+    /* Spaziatura interna */
 }
 
+/* Stile per il campo di input dell'email */
 .email-pop input {
     width: 100%;
+    /* Larghezza completa */
     padding: 10px 15px;
+    /* Spaziatura interna */
     margin: 8px 0;
+    /* Spaziatura esterna sopra e sotto */
     box-sizing: border-box;
+    /* Include padding e bordo nella larghezza totale */
     border: none;
+    /* Rimuove il bordo predefinito */
     border-bottom: 2px solid black;
+    /* Bordo inferiore nero */
 }
 
+/* Contenitore per il messaggio del popup */
 .message-pop {
     background-color: black;
+    /* Sfondo nero */
     width: 100%;
+    /* Larghezza completa */
     height: 100px;
+    /* Altezza fissa */
     padding: 30px;
+    /* Spaziatura interna */
 }
 
+/* Stile per il titolo del messaggio */
 .message-pop h2 {
     color: white;
+    /* Colore del testo bianco */
     font-size: 50px;
+    /* Dimensione del testo */
 }
 
 /* Bottone d'invio */
 .button-pop button {
     padding: 8px 12px;
+    /* Spaziatura interna */
     background-color: black;
+    /* Sfondo nero */
     color: white;
+    /* Testo bianco */
     border-radius: 10px;
+    /* Angoli arrotondati */
     cursor: pointer;
+    /* Cambia il cursore al passaggio del mouse */
     margin: 10px;
+    /* Spaziatura esterna */
 }
 
 /* Messaggio d'errore */
 .error-message {
     color: red;
+    /* Colore rosso per indicare l'errore */
     font-size: 0.9em;
+    /* Dimensione del testo */
     margin-top: 5px;
+    /* Spaziatura sopra il messaggio */
 }
 
-/* Bottone di chiusura */
+/* Bottone di chiusura del popup */
 .x-button {
     padding: 10px 10px;
+    /* Spaziatura interna */
     position: absolute;
+    /* Posizionamento assoluto */
     top: 0;
+    /* Posiziona il bottone in alto */
     right: 0;
+    /* Posiziona il bottone a destra */
     background-color: black;
+    /* Sfondo nero */
     color: white;
+    /* Testo bianco */
     border-radius: 10px;
+    /* Angoli arrotondati */
     border: none;
+    /* Rimuove il bordo */
     cursor: pointer;
+    /* Cambia il cursore al passaggio del mouse */
     font-size: 18px;
+    /* Dimensione del testo */
 }

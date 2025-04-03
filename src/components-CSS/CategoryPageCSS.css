@@ -1,79 +1,115 @@
-/* Contenitore principale */
+/* Contenitore principale della pagina delle categorie */
 .category-container {
-   width: 100%;
-   text-align: center;
-   
+    width: 100%;
+    /* Larghezza completa del contenitore */
+    text-align: center;
+    /* Allinea il contenuto al centro */
 }
 
-/* Titolo e descrizione */
+/* Titolo e descrizione della categoria */
 .category-header {
     width: 100%;
-    
+    /* Larghezza completa del contenitore */
 }
 
 .category-header h1 {
     font-size: 2rem;
+    /* Dimensione del titolo */
     font-weight: bold;
+    /* Testo in grassetto */
     color: #333;
+    /* Colore del testo */
     text-align: center;
+    /* Allinea il testo al centro */
 }
 
 .category-header p {
     font-size: 1rem;
+    /* Dimensione del testo della descrizione */
     color: #666;
+    /* Colore del testo */
     text-align: center;
+    /* Allinea il testo al centro */
     margin-top: 5px;
+    /* Spaziatura sopra il paragrafo */
 }
 
 /* Griglia dei prodotti */
 .product-grid {
     display: grid;
+    /* Usa il layout a griglia */
     grid-template-columns: repeat(2, 1fr);
+    /* Due colonne uguali */
     gap: 20px;
+    /* Spaziatura tra gli elementi della griglia */
     margin-top: 20px;
+    /* Spaziatura sopra la griglia */
 }
 
-/* @media (min-width: 768px) {
+/* Media query per schermi medi */
+@media (min-width: 768px) {
     .product-grid {
         grid-template-columns: repeat(3, 1fr);
+        /* Tre colonne uguali */
     }
 }
 
+/* Media query per schermi grandi */
 @media (min-width: 1024px) {
     .product-grid {
         grid-template-columns: repeat(4, 1fr);
+        /* Quattro colonne uguali */
     }
-} */
+}
 
 /* Stile della card prodotto */
 .product-card-category {
     background: white;
+    /* Sfondo bianco */
     padding: 15px;
+    /* Spaziatura interna */
     border-radius: 8px;
+    /* Angoli arrotondati */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Ombreggiatura leggera */
     text-align: center;
+    /* Allinea il contenuto al centro */
 }
 
 /* Immagine prodotto */
 .product-card-category img {
     width: 100%;
+    /* L'immagine occupa tutta la larghezza */
     height: 160px;
+    /* Altezza fissa dell'immagine */
     object-fit: cover;
+    /* Adatta l'immagine senza deformarla */
     border-radius: 5px;
+    /* Angoli arrotondati */
 }
 
 /* Pulsante aggiungi al carrello */
 .add-to-cart-btn {
     width: 100%;
+    /* Larghezza completa del pulsante */
     padding: 10px;
+    /* Spaziatura interna */
     background-color: #007bff;
+    /* Colore di sfondo blu */
     color: white;
+    /* Colore del testo bianco */
     border: none;
+    /* Nessun bordo */
     border-radius: 5px;
+    /* Angoli arrotondati */
     cursor: pointer;
+    /* Cambia il cursore al passaggio del mouse */
     transition: background 0.3s;
+    /* Transizione per il cambio di colore */
 }
 
+/* Effetto hover per il pulsante aggiungi al carrello */
 .add-to-cart-btn:hover {
     background-color: #0056b3;
+    /* Cambia il colore di sfondo a blu scuro */
 }

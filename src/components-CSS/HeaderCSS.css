@@ -1,154 +1,224 @@
 /* Codice sconto */
 .codice-sconto {
   text-align: center;
+  /* Allinea il testo al centro */
   padding: 10px;
+  /* Spaziatura interna */
   background-color: black;
+  /* Sfondo nero */
   color: white;
+  /* Testo bianco */
   width: 100%;
+  /* Larghezza completa */
 }
 
 /* Header */
 .header-container {
   display: flex;
+  /* Disposizione degli elementi in riga */
   justify-content: space-between;
+  /* Spaziatura uniforme tra gli elementi */
   align-items: center;
+  /* Allinea gli elementi verticalmente */
   padding: 15px;
-  background-color: transparent;
+  /* Spaziatura interna */
   position: sticky;
+  /* Rende l'header fisso durante lo scroll */
   top: 0;
+  /* Posiziona l'header in alto */
   left: 0;
+  /* Posiziona l'header a sinistra */
   width: 100%;
+  /* Larghezza completa */
   z-index: 999;
+  /* Porta l'header in primo piano */
   background-color: white;
+  /* Sfondo bianco */
 }
 
 .header-container:hover {
   background: linear-gradient(to right, #b8a99c, #e0d7cf);
+  /* Gradiente al passaggio del mouse */
 }
 
 /* Navbar */
 
+/* Stile per il logo */
 .logo a {
   padding-left: 10px;
+  /* Spaziatura a sinistra */
   text-decoration: none;
+  /* Rimuove la sottolineatura */
   color: black;
+  /* Colore del testo */
   font-size: 25px;
+  /* Dimensione del testo */
   font-weight: bold;
+  /* Testo in grassetto */
   letter-spacing: 1px;
+  /* Spaziatura tra le lettere */
   display: inline-block;
+  /* Mostra il logo come blocco inline */
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  /* Transizione per effetti hover */
 }
 
 .logo a:hover {
   transform: scale(1.2);
+  /* Ingrandisce il logo al passaggio del mouse */
   color: rgba(114, 42, 15, 0.925);
+  /* Cambia il colore del logo */
 }
 
+/* Stile per i link della navbar */
 .nav {
   display: flex;
+  /* Disposizione degli elementi in riga */
   gap: 40px;
+  /* Spaziatura tra i link */
 }
 
 .nav a {
   text-decoration: none;
+  /* Rimuove la sottolineatura */
   color: black;
+  /* Colore del testo */
   font-size: 15px;
+  /* Dimensione del testo */
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  /* Transizione per effetti hover */
 }
 
 .nav a:hover {
   color: rgba(153, 52, 15, 0.925);
+  /* Cambia il colore del link */
   transform: scale(1.2);
+  /* Ingrandisce il link al passaggio del mouse */
 }
 
+/* Contenitore per la barra di ricerca, icona utente e carrello */
 .search-user-cart {
   display: flex;
+  /* Disposizione degli elementi in riga */
   gap: 15px;
+  /* Spaziatura tra gli elementi */
 }
 
 /* Bottone di ricerca - Form */
 .search-form {
   height: 40px;
+  /* Altezza del form */
   border-radius: 40px;
+  /* Angoli arrotondati */
   padding: 10px;
+  /* Spaziatura interna */
   position: absolute;
+  /* Posizionamento assoluto */
   right: 70px;
+  /* Distanza dal bordo destro */
   bottom: 10px;
+  /* Distanza dal bordo inferiore */
 }
 
 .search-form:hover {
   background-color: rgba(255, 255, 255, 0.8);
+  /* Cambia il colore di sfondo al passaggio del mouse */
 }
 
 .search-form input {
   border: none;
+  /* Rimuove il bordo */
   background: none;
+  /* Sfondo trasparente */
   outline: none;
+  /* Rimuove il bordo di focus */
   color: black;
+  /* Colore del testo */
   width: 0px;
+  /* Larghezza iniziale */
   transition: 0.4s;
+  /* Transizione per l'animazione */
 }
 
 .search-form:hover>input {
   width: 200px;
+  /* Espande la larghezza al passaggio del mouse */
   padding: 0 6px;
+  /* Aggiunge spaziatura interna */
 }
 
 .search-form button {
   float: right;
+  /* Posiziona il pulsante a destra */
   color: black;
+  /* Colore del testo */
   border: none;
+  /* Rimuove il bordo */
   background: none;
+  /* Sfondo trasparente */
   outline: none;
+  /* Rimuove il bordo di focus */
   font-size: 18px;
+  /* Dimensione del testo */
 }
 
 .search-form button:hover {
   color: rgba(153, 52, 15, 0.925);
+  /* Cambia il colore al passaggio del mouse */
 }
 
+/* Icone per utente e carrello */
 .search-user-cart a {
   font-size: 18px;
+  /* Dimensione delle icone */
   cursor: pointer;
+  /* Cambia il cursore al passaggio del mouse */
   color: black;
-  transition: color 0.3s;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  /* Colore delle icone */
+  transition: color 0.3s, transform 0.3s ease-in-out;
+  /* Transizione per colore e dimensione */
 }
-
-.search-user-cart button:hover {
-  color: rgba(153, 52, 15, 0.925);
-  transform: scale(1.2);
-}
-
-
-
-/* Carrello */
 
 .search-user-cart a:hover {
   color: rgba(153, 52, 15, 0.925);
+  /* Cambia il colore al passaggio del mouse */
   transform: scale(1.2);
+  /* Ingrandisce l'icona */
 }
 
-/* Pallino di notifica */
-
+/* Pallino di notifica per il carrello */
 .cart-icon {
   position: relative;
+  /* Posizionamento relativo per il pallino */
 }
 
 .cart-notification {
   position: absolute;
+  /* Posizionamento assoluto */
   top: -5px;
+  /* Posiziona il pallino sopra l'icona */
   right: -10px;
+  /* Posiziona il pallino a destra dell'icona */
   background-color: red;
+  /* Sfondo rosso */
   color: white;
+  /* Testo bianco */
   font-size: 12px;
+  /* Dimensione del testo */
   font-weight: bold;
+  /* Testo in grassetto */
   border-radius: 50%;
+  /* Forma circolare */
   width: 15px;
+  /* Larghezza del pallino */
   height: 15px;
+  /* Altezza del pallino */
   display: flex;
+  /* Disposizione degli elementi in riga */
   align-items: center;
+  /* Allinea il testo verticalmente */
   justify-content: center;
+  /* Centra il testo orizzontalmente */
 }
 
 /* Wishlist Icon */
@@ -174,68 +244,98 @@
 /* Stile per il burger menu */
 .burger-menu {
   display: none;
+  /* Nasconde il menu su schermi grandi */
   flex-direction: column;
+  /* Disposizione degli elementi in colonna */
   justify-content: space-between;
+  /* Spaziatura uniforme tra le linee */
   width: 25px;
+  /* Larghezza del menu */
   height: 20px;
+  /* Altezza del menu */
   cursor: pointer;
+  /* Cambia il cursore al passaggio del mouse */
 }
 
 .burger-menu div {
   height: 3px;
+  /* Altezza delle linee */
   background-color: black;
+  /* Colore delle linee */
   border-radius: 2px;
+  /* Angoli arrotondati */
   transition: transform 0.3s ease, opacity 0.3s ease;
+  /* Transizione per effetti hover */
 }
 
 /* Menu a tendina */
 .nav-dropdown {
   display: none;
+  /* Nasconde il menu a tendina */
   flex-direction: column;
+  /* Disposizione degli elementi in colonna */
   gap: 10px;
+  /* Spaziatura tra i link */
   position: absolute;
+  /* Posizionamento assoluto */
   top: 60px;
+  /* Posiziona il menu sotto l'header */
   left: 0;
+  /* Allinea il menu a sinistra */
   width: 100%;
+  /* Larghezza completa */
   background-color: white;
+  /* Sfondo bianco */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Ombreggiatura leggera */
   padding: 15px;
+  /* Spaziatura interna */
   z-index: 1000;
+  /* Porta il menu in primo piano */
 }
 
 .nav-dropdown a {
   text-decoration: none;
+  /* Rimuove la sottolineatura */
   color: black;
+  /* Colore del testo */
   font-size: 18px;
+  /* Dimensione del testo */
   padding: 10px;
+  /* Spaziatura interna */
   border-radius: 5px;
+  /* Angoli arrotondati */
   transition: background 0.3s ease, color 0.3s ease;
+  /* Transizione per colore e sfondo */
 }
 
 .nav-dropdown a:hover {
   background-color: rgba(153, 52, 15, 0.1);
+  /* Cambia il colore di sfondo */
   color: rgba(153, 52, 15, 0.925);
+  /* Cambia il colore del testo */
 }
 
 /* Mostra il menu a tendina quando attivo */
 .nav-dropdown.active {
   display: flex;
+  /* Mostra il menu */
 }
 
 /* Media query per tablet e mobile */
 @media (max-width: 920px) {
   .nav {
     display: none;
-    /* Nascondi la navbar principale */
+    /* Nasconde la navbar principale */
   }
 
   .burger-menu {
-    display: block;
     display: flex;
     /* Mostra il burger menu */
   }
 
   .search-form {
     right: 107px;
+    /* Regola la posizione del form di ricerca */
   }
 }

@@ -1,73 +1,124 @@
 /* PaymentForm.css */
+/* Contenitore principale del modulo di pagamento */
 .payment-container {
-    width: 100%;
-    max-width: 420px;
-    margin: 60px auto;
-    padding: 25px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .payment-container:hover {
-    transform: scale(1.02);
-  }
-  
-  .payment-title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 15px;
-    font-weight: bold;
-  }
-  
-  .payment-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .input-group {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .payment-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .payment-input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
-    outline: none;
-  }
-  
-  .payment-button {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(135deg, #007bff, #0056b3);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-  
-  .payment-button:hover {
-    background: linear-gradient(135deg, #0056b3, #003f7f);
-    transform: scale(1.05);
-  }
-  
-  .payment-button:active {
-    transform: scale(0.98);
-  }
-  
+  width: 100%;
+  /* Larghezza completa */
+  max-width: 420px;
+  /* Larghezza massima del contenitore */
+  margin: 60px auto;
+  /* Centra il contenitore orizzontalmente e aggiunge spaziatura verticale */
+  padding: 25px;
+  /* Spaziatura interna */
+  background: #ffffff;
+  /* Sfondo bianco */
+  border-radius: 12px;
+  /* Angoli arrotondati */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  /* Ombreggiatura leggera */
+  text-align: center;
+  /* Allinea il testo al centro */
+  font-family: 'Arial', sans-serif;
+  /* Font principale */
+  transition: transform 0.3s ease-in-out;
+  /* Transizione per effetti di hover */
+}
+
+/* Effetto hover per il contenitore */
+.payment-container:hover {
+  transform: scale(1.02);
+  /* Ingrandisce leggermente il contenitore al passaggio del mouse */
+}
+
+/* Titolo del modulo di pagamento */
+.payment-title {
+  font-size: 24px;
+  /* Dimensione del titolo */
+  color: #333;
+  /* Colore del testo */
+  margin-bottom: 15px;
+  /* Spaziatura sotto il titolo */
+  font-weight: bold;
+  /* Testo in grassetto */
+}
+
+/* Stile generale del modulo di pagamento */
+.payment-form {
+  display: flex;
+  /* Usa il layout flexbox */
+  flex-direction: column;
+  /* Dispone gli elementi in colonna */
+  gap: 10px;
+  /* Spaziatura tra i campi del modulo */
+}
+
+/* Gruppo di input (es. nome e cognome) */
+.input-group {
+  display: flex;
+  /* Disposizione degli elementi in riga */
+  gap: 10px;
+  /* Spaziatura tra gli input */
+}
+
+/* Stile per i campi di input */
+.payment-input {
+  width: 100%;
+  /* Larghezza completa */
+  padding: 12px;
+  /* Spaziatura interna */
+  border: 1px solid #ddd;
+  /* Bordo grigio chiaro */
+  border-radius: 8px;
+  /* Angoli arrotondati */
+  font-size: 16px;
+  /* Dimensione del testo */
+  transition: all 0.3s ease-in-out;
+  /* Transizione per effetti di focus */
+}
+
+/* Effetto focus sugli input */
+.payment-input:focus {
+  border-color: #007bff;
+  /* Cambia il colore del bordo */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+  /* Aggiunge un'ombreggiatura blu */
+  outline: none;
+  /* Rimuove il bordo predefinito */
+}
+
+/* Pulsante per confermare il pagamento */
+.payment-button {
+  width: 100%;
+  /* Larghezza completa */
+  padding: 12px;
+  /* Spaziatura interna */
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  /* Sfondo con gradiente blu */
+  color: white;
+  /* Testo bianco */
+  border: none;
+  /* Nessun bordo */
+  border-radius: 8px;
+  /* Angoli arrotondati */
+  font-size: 18px;
+  /* Dimensione del testo */
+  font-weight: bold;
+  /* Testo in grassetto */
+  cursor: pointer;
+  /* Cambia il cursore al passaggio del mouse */
+  transition: background 0.3s ease, transform 0.2s ease;
+  /* Transizione per colore e dimensione */
+}
+
+/* Effetto hover per il pulsante */
+.payment-button:hover {
+  background: linear-gradient(135deg, #0056b3, #003f7f);
+  /* Cambia il gradiente a un blu più scuro */
+  transform: scale(1.05);
+  /* Ingrandisce leggermente il pulsante */
+}
+
+/* Effetto attivo per il pulsante */
+.payment-button:active {
+  transform: scale(0.98);
+  /* Riduce leggermente il pulsante quando cliccato */
+}

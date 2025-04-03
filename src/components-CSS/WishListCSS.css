@@ -1,73 +1,117 @@
+/* Contenitore principale della wishlist */
 .wishlist-container {
     width: 100%;
+    /* Larghezza completa */
     margin: 0 auto;
+    /* Centra il contenitore orizzontalmente */
     padding: 20px;
+    /* Spaziatura interna */
     text-align: center;
+    /* Allinea il testo al centro */
 }
 
+/* Griglia della wishlist */
 .wishlist-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 card per riga su desktop */
+    /* Usa il layout a griglia */
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 card per riga su desktop */
     gap: 20px;
+    /* Spaziatura tra le card */
     margin-top: 20px;
+    /* Spaziatura sopra la griglia */
 }
 
+/* Stile per ogni elemento della wishlist */
 .wishlist-item {
     border: 1px solid #ccc;
+    /* Bordo grigio chiaro */
     border-radius: 10px;
+    /* Angoli arrotondati */
     padding: 15px;
+    /* Spaziatura interna */
     text-align: center;
+    /* Allinea il testo al centro */
     background-color: #f9f9f9;
+    /* Sfondo grigio chiaro */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Ombreggiatura leggera */
 }
 
+/* Immagine del prodotto nella wishlist */
 .wishlist-item img {
     width: 100%;
+    /* L'immagine occupa tutta la larghezza */
     height: 350px;
+    /* Altezza fissa */
     object-fit: cover;
+    /* Adatta l'immagine senza deformarla */
     border-radius: 10px;
+    /* Angoli arrotondati */
 }
 
+/* Titolo del prodotto nella wishlist */
 .wishlist-item h3 {
     font-size: 1.2rem;
+    /* Dimensione del testo */
     margin: 10px 0;
+    /* Spaziatura sopra e sotto il titolo */
 }
 
+/* Pulsante per rimuovere un prodotto dalla wishlist */
 .wishlist-item button {
     background-color: #e74c3c;
+    /* Sfondo rosso */
     color: white;
+    /* Testo bianco */
     border: none;
+    /* Nessun bordo */
     padding: 10px 15px;
+    /* Spaziatura interna */
     border-radius: 5px;
+    /* Angoli arrotondati */
     cursor: pointer;
+    /* Cambia il cursore al passaggio del mouse */
     margin-top: 10px;
+    /* Spaziatura sopra il pulsante */
 }
 
+/* Effetto hover per il pulsante */
 .wishlist-item button:hover {
     background-color: #c0392b;
+    /* Cambia il colore di sfondo a rosso scuro */
 }
 
+/* Link per visualizzare i dettagli del prodotto */
 .wishlist-item a {
     display: block;
+    /* Mostra il link come blocco */
     margin-top: 10px;
+    /* Spaziatura sopra il link */
     color: #3498db;
+    /* Colore blu */
     text-decoration: none;
+    /* Rimuove la sottolineatura */
 }
 
+/* Effetto hover per il link */
 .wishlist-item a:hover {
     text-decoration: underline;
+    /* Aggiunge la sottolineatura al passaggio del mouse */
 }
 
 /* Media query per tablet (max-width: 768px) */
 @media (max-width: 768px) {
     .wishlist-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 card per riga su tablet */
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 card per riga su tablet */
     }
 }
 
 /* Media query per dispositivi mobili (max-width: 480px) */
 @media (max-width: 500px) {
     .wishlist-grid {
-        grid-template-columns: 1fr; /* 1 card per riga su mobile */
+        grid-template-columns: 1fr;
+        /* 1 card per riga su mobile */
     }
 }

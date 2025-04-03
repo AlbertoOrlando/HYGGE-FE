@@ -1,246 +1,379 @@
-/* Stili generali */
+/* Stili generali per il contenitore principale del carrello */
 .cart-container {
     max-width: 1400px;
+    /* Larghezza massima del contenitore */
     margin: 0 auto;
+    /* Centra il contenitore orizzontalmente */
     padding: 20px;
+    /* Spaziatura interna */
     gap: 20px;
+    /* Spaziatura tra gli elementi */
 }
 
+/* Contenitore superiore che include il carrello e il riepilogo */
 .container-blockup {
     display: flex;
+    /* Disposizione degli elementi in riga */
     gap: 30px;
+    /* Spaziatura tra gli elementi */
     flex-wrap: wrap;
+    /* Permette agli elementi di andare a capo su schermi piccoli */
 }
 
-/* Sezione superiore: carrello + riepilogo ordine */
+/* Sezione superiore: carrello e riepilogo ordine */
 .cart-section {
     gap: 20px;
+    /* Spaziatura tra le sezioni */
 }
 
-/* Su schermi più grandi, affianca carrello e riepilogo */
-@media (min-width: 768px) {
-    .cart-section {
-        flex-direction: row;
-    }
-}
 
-/* Sezione carrello */
+
+/* Sezione del carrello */
 .cart-items {
     flex: 2;
+    /* Occupa due parti rispetto al riepilogo */
     min-width: 300px;
+    /* Larghezza minima */
     background: white;
+    /* Sfondo bianco */
     border-radius: 15px;
+    /* Angoli arrotondati */
     padding: 20px;
+    /* Spaziatura interna */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* Ombreggiatura leggera */
 }
 
 /* Stile degli articoli nel carrello */
 .cart-item {
     display: flex;
+    /* Disposizione degli elementi in riga */
     align-items: center;
+    /* Allinea gli elementi verticalmente */
     gap: 20px;
+    /* Spaziatura tra gli elementi */
     padding: 20px;
+    /* Spaziatura interna */
     border-bottom: 1px solid #eee;
+    /* Linea divisoria tra gli articoli */
     position: relative;
+    /* Posizionamento relativo per il pulsante di rimozione */
 }
 
+/* Stile per l'immagine del prodotto nel carrello */
 .cart-item img {
     width: 100px;
+    /* Larghezza dell'immagine */
     height: 100px;
+    /* Altezza dell'immagine */
     object-fit: cover;
+    /* Adatta l'immagine senza deformarla */
     border-radius: 10px;
+    /* Angoli arrotondati */
 }
 
+/* Contenitore per i dettagli del prodotto */
 .cart-item-details {
     flex: 1;
+    /* Occupa lo spazio rimanente */
 }
 
 /* Sezione riepilogo ordine */
 .order-summary {
     flex: 1;
+    /* Occupa una parte rispetto al carrello */
     min-width: 250px;
+    /* Larghezza minima */
     background: white;
+    /* Sfondo bianco */
     border-radius: 15px;
+    /* Angoli arrotondati */
     padding: 20px;
+    /* Spaziatura interna */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* Ombreggiatura leggera */
     height: fit-content;
+    /* Adatta l'altezza al contenuto */
     position: sticky;
+    /* Rende il riepilogo fisso durante lo scroll */
     top: 100px;
+    /* Distanza dalla parte superiore della pagina */
 }
 
+/* Stile per gli elementi del riepilogo ordine */
 .summary-item {
     display: flex;
+    /* Disposizione degli elementi in riga */
     justify-content: space-between;
+    /* Spaziatura tra gli elementi */
     margin: 15px 0;
+    /* Spaziatura verticale */
     font-size: 1.1rem;
+    /* Dimensione del testo */
 }
 
-/* Input codice sconto */
+/* Input per il codice sconto */
 .coupon-input {
     width: 100%;
+    /* Larghezza completa */
     padding: 12px;
+    /* Spaziatura interna */
     margin: 10px 0;
+    /* Spaziatura esterna */
     border: 1px solid #ddd;
+    /* Bordo grigio chiaro */
     border-radius: 8px;
+    /* Angoli arrotondati */
     font-size: 1rem;
+    /* Dimensione del testo */
 }
 
-/* Pulsante applica sconto */
+/* Pulsante per applicare il codice sconto */
 .apply-coupon-btn,
 .pagamento {
     width: 100%;
+    /* Larghezza completa */
     padding: 12px;
+    /* Spaziatura interna */
     margin: 10px 0;
+    /* Spaziatura esterna */
     border: none;
+    /* Nessun bordo */
     border-radius: 8px;
+    /* Angoli arrotondati */
     font-size: 1rem;
+    /* Dimensione del testo */
     cursor: pointer;
+    /* Cambia il cursore al passaggio del mouse */
     transition: all 0.3s ease;
+    /* Transizione per gli effetti hover */
 }
 
+/* Stile per il pulsante "Applica sconto" */
 .apply-coupon-btn {
     background: #28a745;
+    /* Colore verde */
     color: white;
+    /* Testo bianco */
 }
 
+/* Stile per il pulsante "Procedi al pagamento" */
 .pagamento {
     display: block;
+    /* Mostra il pulsante come blocco */
     background: #006eff;
+    /* Colore blu */
     color: white;
+    /* Testo bianco */
     text-align: center;
+    /* Allinea il testo al centro */
     text-decoration: none;
+    /* Rimuove la sottolineatura */
 }
 
+/* Effetto hover per il pulsante "Applica sconto" */
 .apply-coupon-btn:hover {
     background: #218838;
+    /* Colore verde scuro */
 }
 
+/* Effetto hover per il pulsante "Procedi al pagamento" */
 .pagamento:hover {
     background: #0056b3;
+    /* Colore blu scuro */
 }
 
 /* Sezione "Spesso acquistati insieme" */
 .related-products {
     width: 100%;
+    /* Larghezza completa */
     border: 1px solid #ddd;
+    /* Bordo grigio chiaro */
     padding: 20px;
+    /* Spaziatura interna */
     border-radius: 8px;
+    /* Angoli arrotondati */
     background-color: #fff;
+    /* Sfondo bianco */
     margin-top: 20px;
+    /* Spaziatura sopra la sezione */
 }
 
-/* Stile dei prodotti correlati */
+/* Stile per il titolo della sezione "Prodotti correlati" */
 .related-products h2 {
     margin-bottom: 15px;
+    /* Spaziatura sotto il titolo */
 }
 
+/* Stile per i singoli prodotti correlati */
 .related-product-item {
     display: flex;
+    /* Disposizione degli elementi in riga */
     align-items: center;
+    /* Allinea gli elementi verticalmente */
     gap: 15px;
+    /* Spaziatura tra gli elementi */
     margin-bottom: 10px;
+    /* Spaziatura sotto ogni prodotto */
 }
 
+/* Stile per l'immagine dei prodotti correlati */
 .related-product-item img {
     width: 60px;
+    /* Larghezza dell'immagine */
     height: 60px;
+    /* Altezza dell'immagine */
     object-fit: cover;
+    /* Adatta l'immagine senza deformarla */
     border-radius: 5px;
+    /* Angoli arrotondati */
 }
 
 /* Griglia per i prodotti correlati */
 .related-products-grid {
     display: grid;
+    /* Layout a griglia */
     grid-template-columns: repeat(2, 1fr);
+    /* Due colonne uguali */
     gap: 15px;
+    /* Spaziatura tra gli elementi */
 }
 
-/* modifica la quantita e e il pulsante rimuovi */
+/* Controlli per modificare la quantità */
 .quantity-controls {
     display: flex;
+    /* Disposizione degli elementi in riga */
     align-items: center;
+    /* Allinea gli elementi verticalmente */
     gap: 10px;
+    /* Spaziatura tra i controlli */
     margin: 10px 0;
+    /* Spaziatura verticale */
 }
 
+/* Pulsanti per aumentare o diminuire la quantità */
 .quantity-btn {
     width: 30px;
+    /* Larghezza del pulsante */
     height: 30px;
+    /* Altezza del pulsante */
     border: none;
+    /* Nessun bordo */
     border-radius: 50%;
+    /* Forma circolare */
     background: #f4f4f4;
+    /* Sfondo grigio chiaro */
     cursor: pointer;
+    /* Cambia il cursore al passaggio del mouse */
     transition: all 0.3s ease;
+    /* Transizione per gli effetti hover */
 }
 
+/* Effetto hover per i pulsanti quantità */
 .quantity-btn:hover {
     background: #e0e0e0;
+    /* Sfondo grigio più scuro */
 }
 
+/* Pulsante per aumentare la quantità */
 .increase-btn {
-    order: 1; /* Mette il "+" a sinistra */
+    order: 1;
+    /* Posiziona il "+" a destra */
 }
 
+/* Pulsante per diminuire la quantità */
 .decrease-btn {
-    order: 0; /* Mette il "-" a destra */
+    order: 0;
+    /* Posiziona il "-" a sinistra */
     padding-bottom: 2px;
+    /* Aggiusta l'allineamento verticale */
 }
 
+/* Numero della quantità */
 .quantity-number {
     font-size: 16px;
+    /* Dimensione del testo */
     font-weight: bold;
+    /* Testo in grassetto */
     width: 30px;
+    /* Larghezza del contenitore */
     text-align: center;
+    /* Allinea il testo al centro */
 }
 
+/* Pulsante per rimuovere un articolo dal carrello */
 .remove-btn {
     position: absolute;
+    /* Posizionamento assoluto */
     top: 20px;
+    /* Distanza dalla parte superiore */
     right: 20px;
+    /* Distanza dalla parte destra */
     background: none;
+    /* Nessuno sfondo */
     border: none;
+    /* Nessun bordo */
     color: #999;
+    /* Colore grigio */
     cursor: pointer;
+    /* Cambia il cursore al passaggio del mouse */
     transition: all 0.3s ease;
+    /* Transizione per gli effetti hover */
 }
 
+/* Effetto hover per il pulsante di rimozione */
 .remove-btn:hover {
     color: #e74c3c;
+    /* Colore rosso */
     transform: scale(1.1);
+    /* Ingrandisce leggermente il pulsante */
 }
 
-/* Su schermi più grandi, mostra tre colonne */
+
+/* Su schermi più grandi, mostra tre colonne nella griglia dei prodotti correlati */
 @media (min-width: 768px) {
     .related-products-grid {
         grid-template-columns: repeat(3, 1fr);
+        /* Tre colonne uguali */
+    }
+
+    .cart-section {
+        flex-direction: row;
+        /* Disposizione degli elementi in riga */
     }
 }
 
-/* Media Queries */
+/* Media Queries per schermi medi */
 @media (max-width: 1024px) {
     .container-blockup {
         flex-direction: column;
+        /* Disposizione degli elementi in colonna */
     }
 
     .order-summary {
         position: static;
+        /* Rimuove la posizione sticky */
     }
 }
 
-
-
+/* Media Queries per schermi piccoli */
 @media (max-width: 480px) {
+
     .cart-items,
     .order-summary {
         padding: 15px;
+        /* Riduce la spaziatura interna */
     }
 
     .summary-item {
         font-size: 0.9rem;
+        /* Riduce la dimensione del testo */
     }
 
     .cart-item img {
         width: 120px;
+        /* Aumenta la dimensione dell'immagine */
         height: 120px;
+        /* Aumenta la dimensione dell'immagine */
     }
 }

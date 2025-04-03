@@ -1,19 +1,31 @@
+// Importa gli stili CSS specifici per la pagina del carrello
 import "../components-CSS/CarrelloPageCSS.css";
+// Importa il componente Link per la navigazione tra le pagine
 import { Link } from "react-router-dom";
+// Importa gli hook di React necessari per la gestione dello stato e degli effetti
 import { useContext, useState, useEffect } from "react";
+// Importa il contesto globale dell'applicazione
 import GlobalContext from '../cotext/GlobalContest';
+// Importa i componenti necessari per le icone FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// Importa l'icona del cestino per la rimozione degli articoli
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
+// Componente principale della pagina del carrello
 const CarrelloPage = () => {
+  // Estrae dal contesto globale le variabili e le funzioni necessarie per gestire il carrello
   const { cart, setCart, setDiscount, discount, setFinalTotal, finalTotal } = useContext(GlobalContext);
+  // Stato locale per gestire il codice sconto inserito dall'utente
   const [discountCode, setDiscountCode] = useState("");
-  const [discountProduct, setDiscountProduct] = useState(0); // Stato per lo sconto prodotto
+  // Stato locale per gestire lo sconto specifico per prodotto
+  const [discountProduct, setDiscountProduct] = useState(0);
 
+  // Funzione per rimuovere un articolo dal carrello
   const handleRemoveItem = (id) => {
     setCart((prevCart) => prevCart.filter(item => item.id !== id));
   };
 
+  // Funzione per aumentare la quantità di un articolo nel carrello
   const handleIncreaseQuantity = (id) => {
     setCart((prevCart) =>
       prevCart.map(item =>
@@ -22,28 +34,33 @@ const CarrelloPage = () => {
     );
   };
 
+  // Funzione per diminuire la quantità di un articolo nel carrello
   const handleDecreaseQuantity = (id) => {
     setCart((prevCart) =>
       prevCart.map(item => {
         if (item.id === id) {
+          // Se la quantità è maggiore di 1, diminuisci di 1
           if (item.quantity > 1) {
             return { ...item, quantity: item.quantity - 1 };
           } else {
+            // Se la quantità è 1, rimuovi l'articolo
             return null;
           }
         }
         return item;
-      }).filter(item => item !== null)
+      }).filter(item => item !== null) // Rimuove gli articoli con quantità 0
     );
   };
 
+  // Funzione per applicare il codice sconto
   const handleApplyDiscount = () => {
     if (discountCode === "SALE10") {
-      setDiscount(0.1); // 10% di sconto
+      setDiscount(0.1); // Applica sconto del 10%
     } else if (discountCode === "HYGGE-20") {
+      // Calcola il subtotale per verificare se l'ordine supera €299,99
       const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
       if (subtotal > 299.99) {
-        setDiscount(0.2); // 20% di sconto
+        setDiscount(0.2); // Applica sconto del 20%
       } else {
         alert("Il codice HYGGE-20 è valido solo per ordini superiori a €299,99.");
         setDiscount(0); // Nessuno sconto
@@ -54,37 +71,33 @@ const CarrelloPage = () => {
     }
   };
 
+  // Effetto per calcolare lo sconto prodotto quando il carrello cambia
   useEffect(() => {
-    // Calcolare lo sconto prodotto solo dopo che il carrello è stato aggiornato
     const calculateDiscountProduct = () => {
       const discountValue = cart.reduce((acc, item) => {
         const originalPrice = item.price * item.quantity;
         const discountedPrice = (item.price - (item.price * (item.discount || 0) / 100)) * item.quantity;
         return acc + (originalPrice - discountedPrice);
       }, 0);
-      setDiscountProduct(discountValue || 0); // Aggiorna lo stato dello sconto prodotto
+      setDiscountProduct(discountValue || 0);
     };
 
     calculateDiscountProduct();
-  }, [cart]); // Ricalcola lo sconto prodotto quando il carrello cambia
+  }, [cart]);
 
+  // Effetto per calcolare il totale finale quando cambiano carrello, sconti o prodotti
   useEffect(() => {
     const calculateFinalTotal = () => {
-      // Calcolare il subtotale (prezzo originale dei prodotti)
       const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-
-      // Calcolare il codice sconto
       const codeDiscount = discount ? subtotal * discount : 0;
-
-      // Calcolare il totale finale
       const finalTotalValue = subtotal - discountProduct - codeDiscount;
-
-      setFinalTotal(finalTotalValue || 0); // Imposta finalTotal nel contesto globale
+      setFinalTotal(finalTotalValue || 0);
     };
 
-    calculateFinalTotal(); // Esegui il calcolo
-  }, [cart, discount, discountProduct, setFinalTotal]); // Effettua il calcolo quando cart, discount o discountProduct cambiano
+    calculateFinalTotal();
+  }, [cart, discount, discountProduct, setFinalTotal]);
 
+  // Rendering del componente
   return (
     <div className="cart-container">
       <div className="container-blockup">
@@ -141,7 +154,7 @@ const CarrelloPage = () => {
           <button className="apply-coupon-btn" onClick={handleApplyDiscount}>
             Applica Sconto
           </button>
-        
+
           <Link className="pagamento" to={"/pagamento"}>Vai al pagamento</Link>
         </div>
       </div>

@@ -1,112 +1,187 @@
+/* Contenitore principale del modulo recensioni */
 .reviews-container {
     max-width: 600px;
+    /* Larghezza massima del contenitore */
     margin: 2rem auto;
+    /* Centra il contenitore orizzontalmente e aggiunge spaziatura verticale */
     padding: 2rem;
+    /* Spaziatura interna */
     background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    /* Sfondo con gradiente */
     border-radius: 20px;
+    /* Angoli arrotondati */
     box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+    /* Ombreggiatura per effetto tridimensionale */
     transition: all 0.3s ease;
+    /* Transizione per effetti di hover */
 }
 
+/* Titolo del modulo recensioni */
 .reviews-title {
     text-align: center;
+    /* Allinea il testo al centro */
     color: #333;
+    /* Colore del testo */
     font-size: 1.5rem;
+    /* Dimensione del titolo */
     margin-bottom: 1.5rem;
+    /* Spaziatura sotto il titolo */
 }
 
+/* Stile generale del modulo recensioni */
 .reviews-form {
     display: flex;
+    /* Usa il layout flexbox */
     flex-direction: column;
+    /* Dispone gli elementi in colonna */
     gap: 1.5rem;
+    /* Spaziatura tra i campi del modulo */
 }
 
+/* Gruppo di input */
 .form-group {
     position: relative;
+    /* Posizionamento relativo per elementi interni */
 }
 
+/* Stile per gli input e le textarea */
 .reviews-input,
 .reviews-textarea {
     width: 100%;
+    /* Larghezza completa */
     padding: 1rem;
+    /* Spaziatura interna */
     border: none;
+    /* Nessun bordo */
     background: white;
+    /* Sfondo bianco */
     border-radius: 15px;
-    box-shadow: inset 5px 5px 10px #e6e6e6, 
-                inset -5px -5px 10px #ffffff;
+    /* Angoli arrotondati */
+    box-shadow: inset 5px 5px 10px #e6e6e6, inset -5px -5px 10px #ffffff;
+    /* Ombreggiatura interna per effetto tridimensionale */
     transition: all 0.3s ease;
+    /* Transizione per effetti di hover */
 }
 
+/* Effetto focus sugli input e sulle textarea */
 .reviews-input:focus,
 .reviews-textarea:focus {
     outline: none;
-    box-shadow: inset 8px 8px 15px #e6e6e6, 
-                inset -8px -8px 15px #ffffff;
+    /* Rimuove il bordo predefinito */
+    box-shadow: inset 8px 8px 15px #e6e6e6, inset -8px -8px 15px #ffffff;
+    /* Ombreggiatura più intensa */
     transform: scale(1.02);
+    /* Leggero ingrandimento */
 }
 
+/* Stile specifico per la textarea */
 .reviews-textarea {
     min-height: 150px;
+    /* Altezza minima */
     resize: vertical;
+    /* Permette di ridimensionare verticalmente */
     line-height: 1.5;
+    /* Altezza delle righe per migliorare la leggibilità */
 }
 
+/* Contenitore per il gruppo di valutazione */
 .rating-group {
     display: flex;
+    /* Disposizione degli elementi in riga */
     justify-content: center;
+    /* Centra gli elementi orizzontalmente */
 }
 
+/* Stile per il campo di valutazione */
 .reviews-rating {
     width: 100px;
+    /* Larghezza del campo */
     padding: 0.5rem;
+    /* Spaziatura interna */
     text-align: center;
+    /* Allinea il testo al centro */
     font-size: 1.2rem;
+    /* Dimensione del testo */
     border: none;
+    /* Nessun bordo */
     border-radius: 10px;
+    /* Angoli arrotondati */
     background: white;
-    box-shadow: inset 3px 3px 7px #e6e6e6, 
-                inset -3px -3px 7px #ffffff;
+    /* Sfondo bianco */
+    box-shadow: inset 3px 3px 7px #e6e6e6, inset -3px -3px 7px #ffffff;
+    /* Ombreggiatura interna */
 }
 
+/* Pulsante per inviare la recensione */
 .reviews-submit {
     width: 100%;
+    /* Larghezza completa */
     padding: 1rem;
+    /* Spaziatura interna */
     border: none;
+    /* Nessun bordo */
     border-radius: 15px;
+    /* Angoli arrotondati */
     background: linear-gradient(45deg, #b8a99c, rgba(153, 52, 15, 0.925));
+    /* Sfondo con gradiente */
     color: white;
+    /* Colore del testo */
     font-weight: bold;
+    /* Testo in grassetto */
     font-size: 1.1rem;
+    /* Dimensione del testo */
     cursor: pointer;
+    /* Cambia il cursore al passaggio del mouse */
     transition: all 0.3s ease;
+    /* Transizione per effetti di hover */
     position: relative;
+    /* Posizionamento relativo per effetti interni */
     overflow: hidden;
+    /* Nasconde gli elementi che escono dai bordi */
 }
 
+/* Effetto hover sul pulsante di invio */
 .reviews-submit:hover {
     transform: translateY(-3px);
+    /* Solleva leggermente il pulsante */
     box-shadow: 0 5px 15px rgba(153, 52, 15, 0.4);
+    /* Ombreggiatura più intensa */
 }
 
+/* Effetto animato sul pulsante di invio */
 .reviews-submit::after {
     content: '';
+    /* Contenuto vuoto per l'effetto */
     position: absolute;
+    /* Posizionamento assoluto */
     top: 0;
+    /* Posizionato in alto */
     left: 0;
+    /* Posizionato a sinistra */
     width: 100%;
+    /* Larghezza completa */
     height: 100%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+    /* Altezza completa */
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    /* Gradiente trasparente */
     transform: translateX(-100%);
+    /* Posiziona l'effetto fuori dal pulsante */
     transition: 0.5s;
+    /* Transizione per l'animazione */
 }
 
+/* Effetto hover per l'animazione del pulsante */
 .reviews-submit:hover::after {
     transform: translateX(100%);
+    /* Sposta l'effetto attraverso il pulsante */
 }
 
+/* Media query per schermi piccoli */
 @media (max-width: 768px) {
     .reviews-container {
         margin: 1rem;
+        /* Riduce la spaziatura esterna */
         padding: 1.5rem;
+        /* Riduce la spaziatura interna */
     }
 }

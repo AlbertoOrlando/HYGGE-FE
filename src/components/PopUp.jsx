@@ -1,36 +1,45 @@
-// Funzioni di utilità per gestire il localStorage del browser
-// localStorage.removeItem("hasSeenPopup");  // Rimuove solo il flag che indica se l'utente ha visto il popup
-// localStorage.clear();                      // Rimuove tutti i dati salvati nel localStorage del browser
+// Utility per il debug: rimuove solo il flag del popup dal localStorage
+// localStorage.removeItem("hasSeenPopup");
 
-// Importa il file CSS che contiene gli stili specifici per il popup
+// Utility per il debug: rimuove tutti i dati dal localStorage (uso con cautela)
+// localStorage.clear();
+
+// Importa gli stili CSS specifici per il componente popup
 import "../components-CSS/PopUpCSS.css"
-// Importa i componenti necessari per utilizzare le icone di FontAwesome
+
+// Importa il componente base di FontAwesome necessario per le icone
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// Importa l'icona 'X' che verrà usata come pulsante di chiusura
+
+// Importa specificamente l'icona X da FontAwesome per il pulsante di chiusura
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-// Importa axios per effettuare chiamate HTTP al backend
+// Importa axios per gestire le chiamate HTTP al server backend
 import axios from "axios";
 
-// Importa gli hook di React necessari per gestire lo stato e gli effetti del componente
+// Importa gli hook fondamentali di React per gestire stato locale ed effetti
 import { useState, useEffect } from "react"
 
+// Definizione del componente principale PopUp
 export default function PopUp() {
-    // Inizializza lo stato di visibilità del popup controllando il localStorage
-    // Questo determina se il popup deve essere mostrato o nascosto
+    // Inizializza lo stato di visibilità del popup
+    // Controlla il localStorage per determinare se mostrare il popup
     const [isVisible, setIsVisible] = useState(() => {
+        // Recupera il flag dal localStorage
         const hasSeenPopup = localStorage.getItem("hasSeenPopup");
-        // Mostra il popup solo se l'utente non l'ha mai visto prima (hasSeenPopup non è "true")
+        // Se l'utente non ha mai visto il popup (hasSeenPopup non è "true"), lo mostra
         return hasSeenPopup !== "true";
     });
 
-    // Stato per memorizzare l'email inserita dall'utente nel form
+    // Stato per gestire l'input email dell'utente
     const [userMail, setUserMail] = useState("");
+
     // Stato per gestire i messaggi di errore da mostrare all'utente
     const [errorMessage, setErrorMessage] = useState("");
-    // Stato per memorizzare l'array delle email già registrate nel sistema
+
+    // Stato per memorizzare tutte le email già registrate nel sistema
     const [existingEmails, setExistingEmails] = useState([]);
-    // Stato per gestire il processo di invio del form ed evitare invii multipli
+
+    // Stato per prevenire invii multipli del form mentre è in corso una richiesta
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Effetto per il debugging: monitora e logga i cambiamenti di stato principali
