@@ -121,11 +121,11 @@ const CarrelloPage = () => {
           </div>
           <div className="summary-item">
             <span>Sconto prodotto:</span>
-            <span>-€{discountProduct.toFixed(2)}</span>
+            <span>- €{discountProduct.toFixed(2)}</span>
           </div>
           <div className="summary-item">
             <span>Codice sconto:</span>
-            <span>-€{(cart.reduce((acc, item) => acc + item.price * item.quantity, 0) * discount).toFixed(2)}</span>
+            <span>- €{(cart.reduce((acc, item) => acc + item.price * item.quantity, 0) * discount).toFixed(2)}</span>
           </div>
           <div className="summary-item">
             <span>Totale:</span>
