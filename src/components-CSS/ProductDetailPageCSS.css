@@ -22,7 +22,7 @@
 .product-info {
     font-size: 20px;
     /* Dimensione del testo */
-    width: 20%;
+    width: 30%;
     /* Larghezza relativa */
 }
 
@@ -339,7 +339,7 @@
 
 /* Prezzo della card */
 .card-text span {
-    color: #e74c3c;
+    /* color: #e74c3c; */
     /* Colore rosso */
     font-weight: bold;
     /* Testo in grassetto */

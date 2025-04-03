@@ -61,8 +61,10 @@ export default function HomePage() {
                                     <img src={product.images[0]} alt={product.name} className="product-image2" />
                                     <img src={product.images[1]} alt={product.name} className="product-image12" />
                                 </div>
-                                <h4>{product.name}</h4>
-                                <span>{product.price} €</span>
+                                <div className="card-text">
+                                    <h4>{product.name}</h4>
+                                    <span>{product.price} €</span>
+                                </div>
                             </div>
                         </Link>
                     ))}

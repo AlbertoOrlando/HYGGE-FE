@@ -14,7 +14,7 @@
 h1 {
     margin-top: 20px;
     /* Spaziatura sopra il titolo */
-    padding: 10px;
+    /* padding: 10px; */
     /* Spaziatura interna */
 }
 
@@ -172,13 +172,13 @@ h1 {
     /* Spaziatura sotto il titolo */
     color: #333;
     /* Colore del testo */
-    padding: 10px;
+    /* padding: 10px; */
     /* Spaziatura interna */
 }
 
 /* Prezzo della card */
 .card-text span {
-    color: #e74c3c;
+    /* color: #e74c3c; */
     /* Colore rosso */
     font-weight: bold;
     /* Testo in grassetto */
@@ -310,27 +310,15 @@ h1 {
 
 /* Testo della card */
 .card-evidence .card-text {
-    padding: 1rem;
+    /* padding: 1rem; */
     /* Spaziatura interna */
     text-align: center;
     /* Allinea il testo al centro */
 }
 
-/* Titolo della card */
-.card-evidence h4 {
-    font-size: 1.1rem;
-    /* Dimensione del testo */
-    margin-bottom: 0.5rem;
-    /* Spaziatura sotto il titolo */
-    color: #333;
-    /* Colore del testo */
-    padding: 10px;
-    /* Spaziatura interna */
-}
-
 /* Prezzo della card */
 .card-evidence span {
-    color: #e74c3c;
+    /* color: #e74c3c; */
     /* Colore rosso */
     font-weight: bold;
     /* Testo in grassetto */
@@ -477,20 +465,25 @@ h1 {
 }
 
 .card-evidence .card-text {
-    padding: 1rem;
+    /* padding: 1rem; */
     text-align: center;
 }
 
 .card-evidence h4 {
     font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
     color: #333;
-    padding: 10px;
+    /* padding: 10px; */
+    text-align: center;
 }
 
-.card-evidence span {
-    color: #e74c3c;
+.card span {
+    /* color: #e74c3c; */
     font-weight: bold;
+}
+
+.card {
+    text-align: center;
 }
 
 .card-body img {
@@ -657,9 +650,9 @@ a {
 
 .giardino h4 {
     font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
     color: #333;
-    padding: 10px;
+    /* padding: 10px; */
     position: static;
     background-color: transparent;
 }
@@ -671,7 +664,7 @@ a {
 }
 
 .giardino .card-text {
-    padding: 1rem;
+    /* padding: 1rem; */
     text-align: center;
 }
 
