@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 // Componente principale della pagina di pagamento
 function PagamentoPage() {
     // Estrae le funzioni e i valori necessari dal contesto globale
-    const { createOrder, finalTotal } = useContext(GlobalContext);
+    const { createOrder, finalTotal, cart } = useContext(GlobalContext);
     // Inizializza il hook per la navigazione
     const navigate = useNavigate();
 
@@ -39,16 +39,26 @@ function PagamentoPage() {
     // Funzione per inviare l'email di conferma
     const sendEmail = async (email) => {
         try {
-            // Effettua la richiesta POST al backend per inviare l'email
+            const emailData = {
+                email: String(email),
+                orderDetails: {
+                    products: cart.map(item => ({
+                        name: String(item.name),
+                        quantity: Number(item.quantity),
+                        price: Number(item.price)
+                    })),
+                    total_price: Number(finalTotal)
+                }
+            };
+
             const response = await fetch('http://localhost:3000/api/confirm-order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email }),
+                body: JSON.stringify(emailData),
             });
 
-            // Gestione della risposta non positiva
             if (!response.ok) {
                 const errorText = await response.text();
                 console.error('Errore durante l\'invio dell\'email:', errorText);
@@ -56,21 +66,16 @@ function PagamentoPage() {
                 return;
             }
 
-            // Elaborazione della risposta JSON
             let data;
             try {
                 data = await response.json();
+                setMessage(data.message || 'Email inviata con successo!');
             } catch (error) {
                 console.error('La risposta non è un JSON valido:', error);
                 setMessage('Errore: La risposta del server non è valida.');
                 return;
             }
-
-            // Log del successo e aggiornamento del messaggio
-            console.log('Email inviata con successo:', data);
-            setMessage(data.message || 'Email inviata con successo!');
         } catch (error) {
-            // Gestione degli errori di rete
             console.error('Errore di rete:', error);
             setMessage('Errore di rete durante l\'invio dell\'email.');
         }
@@ -79,10 +84,25 @@ function PagamentoPage() {
     // Gestore dell'invio del form
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Dati inviati al server:', formData);
+
+        // Genera dinamicamente i dettagli dei prodotti dal carrello
+        const products = cart.map((item) => ({
+            name: item.name,       // Nome del prodotto
+            quantity: item.quantity, // Quantità del prodotto
+            price: item.price      // Prezzo unitario del prodotto
+        }));
+
+        // Combina i dati del form con i dettagli dei prodotti
+        const orderData = {
+            ...formData,
+            products, // Aggiungi i dettagli dei prodotti
+        };
+
+        console.log('Dati inviati al server:', orderData);
+
         try {
             // Crea l'ordine e invia l'email di conferma
-            const result = await createOrder(formData);
+            const result = await createOrder(orderData);
             console.log('Risposta del server:', result);
             setMessage(`Ordine creato con successo! ID: ${result.id}`);
             await sendEmail(formData.email);
