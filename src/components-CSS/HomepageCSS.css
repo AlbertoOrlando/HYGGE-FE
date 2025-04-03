@@ -42,12 +42,32 @@ h1 {
 /* Card new-arrivals */
 .card-box {
     width: 100%;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .card-body {
     width: 100%;
     height: 300px;
     position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.card-body img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
 }
 
 /* hover immagine */
@@ -68,18 +88,34 @@ h1 {
 
 .product-image2,
 .product-image12 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: opacity 0.3s ease-in-out;
 }
 
 .card-text {
     width: 100%;
     text-align: start;
+    padding: 1rem;
+    text-align: center;
+}
+
+.card-text h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    padding: 10px;
+}
+
+.card-text span {
+    color: #e74c3c;
+    font-weight: bold;
 }
 
 /* Trending */
 .trending {
     width: 100%;
-
 }
 
 /* Img - Camera da letto */
@@ -136,6 +172,42 @@ h1 {
 }
 
 /* Card evidence */
+.card-evidence .card {
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-evidence .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-evidence .card-body {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.card-evidence .card-text {
+    padding: 1rem;
+    text-align: center;
+}
+
+.card-evidence h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    padding: 10px;
+}
+
+.card-evidence span {
+    color: #e74c3c;
+    font-weight: bold;
+}
 
 .card-body img {
     width: 100%;
@@ -285,20 +357,38 @@ a {
 }
 
 .giardino .card {
-    padding: 8px;
-    position: relative;
+    padding: 0;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.giardino .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .giardino h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
     padding: 10px;
-    font-size: 14px;
-    background-color: black;
-    color: white;
+    position: static;
+    background-color: transparent;
+}
+
+.giardino .card-body {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.giardino .card-text {
+    padding: 1rem;
     text-align: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
 }
 
 /* Sala da pranzo */
@@ -464,7 +554,6 @@ a {
     .giardino {
         display: block;
         width: 100%;
-
     }
 
     .btn-bagno a,
@@ -489,8 +578,7 @@ a {
     }
 
     .evidence-img .card {
-        border: 2px solid gray;
-        box-shadow: 10px 5px 5px gray;
-        /* Add shadow for better visibility */
+        border: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     }
 }
