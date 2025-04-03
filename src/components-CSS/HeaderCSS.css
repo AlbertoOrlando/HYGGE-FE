@@ -338,4 +338,8 @@
     right: 107px;
     /* Regola la posizione del form di ricerca */
   }
+
+  .search-form:hover>input {
+    width: 180px;
+  }
 }
