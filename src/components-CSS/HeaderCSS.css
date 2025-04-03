@@ -141,7 +141,7 @@
 }
 
 .search-form:hover>input {
-  width: 200px;
+  width: 180px;
   /* Espande la larghezza al passaggio del mouse */
   padding: 0 6px;
   /* Aggiunge spaziatura interna */
@@ -340,6 +340,6 @@
   }
 
   .search-form:hover>input {
-    width: 180px;
+    width: 150px;
   }
 }
