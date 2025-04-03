@@ -38,7 +38,7 @@ export default function WishListPage() {
                             {/* Pulsante per rimuovere il prodotto dalla wishlist */}
                             <button onClick={() => toggleWishlist(product)}>Rimuovi</button>
                             {/* Link per visualizzare i dettagli del prodotto */}
-                            <Link to={`/prodotti/${product.id}`}>Visualizza Prodotto</Link>
+                            <Link to={`/prodotti/${product.slug}`}>Visualizza Prodotto</Link>
                         </div>
                     ))}
                 </div>
