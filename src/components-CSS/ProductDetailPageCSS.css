@@ -428,7 +428,8 @@
     }
 
     .product-image-detail {
-        gap: 0;
+        gap: 5px;
+        width: 100%;
         /* Rimuove la spaziatura tra le immagini */
         height: 250px;
         /* Altezza fissa */
