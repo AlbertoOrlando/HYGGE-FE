@@ -63,6 +63,19 @@
 }
 
 /* modifica pagina ricerca */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sort-container {
+  font-size: 24px;
+  margin-bottom: 20px;
+  z-index: 1500;
+  padding-right: 20px;
+}
+
+
 .ricerca-page span {
   font-size: 24px;
   margin-bottom: 20px;

@@ -97,25 +97,32 @@ export default function RisultatiRicercaPage() {
             {/* Mostra il termine di ricerca */}
             <h1>Risultati ricerca per "{query}"</h1>
 
-            {/* Filtri di ricerca */}
-            <span>Filtra per: </span>
-            {/* Select per il filtro categoria */}
-            <select value={selectedCategory} onChange={handleCategoryChange}>
-                <option value="">Tutte le categorie</option>
-                {categories.map((category) => (
-                    <option key={category.id} value={category.name}>
-                        {category.name}
-                    </option>
-                ))}
-            </select>
+            <div className="filter-container">
 
-            {/* Select per l'ordinamento per prezzo */}
-            <select value={sortPrice} onChange={handleSortChange}>
-                <option value="">Prezzo</option>
-                <option value="asc">Prezzo Crescente</option>
-                <option value="desc">Prezzo Decrescente</option>
-            </select>
+                <div>
+                    {/* Filtri di ricerca */}
+                    <span>Filtra per: </span>
+                    {/* Select per il filtro categoria */}
+                    <select value={selectedCategory} onChange={handleCategoryChange}>
+                        <option value="">Tutte le categorie</option>
+                        {categories.map((category) => (
+                            <option key={category.id} value={category.name}>
+                                {category.name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
 
+                <div className="sort-container">
+                    {/* Select per l'ordinamento per prezzo */}
+                    <span>Ordina per: </span>
+                    <select value={sortPrice} onChange={handleSortChange}>
+                        <option value="">Prezzo</option>
+                        <option value="asc">Prezzo Crescente</option>
+                        <option value="desc">Prezzo Decrescente</option>
+                    </select>
+                </div>
+            </div>
             {/* Griglia dei risultati */}
             <div className="product-grid-prodotti">
                 {search && search.length > 0 ? (
