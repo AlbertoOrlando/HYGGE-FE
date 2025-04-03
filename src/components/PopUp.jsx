@@ -123,7 +123,7 @@ export default function PopUp() {
                     </div>
                     <form onSubmit={getEmailPop}>
                         <div className="email-pop">
-                            <label htmlFor="email">Registra la tua email</label>
+                            <label htmlFor="email">Registra la tua email per avere il 10% di sconto</label>
                             <input
                                 type="email"
                                 placeholder="Inserisci email..."
