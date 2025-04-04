@@ -39,7 +39,7 @@ function App() {
             {/* Rotta per la pagina "Chi siamo" */}
             <Route path="/about-us" element={<AboutUsPage />} />
             {/* Rotta per le pagine delle categorie con ID dinamico */}
-            <Route path="/category/:id" element={<CategoryPage />} />
+            <Route path="/category/:name" element={<CategoryPage />} />
             {/* Rotta per la pagina che mostra tutti i prodotti */}
             <Route path="/prodotti" element={<ProdottiPage />} />
             {/* Rotta per la pagina di dettaglio prodotto con slug dinamico */}

@@ -23,25 +23,36 @@ const CategoryPage = () => {
   // Inizializza lo stato per memorizzare i prodotti della categoria corrente
   const [category, setCategory] = useState([]);
   // Estrae l'ID della categoria dai parametri dell'URL
-  const { id } = useParams();
+  const { name } = useParams();
 
-  // Trova la categoria corrente in base all'ID nell'URL
-  const currentCategory = categories?.find(category => category.id === parseInt(id));
+  // Trova la categoria corrente in base al nome nell'URL
+  const currentCategory = categories?.find(category => 
+    category.name.toLowerCase() === name.toLowerCase()
+  );
 
   // Funzione per recuperare i prodotti della categoria dal backend
   function fetchProdact() {
-    axios.get(`http://localhost:3000/api/products/category/${id}`)
-      .then(res => setCategory(res.data))  // Salva i prodotti nello stato
-      .catch(err => {
-        console.log(err);  // Logga eventuali errori
-      });
+    // Usa l'ID della categoria trovata per la chiamata API
+    const categoryId = currentCategory ? currentCategory.id : null;
+    if (categoryId) {
+      axios.get(`http://localhost:3000/api/products/category/${categoryId}`)
+        .then(res => {
+          console.log("Prodotti ricevuti:", res.data); // Debug
+          setCategory(res.data);
+        })
+        .catch(err => {
+          console.error("Errore nel caricamento dei prodotti:", err);
+        });
+    }
   }
 
   // Effetto che si attiva quando cambia l'ID della categoria
   useEffect(() => {
-    fetchProdact();  // Recupera i prodotti
-    window.scrollTo(0, 0);  // Scroll in alto della pagina
-  }, [id]);
+    if (currentCategory) {
+      fetchProdact();  // Recupera i prodotti
+      window.scrollTo(0, 0);  // Scroll in alto della pagina
+    }
+  }, [name, currentCategory]);
 
   // Se la categoria non è ancora caricata, mostra un messaggio di caricamento
   if (!currentCategory) {

@@ -143,7 +143,7 @@ export default function Header() {
                     {categories.map(category => (
                         <NavLink
                             key={category.id}
-                            to={`/category/${category.id}`}
+                            to={`/category/${category.name}`}
                             onClick={() => window.scrollTo(0, 0)}
                         >
                             {category.name}
