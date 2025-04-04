@@ -17,11 +17,11 @@ export default function HomePage() {
         <>
             {/* Banner principale con link alla pagina prodotti */}
             <div className="content-home">
-                <Link to="/prodotti">View More</Link>
+                <Link to="/prodotti">Vedi Altro</Link>
             </div>
 
             {/* Sezione "Nuovi Arrivi" */}
-            <h1>New arrivals</h1>
+            <h1>Nuovi arrivi</h1>
             {/* Griglia dei nuovi prodotti */}
             <div className="new-arrivals">
                 {/* Mostra gli ultimi 4 prodotti aggiunti */}
@@ -43,7 +43,7 @@ export default function HomePage() {
 
             {/* Sezione "Trending" con link alla categoria camera da letto */}
             <div className="trending">
-                <h1>Trending</h1>
+                <h1>In tendenza</h1>
                 <div className="camera-da-letto">
                     <Link to={`/category/1`} onClick={() => window.scrollTo(0, 0)}>Camere da letto</Link>
                 </div>
@@ -88,7 +88,7 @@ export default function HomePage() {
                             <i>  Lasciati ispirare dal design e dalla raffinatezza</i>
                         </div>
                         <div className="btn-bagno">
-                            <Link to={`/category/2`} onClick={() => window.scrollTo(0, 0)}>Shop Now</Link>
+                            <Link to={`/category/2`} onClick={() => window.scrollTo(0, 0)}>Acquista ora</Link>
                         </div>
                     </div>
                 </div>
